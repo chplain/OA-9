@@ -1,0 +1,153 @@
+<extend name="Public/base"/>
+
+<block name="link">
+  <link rel="stylesheet" type="text/css" href="__CSS__/mainLayout.css" media="all">
+</block>
+
+<!-- 页面子导航 -->
+<block name="nav">
+  <div class="breadcrumb">
+    <span>您的位置:</span>
+    <div>
+      <a href="{:u('dev/newdevlist')}">开发管理</a>
+      <span class="divider">/</span>
+    </div>
+    <div>开发交付记录</div>
+  </div>
+</block>
+
+<block name="body">
+  <div class="search_box">
+    <div class="items">
+      <span>项目名称：</span>
+      <input type="text" name="project_name" class="search-input" value="{:I('project_name')}">
+    </div>
+    <div class="items">
+      <span>阶段：</span>
+      <input type="text" name="province" class="search-input" value="{:I('province')}">
+    </div>
+    <div class="items">
+      <span>实施人员：</span>
+      <input type="text" name="purchase_intention" class="search-input" value="{:I('purchase_intention')}">
+    </div>
+    <div class="items">
+      <span>催款单号：</span>
+      <input type="text" name="purchase_intention" class="search-input" value="{:I('purchase_intention')}">
+    </div>
+    <div class="items">
+      <a class="sch-btn" href="javascript:void(0);" id="search" url="{:U('dev_delivery')}"><i class="btn-search"></i></a>
+    </div>
+    <div class="items action_btn_box">
+      <button class="btn" id="action_add" url="{:U('dev_delivery_add')}">新 增</button>
+    </div>
+  </div>
+
+  <!-- 数据列表 -->
+  <div class="data-table">
+    <table class="">
+      <thead>
+      <tr>
+        <th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+        <th>交付编号</th>
+        <th>项目名称</th>
+        <th>交付日期</th>
+        <th>项目类型</th>
+        <th>项目地区</th>
+        <th>实施负责人</th>
+        <th>采购产品</th>
+        <th>交付产品</th>
+        <th>交付版本号</th>
+        <th>开发负责人</th>
+        <th>情况说明</th>
+        <th>创建人</th>
+        <th>创建时间</th>
+        <th>更新人</th>
+        <th>更新时间</th>
+        <th>操作</th>
+      </tr>
+      </thead>
+      <tbody>
+      <if condition="$deliverys neq ''">
+        <volist name="deliverys" id="vo">
+          <tr>
+            <td><input class="ids" type="checkbox" name="ids[]" value="{$vo.id}"/></td>
+            <td class="">{$vo.delivery_code}</td>
+            <td class="">{$vo.project_name}</td>
+            <td class="">{$vo.del_date}</td>
+            <td>
+              <if condition="$vo.project_type eq 1">
+                购物中心
+                <elseif condition="$vo.project_type eq 2"/>
+                商超
+                <elseif condition="$vo.project_type eq 3"/>
+                政府
+                <elseif condition="$vo.project_type eq 4"/>
+                其他
+              </if>
+            </td>
+            <td class="">{$vo.province}</td>
+            <td class="">{$vo.tech_role}</td>
+            <td class="">{$vo.project_productlist}</td>
+            <td class="">{$vo.deliver_product}</td>
+            <td class="">{$vo.deliver_version}</td>
+            <td class="">{$vo.dev_role}</td>
+            <td class="">{$vo.describe}</td>
+            <td class="">{$vo.create_person}</td>
+            <td class="">{$vo.create_time}</td>
+            <td class="">{$vo.update_person}</td>
+            <td class="">{$vo.update_time}</td>
+            <td>
+              <a href="{:U('Project/tail_list?id='.$vo['id'])}">详情</a>
+            </td>
+          </tr>
+        </volist>
+        <else/>
+        <tr>
+          <td colspan="17">
+            <div class="no_data">没有数据</div>
+          </td>
+        </tr>
+      </if>
+      </tbody>
+    </table>
+
+  </div>
+  <!-- 分页 -->
+  <div class="page">{$_page}</div>
+  <!-- /分页 -->
+
+</block>
+<block name="script">
+  <script type="text/javascript">
+    $(function () {
+      $("#action_add").click(function () {
+        window.location.href = $(this).attr('url');
+      })
+
+      //搜索功能
+      $("#search").click(function () {
+        var url = $(this).attr('url');
+        var query = $('.search_box').find('input').serialize();
+        query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g, '');
+        query = query.replace(/^&/g, '');
+
+        if (query) {
+          if (url.indexOf('?') > 0) {
+            url += '&' + query;
+          } else {
+            url += '?' + query;
+          }
+        }
+
+        window.location.href = url;
+      });
+      //回车搜索
+      $(".search-input").keyup(function (e) {
+        if (e.keyCode === 13) {
+          $("#search").click();
+          return false;
+        }
+      });
+    })
+  </script>
+</block>

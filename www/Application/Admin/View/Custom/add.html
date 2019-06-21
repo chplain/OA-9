@@ -1,0 +1,93 @@
+<extend name="Public/base"/>
+
+<block name="link">
+  <link rel="stylesheet" type="text/css" href="__CSS__/mainLayout.css" media="all">
+</block>
+
+<!-- 页面子导航 -->
+<block name="nav">
+  <div class="breadcrumb">
+    <span>您的位置:</span>
+    <div>
+      <a href="{:u('contract/intention')}">合同管理</a>
+      <span class="divider">/</span>
+    </div>
+    <div>
+      <a href="{:u('index')}">客户维护</a>
+      <span class="divider">/</span>
+    </div>
+    <div>{$customer['id']?'编辑':'新增'}客户</div>
+  </div>
+</block>
+
+<block name="body">
+  <div class="newly">
+    <form action="__SELF__" method="post" class="form-vertical">
+      <div class="edit_items">
+        <label class="edit_label">客户编号</label>
+        <div class="edit_info">
+          <input type="text" readonly placeholder="(系统自动生成)" name="customer_code" value="{$customer.customer_code}">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">客户名称</label>
+        <div class="edit_info">
+          <input type="text" name="customer" value="{$customer.customer}" placeholder="请输入名字">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">联系人</label>
+        <div class="edit_info">
+          <input type="text" name="linkman" value="{$customer.linkman}" placeholder="请输入名字">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">联系电话</label>
+        <div class="edit_info">
+          <input type="text" name="link_phone" value="{$customer.link_phone}" placeholder="请输入电话号码">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">微信</label>
+        <div class="edit_info">
+          <input type="text" name="wechat" value="{$customer.wechat}" placeholder="请输入微信账号">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">客户地址</label>
+        <div class="edit_info">
+          <input type="text" name="link_address" value="{$customer.link_address}" placeholder="请输入地址">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">集团客户</label>
+        <div class="edit_info">
+          <label for="no" class="radio_box">
+            <input type="radio" id="no" name="group_visitor" <?php if($customer['group_visitor']!='1'){echo 'checked';}?> value="0">
+            <span class="radio-bg"></span>
+            <sapn class="radio-text">否</sapn>
+          </label>
+          <label for="yes" class="radio_box">
+            <input type="radio" id="yes" name="group_visitor" <?php if($customer['group_visitor']=='1'){echo 'checked';}?> value="1">
+            <span class="radio-bg"></span>
+            <span class="radio-text">是</span>
+          </label>
+        </div>
+      </div>
+      <div class="edit_btn">
+        <input type="hidden" name="id" value="{$customer.id|default=''}">
+        <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-vertical">确 定</button>
+        <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+      </div>
+    </form>
+  </div>
+</block>
+
+<block name="script">
+  <script type="text/javascript">
+    $(function () {
+      //导航高亮
+      $('.side-sub-menu').find('a[href=\"{:U(\'custom/index\')}\"]').closest('li').addClass('current');
+    })
+  </script>
+</block>

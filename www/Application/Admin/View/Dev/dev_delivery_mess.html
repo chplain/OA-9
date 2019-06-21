@@ -1,0 +1,206 @@
+<extend name="Public/base"/>
+
+<block name="link">
+  <link rel="stylesheet" href="__STATIC__/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="__STATIC__/bootstrap/css/bootstrap-select.min.css">
+  <link rel="stylesheet" href="__STATIC__/datetimepicker/css/datetimepicker.css">
+  <link rel="stylesheet" href="__STATIC__/datetimepicker/css/datetimepicker_blue.css">
+  <link rel="stylesheet" type="text/css" href="__CSS__/mainLayout.css">
+</block>
+<block name="style">
+  <style>
+    .edit_label {
+      width: 128px;
+    }
+  </style>
+</block>
+<!-- 页面子导航 -->
+<block name="nav">
+  <div class="breadcrumb">
+    <span>您的位置:</span>
+    <div>
+      <a href="{:u('dev/newdevlist')}">开发管理</a>
+      <span class="divider">/</span>
+    </div>
+    <div>
+      <a href="{:u('dev/dev_delivery')}">开发交付记录</a>
+      <span class="divider">/</span>
+    </div>
+    <div>开发交付记录详情</div>
+  </div>
+</block>
+
+<block name="body">
+  <div class="newly">
+    <form action="__SELF__" method="post" class="form-vertical">
+      <div class="edit_items">
+        <label class="edit_label">交付编号</label>
+        <div class="edit_info">
+          <input type="text" readonly placeholder="(系统自动生成)" value="{$delivery.delivery_code}">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">交付类型</label>
+        <div class="edit_info">
+          <input type="text" readonly placeholder="(系统自动生成)" value="{$delivery.delivery_type}">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">项目名称</label>
+        <div class="edit_info">
+          <input type="text" readonly placeholder="(系统自动生成)" value="{$delivery.project_name}">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">项目类型</label>
+        <div class="edit_info">
+          <input type="text" id="project_type" readonly name="project_type" value="{$delivery.project_type}">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">项目地区</label>
+        <div class="edit_info">
+          <input type="text" readonly id="province" name="province" value="{$delivery.province}">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">合同编号</label>
+        <div class="edit_info">
+          <input type="text" readonly placeholder="(系统自动生成)" value="{$delivery.delivery_code}" value="{$delivery.contract_code}">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">采购产品</label>
+        <div class="edit_info">
+          <input type="text"  id="project_productlist" name="project_productlist" value="{$delivery.project_productlist}">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">交付产品</label>
+        <div class="edit_info">
+          <input type="text" readonly placeholder="(系统自动生成)" value="{$delivery.deliver_product}">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">实施负责人</label>
+        <div class="edit_info">
+          <input type="text"  id="TechRole" name="tech_role" value="{$delivery.tech_role}">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">交付版本号</label>
+        <div class="edit_info">
+          <input type="text" name="deliver_version" value="{$delivery.deliver_version}">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">交付日期</label>
+        <div class="edit_info">
+          <div class="date form_datetime">
+            <span class="add-on"><i class="icon-th glyphicon glyphicon-calendar"></i></span>
+            <input type="text" class="date" name="del_date" placeholder="选择日期" readonly value="{$delivery.del_date}">
+          </div>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">开发负责人</label>
+        <div class="edit_info">
+          <input type="text" name="dev_role" value="{$delivery.dev_role}">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">情况说明</label>
+        <div class="edit_info">
+          <textarea name="discribe">{$delivery.describe}</textarea>
+        </div>
+      </div>
+      <div class="edit_btn">
+        <input type="hidden" name="id" value="{$info.id|default=''}">
+        <!-- <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-vertical">确 定</button> -->
+        <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+      </div>
+    </form>
+  </div>
+</block>
+
+<block name="script">
+  <script src="__STATIC__/bootstrap/js/bootstrap.min.js"></script>
+  <script src="__STATIC__/bootstrap/js/bootstrap-select.min.js"></script>
+  <script src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.js"></script>
+  <script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+  <script type="text/javascript">
+    $(function () {
+      //导航高亮
+      $('.side-sub-menu').find('a[href="{:U('dev/dev_delivery')}"]').closest('li').addClass('current');
+
+      // 日期插件
+      $('.form_datetime').datetimepicker({
+        format: 'yyyy-mm-dd',
+        language: "zh-CN",
+        minView: 2,
+        autoclose: true,
+        todayBtn: true
+      });
+    });
+
+    $("#project_id").change(function () {
+      $("#deliver_product").empty().selectpicker('refresh');
+      $("#contract_code").empty();
+      $("#project_productlist").val('');
+      var project_id = $(this).val();
+      // console.log(project_id);
+      // Ajax提交数据
+      // return;
+      $.ajax({
+        url: "{:U('Dev/getProjectBypid')}",    // 提交到controller的url路径
+        type: "post",    // 提交方式
+        data: {"project_id": project_id},  // data为String类型，必须为 Key/Value 格式。
+        dataType: "json",    // 服务器端返回的数据类型
+        success: function (data) {
+          // $("#project_id").empty();
+          
+          $("#project_type").val(data.project_type);
+          $("#province").val(data.province);
+          $("#TechRole").val(data.TechRole);
+          // $("#project_productlist").val(data.project_productlist);
+
+          let str = '';
+          data.contract.map(item => {
+            str += `<option value='${item.contract_code}'>${item.contract_code}</option>`;
+          });
+          $("#contract_code").append(str).selectpicker('refresh');
+
+        },
+      });
+    });
+
+    $("#contract_code").change(function () {
+      $("#project_productlist").val('');
+      var contract_code = $(this).val();
+      console.log(contract_code);
+      // Ajax提交数据
+      // return;
+      $.ajax({
+        url: "{:U('Dev/getProductsBycid')}",    // 提交到controller的url路径
+        type: "post",    // 提交方式
+        data: {"contract_code": contract_code},  // data为String类型，必须为 Key/Value 格式。
+        dataType: "json",    // 服务器端返回的数据类型
+        success: function (data) {
+          console.log(data);
+          $("#project_productlist").val(data.project_productlist);
+           let str = '';
+           if (data.project_productlist) {
+              data.project_productlist.split(',').map(item => {
+                str += `<option value='${item}'>${item}</option>`;
+              });            
+           }
+          $('#deliver_product').html(str).selectpicker('refresh');
+          
+
+        },
+      });
+    });
+
+  </script>
+
+</block>

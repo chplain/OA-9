@@ -1,0 +1,145 @@
+<extend name="Public/base"/>
+
+<block name="link">
+  <link rel="stylesheet" type="text/css" href="__CSS__/mainLayout.css" media="all">
+</block>
+
+<!-- 页面子导航 -->
+<block name="nav">
+  <div class="breadcrumb">
+    <span>您的位置:</span>
+    <div>
+      <a href="{:u('contract/intention')}">合同管理</a>
+      <span class="divider">/</span>
+    </div>
+    <div>客户维护</div>
+  </div>
+</block>
+
+<block name="body">
+  <div class="search_box">
+    <div class="items">
+      <spn>客户名称：</spn>
+      <input type="text" name="customer" class="search-input" value="{:I('customer')}">
+    </div>
+    <div class="items">
+      <spn>联系人：</spn>
+      <input type="text" name="linkman" class="search-input" value="{:I('linkman')}">
+    </div>
+    <div class="items">
+      <a class="sch-btn" href="javascript:void(0);" id="search" url="{:U('index')}"><i class="btn-search"></i></a>
+    </div>
+    <div class="items action_btn_box">
+      <button class="btn" id="action_add" url="{:U('Custom/add')}">新 增</button>
+      <if condition="$gid eq 7">
+        <button class="btn ajax-post confirm" target-form="ids" url="{:U('delete',array('status'=>-2))}">删 除</button>
+        <button class="btn ajax-post confirm" target-form="ids" url="{:U('delete',array('status'=>-1))}">作 废</button>
+        <button class="btn ajax-post confirm" target-form="ids" url="{:U('delete',array('status'=>-3))}">恢 复</button>
+      </if>
+    </div>
+  </div>
+
+  <!-- 数据列表 -->
+  <div class="data-table">
+    <table>
+      <thead>
+      <tr>
+        <th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+        <th>客户编号</th>
+        <th>客户名称</th>
+        <th>集团客户</th>
+        <th>联系人</th>
+        <th>联系电话</th>
+        <th>微信</th>
+        <th>联系地址</th>
+        <th>客户状态</th>
+        <th>创建人</th>
+        <th>创建时间</th>
+        <th>更新人</th>
+        <th>更新时间</th>
+        <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <if condition="$customer neq ''">
+          <volist name="customer" id="vo">
+            <tr>
+              <td><input class="ids" type="checkbox" name="ids[]" value="{$vo.id}"/></td>
+              <td>{$vo.customer_code}</td>
+              <td>{$vo.customer}</td>
+              <td>
+                <if condition="$vo.group_visitor eq 0">
+                  否
+                  <else/>
+                  是
+                </if>
+              </td>
+              <td>{$vo.linkman}</td>
+              <td>{$vo.link_phone}</td>
+              <td class="">{$vo.wechat}</td>
+              <td>{$vo.link_address}</td>
+              <td>
+                <if condition="$vo.status eq 1">
+                  正常
+                <else/>
+                  失效
+                </if>
+              </td>
+              <td>{$vo.cperson}</td>
+              <td>{$vo.create_time}</td>
+              <td>{$vo.upperson}</td>
+              <td>{$vo.update_time}</td>
+              <td>
+                <a href="{:U('add?id='.$vo['id'])}">详情</a>
+              </td>
+            </tr>
+          </volist>
+        <else/>
+          <tr>
+            <td colspan="12">
+              <div class="no_data">没有数据</div>
+            </td>
+          </tr>
+        </if>
+      </tbody>
+    </table>
+  </div>
+  <!-- 分页 -->
+  <div class="page">{$_page}</div>
+  <!-- /分页 -->
+
+</block>
+<block name="script">
+  <script type="text/javascript">
+    $(function () {
+      $("#action_add").click(function () {
+        window.location.href = $(this).attr('url');
+      });
+
+      //搜索功能
+      $("#search").click(function () {
+        var url = $(this).attr('url');
+        var query = $('.search_box').find('input').serialize();
+        query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g, '');
+        query = query.replace(/^&/g, '');
+		
+        if (query) {
+          if (url.indexOf('?') > 0) {
+            url += '&' + query;
+          } else {
+            url += '?' + query;
+          }
+        }
+		
+        window.location.href = url;
+      });
+      //回车搜索
+      $(".search-input").keyup(function (e) {
+        if (e.keyCode === 13) {
+          $("#search").click();
+          return false;
+        }
+      });
+    })
+  </script>
+</block>

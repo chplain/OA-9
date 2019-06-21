@@ -1,0 +1,170 @@
+<extend name="Public/base"/>
+
+<block name="link">
+  <link rel="stylesheet" type="text/css" href="__CSS__/mainLayout.css" media="all">
+</block>
+
+<!-- 页面子导航 -->
+<block name="nav">
+  <div class="breadcrumb">
+    <span>您的位置:</span>
+    <div>
+      <span>实施管理</span>
+      <span class="divider">/</span>
+    </div>
+    <div>实施工作计划</div>
+  </div>
+</block>
+
+<block name="body">
+  <div class="search_box">
+    <div class="items">
+      <span>项目名称：</span>
+      <input type="text" name="project_name" class="search-input" value="{:I('project_name')}">
+    </div>
+   
+    <div class="items">
+      <span>状态：</span>
+      <div class="drop-down">
+        <span id="sch-sort-txt" class="sort-txt" data="{$status}">
+          <if condition="state_text4($status) eq ''">
+            所有
+            <else/>
+            {:state_text4($status)}
+          </if>
+        </span>
+        <i class="arrow arrow-down"></i>
+        <ul id="sub-sch-menu" class="nav-list hidden">
+          <li><a href="javascript:void(0);" value="1">进行中</a></li>
+          <li><a href="javascript:void(0);" value="2">已作废</a></li>
+          <li><a href="javascript:void(0);" value="3">已终止</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="items">
+      <a class="sch-btn" href="javascript:void(0);" id="search" url="{:U('workplan')}"><i class="btn-search"></i></a>
+    </div>
+    <div class="items action_btn_box">
+      <button class="btn" id="action_add" url="{:U('workPlan_add')}">新 增</button>
+      <!-- <button class="btn ajax-post confirm" target-form="ids" url="{:U('tech_sure',array('status'=>-1))}">生 效</button> -->
+      <button class="btn ajax-post confirm" target-form="ids" url="{:U('wp_breake',array('status'=>-1))}">作 废</button>
+    </div>
+  </div>
+
+  <!-- 数据列表 -->
+  <div class="data-table">
+    <table class="">
+      <thead>
+      <tr>
+        <th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+        <th>项目|商业地产</th>
+        <th>实施计划编号&阶段</th>
+        <th>阶段期间</th>
+        <th>服务产品</th>
+        <th>备注</th>
+        <th>创建人</th>
+        <th>创建时间</th>
+        <th>状态</th>
+        <th>操作</th>
+      </tr>
+      </thead>
+      <tbody>
+      <if condition="$plans neq ''">
+        <volist name="plans" id="vo">
+          <tr>
+            <td><input class="ids" type="checkbox" name="ids[]" value="{$vo.id}"/></td>
+            <td class="">{$vo.project_name}</td>
+            <td class="">{$vo.plan_code}--第{$vo.phases}阶段</td>
+            <td class="">{$vo.stime}至{$vo.etime}</td>
+
+            <td class="">{$vo.products}</td>
+            <td class="" style="max-width: 150px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;" title="{$vo.remark}">{$vo.remark}</td>
+            <td class="">{$vo.create_person}</td>
+            <td class="">{$vo.create_time}</td>
+            <td>
+              <if condition="$vo.status eq 1">
+                进行中
+                <elseif condition="$vo.status eq 2"/>
+                已作废
+                <elseif condition="$vo.status eq 3"/>
+                已终止
+              </if>
+            </td>
+            <td class="">
+              <a href="{:U('Tech/workplanMess?id='.$vo['id'])}">详情</a>
+            </td>
+          </tr>
+        </volist>
+        <else/>
+        <tr>
+          <td colspan="15">
+            <div class="no_data">没有数据</div>
+          </td>
+        </tr>
+      </if>
+      </tbody>
+    </table>
+
+  </div>
+  <!-- 分页 -->
+  <div class="page">{$_page}</div>
+  <!-- /分页 -->
+
+</block>
+<block name="script">
+  <script type="text/javascript">
+    $(function () {
+      $("#action_add").click(function () {
+        window.location.href = $(this).attr('url');
+      })
+
+      //搜索功能
+      $("#search").click(function () {
+        var url = $(this).attr('url');
+        var status = $("#sch-sort-txt").attr("data");
+        var query = $('.search_box').find('input').serialize();
+        query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g, '');
+        query = query.replace(/^&/g, '');
+
+        if (query) {
+          if (url.indexOf('?') > 0) {
+            url += '&' + query;
+          } else {
+            url += '?' + query;
+          }
+        }
+
+        if (status != '') {
+          if (url.indexOf('?') > 0) {
+            url += '&status=' + status;
+          } else {
+            url += '?status=' + status;
+          }
+        }
+
+        window.location.href = url;
+      });
+
+      /* 状态搜索子菜单 */
+      $(".search_box").find(".drop-down").hover(function () {
+        $("#sub-sch-menu").removeClass("hidden");
+      }, function () {
+        $("#sub-sch-menu").addClass("hidden");
+      });
+      $("#sub-sch-menu li").find("a").each(function () {
+        $(this).click(function () {
+          var text = $(this).text();
+          $("#sch-sort-txt").text(text).attr("data", $(this).attr("value"));
+          $("#sub-sch-menu").addClass("hidden");
+        })
+      });
+      //回车搜索
+      $(".search-input").keyup(function (e) {
+        if (e.keyCode === 13) {
+          $("#search").click();
+          return false;
+        }
+      });
+    })
+  </script>
+</block>

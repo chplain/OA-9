@@ -1,0 +1,153 @@
+<extend name="Public/base"/>
+
+<block name="link">
+  <link rel="stylesheet" href="__STATIC__/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="__STATIC__/bootstrap/css/bootstrap-select.min.css">
+  <link rel="stylesheet" type="text/css" href="__CSS__/mainLayout.css">
+</block>
+<block name="style">
+  <style>
+    .edit_label {
+      width: 78px;
+    }
+  </style>
+</block>
+<!-- 页面子导航 -->
+<block name="nav">
+  <div class="breadcrumb">
+    <span>您的位置:</span>
+    <div>
+      <a href="{:u('withdraw/index')}">财务管理</a>
+      <span class="divider">/</span>
+    </div>
+    <div>
+      <a href="{:u('withdraw/invoice')}">项目开票</a>
+      <span class="divider">/</span>
+    </div>
+    <div>{$info['id']?'编辑':'新增'}项目开票记录</div>
+  </div>
+</block>
+
+<block name="body">
+  <div class="newly">
+    <form action="__SELF__" method="post" enctype="multipart/form-data" class="form-vertical">
+      <div class="edit_items">
+        <label class="edit_label">项目名称</label>
+        <div class="edit_info">
+          <select id="project_id" name="project_id" class="selectpicker" data-width="172" title="请选择" data-size="6" data-live-search="true" data-live-search-placeholder="Search">
+            <volist name="projects" id="vo">
+              <option value="{$vo.id}">{$vo.project_name}</option>
+            </volist>
+          </select>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">项目区域</label>
+        <div class="edit_info">
+          <input id="province" readonly type="text" class="text" name="province">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">客户名称</label>
+        <div class="edit_info">
+          <input id="customer" readonly type="text" class="text" name="customer">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">合同编号</label>
+        <div class="edit_info">
+          <select id="contract_code" name="contract_code" class="selectpicker" data-width="172" title="请选择" data-size="6">
+           
+          </select>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">合同金额(元)</label>
+        <div class="edit_info">
+          <input id="contract_fee" readonly type="text" class="text" name="contract_fee">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">首期款金额(元)</label>
+        <div class="edit_info">
+          <input id="downpayment" type="text" class="text" name="downpayment">
+        </div>
+      </div>
+
+      <div class="edit_items">
+        <label class="edit_label">备注</label>
+        <div class="edit_info">
+          <textarea name="remark" style="width: 200px;height: 150px;"></textarea>
+        </div>
+      </div>
+      <div class="edit_btn">
+        <input type="hidden" name="id" value="{$info.id|default=''}">
+        <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-vertical">确 定</button>
+        <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+      </div>
+    </form>
+  </div>
+</block>
+
+<block name="script">
+  <script src="__STATIC__/bootstrap/js/bootstrap.min.js"></script>
+  <script src="__STATIC__/bootstrap/js/bootstrap-select.min.js"></script>
+
+  <script type="text/javascript">
+    $(function () {
+    //导航高亮
+    $('.side-sub-menu').find('a[href="{:U('withdraw/invoice')}"]').closest('li').addClass('current');
+
+      $("#project_id").change(function () {
+        var project_id = $(this).val();
+        // console.log(project_id);
+        $("#contract_code").empty();
+        $("#contract_fee").val('');
+        // Ajax提交数据
+        $.ajax({
+          url: "{:U('Withdraw/get_projectmess')}",    // 提交到controller的url路径
+          type: "post",    // 提交方式
+          data: {"project_id": project_id},  // data为String类型，必须为 Key/Value 格式。
+          dataType: "json",    // 服务器端返回的数据类型
+          success: function (data) {
+            // console.log(data);
+            if (data) {
+              // $("#contract_fee").val(data.contract_fee);
+              $("#customer").val(data.customer);
+              $("#project_name").val(data.project_name);
+              $("#province").val(data.province);  
+
+              let str = '';
+              data.contract.map(item => {
+                str += `<option value='${item.contract_code}'>${item.contract_code}</option>`;
+              });
+              $("#contract_code").append(str).selectpicker('refresh');  
+
+            }
+          },
+        });
+      });
+
+      $("#contract_code").change(function () {
+        var contract_code = $(this).val();
+        // console.log(project_id);
+        $("#contract_fee").val('');
+        // Ajax提交数据
+        $.ajax({
+          url: "{:U('Withdraw/getContractFee')}",    // 提交到controller的url路径
+          type: "post",    // 提交方式
+          data: {"contract_code": contract_code},  // data为String类型，必须为 Key/Value 格式。
+          dataType: "json",    // 服务器端返回的数据类型
+          success: function (data) {
+            console.log(data);
+            if (data) {
+              $("#contract_fee").val(data.contract_fee);
+              
+            }
+          },
+        });
+      });
+
+    });
+  </script>
+</block>

@@ -1,0 +1,184 @@
+<extend name="Public/base"/>
+
+<block name="link">
+  <link rel="stylesheet" type="text/css" href="__CSS__/mainLayout.css" media="all">
+</block>
+
+<!-- 页面子导航 -->
+<block name="nav">
+  <div class="breadcrumb">
+    <span>您的位置:</span>
+    <div>
+      <a href="{:u('dev/newdevlist')}">开发管理</a>
+      <span class="divider">/</span>
+    </div>
+    <div>开发交付记录</div>
+  </div>
+</block>
+
+<block name="body">
+  <div class="search_box">
+    <div class="items">
+      <span>项目名称：</span>
+      <input type="text" name="project_name" class="search-input" value="{:I('project_name')}">
+    </div>
+    <div class="items">
+      <span>合同编号：</span>
+      <input type="text" name="contract_code" class="search-input" value="{:I('contract_code')}">
+    </div>
+    <div class="items">
+      <span>交付类型：</span>
+      <div class="drop-down">
+        <span id="sch-sort-txt" class="sort-txt" data="{$status}" style="width: 70px;">
+          {:state_text2($status)}
+        </span>
+        <i class="arrow arrow-down"></i>
+        <ul id="sub-sch-menu" class="nav-list hidden">
+          <li><a href="javascript:void(0);" value="">所有</a></li>
+          <li><a href="javascript:void(0);" value="1">需求新增</a></li>
+          <li><a href="javascript:void(0);" value="2">BUG修复</a></li>
+          <li><a href="javascript:void(0);" value="3">首次交付</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="items">
+      <a class="sch-btn" href="javascript:void(0);" id="search" url="{:U('dev_delivery')}"><i class="btn-search"></i></a>
+    </div>
+    <div class="items action_btn_box">
+      <button class="btn" id="action_add" url="{:U('dev_delivery_add')}">新 增</button>
+    </div>
+  </div>
+
+  <!-- 数据列表 -->
+  <div class="data-table">
+    <table class="">
+      <thead>
+      <tr>
+        <th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+        <th>交付编号</th>
+        <th>项目名称</th>
+        <th>合同编号</th>
+        <th>交付日期</th>
+        <th>交付类型</th>
+        <th>项目类型</th>
+        <th>项目地区</th>
+        <th>实施负责人</th>
+        <th>采购产品</th>
+        <th>交付产品</th>
+        <th>交付版本号</th>
+        <th>开发负责人</th>
+        <!-- <th>情况说明</th> -->
+        <th>创建人</th>
+        <th>创建时间</th>
+        <th>更新人</th>
+        <th>更新时间</th>
+        <th>操作</th>
+      </tr>
+      </thead>
+      <tbody>
+      <if condition="$deliverys neq ''">
+        <volist name="deliverys" id="vo">
+          <tr>
+            <td><input class="ids" type="checkbox" name="ids[]" value="{$vo.id}"/></td>
+            <td class="">{$vo.delivery_code}</td>
+            <td class="" style="max-width: 80px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;" title="{$vo.project_name}">{$vo.project_name}</td>
+            <td class="">{$vo.contract_code}</td>
+            <td class="" style="max-width: 110px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;" title="{$vo.del_date}">{$vo.del_date}</td>
+            <if condition="$vo.delivery_type eq '1'">
+              <td class="" style="max-width: 80px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;" title="需求新增">需求新增</td>
+            <elseif condition="$vo.delivery_type eq '2'"/>
+              <td class="" style="max-width: 80px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;" title="bug修复">bug修复</td>
+            <elseif condition="$vo.delivery_type eq '3'"/>
+              <td class="" style="max-width: 80px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;" title="首次交付">首次交付</td>  
+            </if>
+            <!-- <td class="">{$vo.delivery_type}</td> -->
+            <td class="" style="max-width: 80px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;" title="{$vo.project_type}">{$vo.project_type}</td>
+            <td class="" style="max-width: 80px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;" title="{$vo.province}">{$vo.province}</td>
+            <td class="">{$vo.tech_role}</td>
+            <td class="" style="max-width: 120px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;" title="{$vo.project_productlist}">{$vo.project_productlist}</td>
+            <td class="">{$vo.deliver_product}</td>
+            <td class="">{$vo.deliver_version}</td>
+            <td class="">{$vo.dev_role}</td>
+            <!-- <td class="">{$vo.describe}</td> -->
+            <td class="">{$vo.create_person}</td>
+            <td class="">{$vo.create_time}</td>
+            <td class="">{$vo.update_person}</td>
+            <td class="">{$vo.update_time}</td>
+            <td>
+              <a href="{:U('Dev/dev_delivery_mess?id='.$vo['id'])}">详情</a>
+            </td>
+          </tr>
+        </volist>
+        <else/>
+        <tr>
+          <td colspan="17">
+            <div class="no_data">没有数据</div>
+          </td>
+        </tr>
+      </if>
+      </tbody>
+    </table>
+
+  </div>
+  <!-- 分页 -->
+  <div class="page">{$_page}</div>
+  <!-- /分页 -->
+
+</block>
+<block name="script">
+  <script type="text/javascript">
+    $(function () {
+      $("#action_add").click(function () {
+        window.location.href = $(this).attr('url');
+      })
+
+      //搜索功能
+      $("#search").click(function () {
+        var url = $(this).attr('url');
+        var query = $('.search_box').find('input').serialize();
+        query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g, '');
+        query = query.replace(/^&/g, '');
+        var status = $("#sch-sort-txt").attr("data");
+
+        if (query) {
+          if (url.indexOf('?') > 0) {
+            url += '&' + query;
+          } else {
+            url += '?' + query;
+          }
+        }
+
+        if (status != '') {
+          if (url.indexOf('?') > 0) {
+            url += '&status=' + status;
+          } else {
+            url += '?status=' + status;
+          }
+        }
+
+        window.location.href = url;
+      });
+      //回车搜索
+      $(".search-input").keyup(function (e) {
+        if (e.keyCode === 13) {
+          $("#search").click();
+          return false;
+        }
+      });
+
+      /* 状态搜索子菜单 */
+      $(".search_box").find(".drop-down").hover(function () {
+        $("#sub-sch-menu").removeClass("hidden");
+      }, function () {
+        $("#sub-sch-menu").addClass("hidden");
+      });
+      $("#sub-sch-menu li").find("a").each(function () {
+        $(this).click(function () {
+          var text = $(this).text();
+          $("#sch-sort-txt").text(text).attr("data", $(this).attr("value"));
+          $("#sub-sch-menu").addClass("hidden");
+        })
+      });
+    })
+  </script>
+</block>

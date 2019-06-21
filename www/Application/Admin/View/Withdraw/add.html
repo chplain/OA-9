@@ -1,0 +1,141 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <div class="main-title">
+        <h3>{$info['id']?'编辑':'新增'}项目收款记录</h3>
+    </div>
+    <form action="__SELF__" method="post" enctype="multipart/form-data">
+       
+       
+        <div class="form-item">
+            <label class="item-label">收款单编号</label>
+            <div class="controls">
+                <input id="project_name" readonly  placeholder="系统自动生成" type="text"  class="text" name="project_name" >
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">项目名称</label>
+            <div class="controls">
+                <select id="project_id" name="project_id">
+                    <option>......</option>
+                    <volist name="projects" id="vo">
+                        <option value="{$vo.id}">{$vo.project_name}</option>
+                    </volist>
+                </select>
+                
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">项目阶段</label>
+            <div class="controls">
+                <select id="phases" name="phases">
+                    <option>......</option>
+                    
+                       
+                    
+                </select>
+                <!-- <input id="phases" readonly type="text"  class="text" name="phases" > -->
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">应收款金额(元)</label>
+            <div class="controls">
+                <input id="need_pay" readonly type="text"  class="text" name="need_pay" >
+            </div>
+        </div>
+        
+        <div class="form-item">
+            <label class="item-label">实际收款金额(元)</label>
+            <div class="controls">
+                <input id="payment_received"  type="text"  class="text" name="payment_received" >
+            </div>
+        </div>
+       
+
+        <div class="form-item">
+            <label class="item-label">收款情况描述</label>
+            <div class="controls">
+                <textarea name="discribe" style="width: 200px;height: 150px;"> </textarea>
+            </div>
+        </div>
+        
+        <div class="form-item">
+            <label class="item-label">备注</label>
+            <div class="controls">
+                <textarea name="remark" style="width: 200px;height: 150px;"></textarea>
+            </div>
+        </div>
+       
+        <div class="form-item">
+            <input type="hidden" name="id" value="{$info.id|default=''}">
+            <button class="btn "  type="submit" >确 定</button>
+            <button class="btn " onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+    </form>
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        // Think.setValue("type", {$info.type|default=0});
+        // Think.setValue("group", {$info.group|default=0});
+        //导航高亮
+        $('.side-sub-menu').find('a[href="{:U('withdraw/invoice')}"]').closest('li').addClass('current');
+    </script>
+
+    <script type="text/javascript">
+        $(function(){
+            $("#project_id").change(function() {
+                var project_id=$(this).val();
+                console.log(project_id);
+               
+                // Ajax提交数据
+                $.ajax({
+                    url: "{:U('Withdraw/get_phases')}",    // 提交到controller的url路径
+                    type: "post",    // 提交方式
+                    data: {"project_id": project_id},  // data为String类型，必须为 Key/Value 格式。
+                    dataType: "json",    // 服务器端返回的数据类型
+                    success: function (data) { 
+                        console.log(data);     
+                        $("#phases").empty(); 
+                        let str=`<option value='0'>0</option>`;
+                        data.map(item=>{
+                            str+=`<option value='${item.phases}'>${item.phases}</option>`;
+                        });
+                        $("#phases").append(str);
+
+                        // $("#need_pay").val(data[0].PhasesFee);
+
+                        
+                    },
+                }); 
+
+            
+            }); 
+
+            $("#phases").change(function() {
+                var phases=$(this).val();
+                var project_id=$('#project_id').val();
+                console.log(phases);
+                console.log(project_id);
+               
+                // Ajax提交数据
+                $.ajax({
+                    url: "{:U('Withdraw/get_need_pay')}",    // 提交到controller的url路径
+                    type: "post",    // 提交方式
+                    data: {"phases": phases,"project_id":project_id},  // data为String类型，必须为 Key/Value 格式。
+                    dataType: "json",    // 服务器端返回的数据类型
+                    success: function (data) { 
+                        console.log(data);     
+                        $("#need_pay").val(data.PhasesFee);
+
+                        
+                    },
+                }); 
+
+            
+            }); 
+
+        
+        });
+    </script>
+</block>

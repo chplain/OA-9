@@ -1,0 +1,71 @@
+<extend name="Public/base"/>
+
+<block name="link">
+  <link rel="stylesheet" href="__STATIC__/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="__STATIC__/bootstrap/css/bootstrap-select.min.css">
+  <link rel="stylesheet" href="__STATIC__/datetimepicker/css/datetimepicker.css">
+  <link rel="stylesheet" href="__STATIC__/datetimepicker/css/datetimepicker_blue.css">
+  <link rel="stylesheet" type="text/css" href="__CSS__/mainLayout.css">
+  <link rel="stylesheet" type="text/css" href="__CSS__/new.css">
+</block>
+
+<!-- 页面子导航 -->
+<block name="nav">
+  <div class="breadcrumb">
+    <span>您的位置:</span>
+    <div>
+      <a href="{:u('contract/intention')}">开发管理</a>
+      <span class="divider">/</span>
+    </div>
+    <div>
+      <a href="{:u('index')}">项目版本号管理</a>
+      <span class="divider">/</span>
+    </div>
+    <div>{$customer['id']?'编辑':'新增'}版本号</div>
+  </div>
+</block>
+
+<block name="body">
+  <div class="newly">
+    <form action="__SELF__" method="post" class="form-vertical">
+      
+      <div class="edit_items">
+        <label class="edit_label">项目名称</label>
+        <div class="edit_info">
+          <!-- <input type="text" name="customer" value="{$customer.customer}" placeholder="请输入名字"> -->
+          <select id="customer" name="customer" class="selectpicker" data-width="172" title="请选择" data-size="6" data-live-search="true" data-live-search-placeholder="Search">
+            <volist name="projects" id="vo">
+                <option value="{$vo.id}">{$vo.project_name}</option>
+            </volist>
+          </select>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">项目版本号</label>
+        <div class="edit_info">
+          <input type="text" name="version" value="{$customer.version}" placeholder="版本号">
+        </div>
+      </div>
+      
+      <div class="edit_btn">
+        <input type="hidden" name="id" value="{$customer.id|default=''}">
+        <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-vertical">确 定</button>
+        <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+      </div>
+    </form>
+  </div>
+</block>
+
+<block name="script">
+  <script src="__STATIC__/bootstrap/js/bootstrap.min.js"></script>
+  <script src="__STATIC__/bootstrap/js/bootstrap-select.min.js"></script>
+  <script src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.js"></script>
+  <script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="__JS__/artTemplate.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      //导航高亮
+      $('.side-sub-menu').find('a[href=\"{:U(\'Dev/version\')}\"]').closest('li').addClass('current');
+    })
+  </script>
+</block>

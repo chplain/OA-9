@@ -1,0 +1,128 @@
+<extend name="Public/base"/>
+
+<block name="link">
+  <link rel="stylesheet" type="text/css" href="__CSS__/mainLayout.css" media="all">
+</block>
+
+<!-- 页面子导航 -->
+<block name="nav">
+  <div class="breadcrumb">
+    <span>您的位置:</span>
+    <div>
+      <a href="{:u('tech/index')}">实施管理</a>
+      <span class="divider">/</span>
+    </div>
+    <div>实施过程记录</div>
+  </div>
+</block>
+
+<block name="body">
+  <div class="search_box">
+    <div class="items">
+      <span>项目|商业名称：</span>
+      <input type="text" name="project_name" class="search-input" value="{:I('project_name')}" placeholder="">
+    </div>
+    <div class="items">
+      <span>实施人员：</span>
+      <input type="text" name="executor" class="search-input" value="{:I('executor')}" placeholder="">
+    </div>
+    <div class="items">
+
+    </div>
+    <div class="items">
+      <a class="sch-btn" href="javascript:void(0);" id="search" url="{:U('execut_log')}"><i class="btn-search"></i></a>
+    </div>
+    <div class="items action_btn_box">
+      <button class="btn" id="action_add" url="{:U('add_execut_log')}">新 增</button>
+      <!-- <button class="btn ajax-post confirm" target-form="ids" url="{:U('delete_transfer',array('status'=>-1))}">删 除</button> -->
+    </div>
+  </div>
+  <!-- 数据列表 -->
+  <div class="data-table">
+    <table class="">
+      <thead>
+      <tr>
+        <th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+        <th>提交时间</th>
+        <th>项目名称</th>
+        <th>计划编号</th>
+        <th>计划阶段</th>
+        <th>实施人员</th>
+        <th>实施人天</th>
+        <th>开始日期</th>
+        <th>结束日期</th>
+        <th>实施内容</th>
+        <th>报销费用（元）</th>
+        <th>下一步计划</th>
+        <th>新增人</th>
+        <!-- <th>操作</th> -->
+      </tr>
+      </thead>
+      <tbody>
+      <if condition="$excutes neq ''">
+        <volist name="excutes" id="vo">
+          <tr>
+            <td><input class="ids" type="checkbox" name="ids[]" value="{$vo.id}"/></td>
+            <td class="" style="max-width: 90px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;" title="{$vo.rd_time}">{$vo.rd_time}</td>
+            <td class="" style="max-width: 90px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;" title="{$vo.project_name}">{$vo.project_name}</td>
+            <td class="" >{$vo.plan_code}</td>
+            <td class="">第{$vo.phases}阶段</td>
+            <td class="">{$vo.executor}</td>
+            <td class="">{$vo.manday}</td>
+            <td class="">{$vo.s_time}</td>
+            <td class="">{$vo.e_time}</td>
+            <td class="" style="max-width: 90px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;" title="{$vo.content}">{$vo.content}</td>
+            <td class="">{$vo.project_fee}</td>
+            <td class="" style="max-width: 90px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;" title="{$vo.next_plan}">{$vo.next_plan}</td>
+            <td class="">{$vo.create_person}</td>
+          </tr>
+        </volist>
+        <else/>
+        <tr>
+          <td colspan="9">
+            <div class="no_data">没有数据</div>
+          </td>
+        </tr>
+      </if>
+      </tbody>
+    </table>
+
+  </div>
+  <!-- 分页 -->
+  <div class="page">{$_page}</div>
+  <!-- /分页 -->
+
+</block>
+<block name="script">
+  <script type="text/javascript">
+    $(function () {
+      $("#action_add").click(function () {
+        window.location.href = $(this).attr('url');
+      })
+
+      //搜索功能
+      $("#search").click(function () {
+        var url = $(this).attr('url');
+        var query = $('.search_box').find('input').serialize();
+        query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g, '');
+        query = query.replace(/^&/g, '');
+
+        if (query) {
+          if (url.indexOf('?') > 0) {
+            url += '&' + query;
+          } else {
+            url += '?' + query;
+          }
+        }
+        window.location.href = url;
+      });
+      //回车搜索
+      $(".search-input").keyup(function (e) {
+        if (e.keyCode === 13) {
+          $("#search").click();
+          return false;
+        }
+      });
+    })
+  </script>
+</block>

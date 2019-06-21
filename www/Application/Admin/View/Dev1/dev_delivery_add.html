@@ -1,0 +1,196 @@
+<extend name="Public/base"/>
+
+<block name="link">
+  <link rel="stylesheet" href="__STATIC__/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="__STATIC__/bootstrap/css/bootstrap-select.min.css">
+  <link rel="stylesheet" href="__STATIC__/datetimepicker/css/datetimepicker.css">
+  <link rel="stylesheet" href="__STATIC__/datetimepicker/css/datetimepicker_blue.css">
+  <link rel="stylesheet" type="text/css" href="__CSS__/mainLayout.css">
+</block>
+<block name="style">
+  <style>
+    .edit_label {
+      width: 128px;
+    }
+  </style>
+</block>
+<!-- 页面子导航 -->
+<block name="nav">
+  <div class="breadcrumb">
+    <span>您的位置:</span>
+    <div>
+      <a href="{:u('dev/newdevlist')}">开发管理</a>
+      <span class="divider">/</span>
+    </div>
+    <div>
+      <a href="{:u('dev/dev_delivery')}">开发交付记录</a>
+      <span class="divider">/</span>
+    </div>
+    <div>{$info['id']?'编辑':'新增'}开发交付记录</div>
+  </div>
+</block>
+
+<block name="body">
+  <div class="newly">
+    <form action="__SELF__" method="post" class="form-vertical">
+      <div class="edit_items">
+        <label class="edit_label">交付编号</label>
+        <div class="edit_info">
+          <input type="text" readonly placeholder="(系统自动生成)">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">交付类型</label>
+        <div class="edit_info">
+          <select id="delivery_type" name="delivery_type" class="selectpicker" data-width="172" title="请选择" data-size="6">
+              <option value="1">需求新增</option>
+              <option value="2">BUG修复</option>
+          </select>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">项目名称</label>
+        <div class="edit_info">
+          <select id="project_id" name="project_id" class="selectpicker" data-width="172" title="请选择" data-size="6">
+            <volist name="projects" id="vo">
+              <option value="{$vo.id}">{$vo.project_name}</option>
+            </volist>
+          </select>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">项目类型</label>
+        <div class="edit_info">
+          <input type="text" id="project_type" readonly name="project_type">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">项目地区</label>
+        <div class="edit_info">
+          <input type="text" readonly id="province" name="province">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">合同编号</label>
+        <div class="edit_info">
+          <select id="project_id" name="project_id" class="selectpicker" data-width="172" title="请选择" data-size="6">
+            <volist name="projects" id="vo">
+              <option value="{$vo.id}">{$vo.project_name}</option>
+            </volist>
+          </select>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">采购产品</label>
+        <div class="edit_info">
+          <input type="text"  id="project_productlist" name="project_productlist">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">交付产品</label>
+        <div class="edit_info">
+          <select name="deliver_product[]" class="selectpicker" data-width="172" title="请选择" data-size="6" multiple>
+            <volist name="products" id="vo">
+              <option value="{$vo.product_name}">{$vo.product_name}</option>
+            </volist>
+          </select>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">实施负责人</label>
+        <div class="edit_info">
+          <input type="text"  id="TechRole" name="tech_role">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">交付版本号</label>
+        <div class="edit_info">
+          <input type="text" name="deliver_version">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">交付日期</label>
+        <div class="edit_info">
+          <div class="date form_datetime">
+            <span class="add-on"><i class="icon-th glyphicon glyphicon-calendar"></i></span>
+            <input type="text" class="date" name="del_date" placeholder="选择日期" readonly>
+          </div>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">开发负责人</label>
+        <div class="edit_info">
+          <input type="text" name="dev_role">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">情况说明</label>
+        <div class="edit_info">
+          <textarea name="discribe"></textarea>
+        </div>
+      </div>
+      <div class="edit_btn">
+        <input type="hidden" name="id" value="{$info.id|default=''}">
+        <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-vertical">确 定</button>
+        <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+      </div>
+    </form>
+  </div>
+</block>
+
+<block name="script">
+  <script src="__STATIC__/bootstrap/js/bootstrap.min.js"></script>
+  <script src="__STATIC__/bootstrap/js/bootstrap-select.min.js"></script>
+  <script src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.js"></script>
+  <script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+  <script type="text/javascript">
+    $(function () {
+      //导航高亮
+      $('.side-sub-menu').find('a[href="{:U('dev/dev_delivery')}"]').closest('li').addClass('current');
+
+      // 日期插件
+      $('.form_datetime').datetimepicker({
+        format: 'yyyy-mm-dd',
+        language: "zh-CN",
+        minView: 2,
+        autoclose: true,
+        todayBtn: true
+      });
+    });
+
+    $("#project_id").change(function () {
+
+      var project_id = $(this).val();
+      console.log(project_id);
+      // Ajax提交数据
+      // return;
+      $.ajax({
+        url: "{:U('Dev/getProjectBypid')}",    // 提交到controller的url路径
+        type: "post",    // 提交方式
+        data: {"project_id": project_id},  // data为String类型，必须为 Key/Value 格式。
+        dataType: "json",    // 服务器端返回的数据类型
+        success: function (data) {
+          // $("#project_id").empty();
+          console.log(data);
+          // if(data.project_type ==='1'){
+          //   $("#project_type").val('购物中心');
+          // }else if(data.project_type ==='2'){
+          //   $("#project_type").val('商超');
+          // }else if(data.project_type ==='3'){
+          //   $("#project_type").val('政府');
+          // }else if(data.project_type ==='4'){
+          //   $("#project_type").val('其他');
+          // }
+          $("#project_type").val(data.project_type);
+          $("#province").val(data.province);
+          $("#TechRole").val(data.TechRole);
+          $("#project_productlist").val(data.project_productlist);
+
+
+        },
+      });
+    });
+
+  </script>
+
+</block>

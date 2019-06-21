@@ -1,0 +1,932 @@
+[ 2019-06-21T09:35:18+08:00 ] ::1 /oa/www/admin/public/login.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `oa_ucenter_member` [ RunTime:0.145009s ]
+SQL: SELECT * FROM `oa_ucenter_member` WHERE ( `username` = 'admin' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: UPDATE `oa_ucenter_member` SET `last_login_time`=1561080918,`last_login_ip`=0 WHERE ( `id` = 1 ) [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `oa_member` [ RunTime:0.173010s ]
+SQL: SELECT `uid`,`nickname`,`sex`,`birthday`,`qq`,`score`,`login`,`reg_ip`,`reg_time`,`last_login_ip`,`last_login_time`,`status` FROM `oa_member` WHERE ( `uid` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_action` [ RunTime:0.109006s ]
+SQL: SELECT * FROM `oa_action` WHERE ( `name` = 'user_login' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `oa_action_log` [ RunTime:0.078005s ]
+SQL: INSERT INTO `oa_action_log` (`action_id`,`user_id`,`action_ip`,`model`,`record_id`,`create_time`,`remark`) VALUES (1,1,0,'member',1,1561080918,'操作url：/oa/www/admin/public/login.html') [ RunTime:0.027001s ]
+SQL: SELECT * FROM `oa_action` WHERE ( `name` = 'user_login' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined offset: 1 D:\phpstudy\WWW\OA\www\Application\Common\Common\function.php 第 610 行.
+NOTIC: [2] array_key_exists() expects parameter 2 to be array, null given D:\phpstudy\WWW\OA\www\Application\Common\Common\function.php 第 610 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_action_log` WHERE ( `action_id` = 1 ) AND ( `user_id` = 1 ) AND ( `create_time` > 1560994518 ) LIMIT 1   [ RunTime:0.003000s ]
+SQL: UPDATE `oa_member` SET `login`=`login`+1,`last_login_time`=1561080918,`last_login_ip`=0 WHERE ( `uid` = 1 ) [ RunTime:0.001000s ]
+
+[ 2019-06-21T09:35:21+08:00 ] ::1 /oa/www/admin/index/getauth.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_auth_group_access` [ RunTime:0.105006s ]
+SQL: SELECT `group_id` FROM `oa_auth_group_access` WHERE ( `uid` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SHOW COLUMNS FROM `oa_cst_cti_project` [ RunTime:0.005000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-22 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_cst_cti_project_tail` [ RunTime:0.093005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-22' AND '2019-05-23' ) ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-23 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001001s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-23' AND '2019-05-24' ) ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-24 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-24' AND '2019-05-25' ) ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-25 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-25' AND '2019-05-26' ) ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-26 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-26' AND '2019-05-27' ) ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-27 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-27' AND '2019-05-28' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-28 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-28' AND '2019-05-29' ) ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-29 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-29' AND '2019-05-30' ) ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-30 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-30' AND '2019-05-31' ) ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-31 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-31' AND '2019-06-01' ) ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-01 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-01' AND '2019-06-02' ) ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-02 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-02' AND '2019-06-03' ) ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-03 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-03' AND '2019-06-04' ) ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-04 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-04' AND '2019-06-05' ) ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-05 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-05' AND '2019-06-06' ) ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-06 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-06' AND '2019-06-07' ) ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-07 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-07' AND '2019-06-08' ) ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-08 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-08' AND '2019-06-09' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-09 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-09' AND '2019-06-10' ) ) LIMIT 1   [ RunTime:0.001001s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-10 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-10' AND '2019-06-11' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-11 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-11' AND '2019-06-12' ) ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-12 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-12' AND '2019-06-13' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-13 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-13' AND '2019-06-14' ) ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-14 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-14' AND '2019-06-15' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-15 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-15' AND '2019-06-16' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-16 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-16' AND '2019-06-17' ) ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-17 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-17' AND '2019-06-18' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-18 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-18' AND '2019-06-19' ) ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-19 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-19' AND '2019-06-20' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-20 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-20' AND '2019-06-21' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-01-01 00:00:00' AND '2019-06-21 23:59:59' ) ) AND ( `status` IN ('0','1') ) LIMIT 1   [ RunTime:0.001001s ]
+SQL: SHOW COLUMNS FROM `oa_cst_contract` [ RunTime:0.078004s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM `oa_cst_contract` WHERE (  (`start_time` BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( `status` = '3' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM oa_cst_fd_withdraw as wi [ RunTime:0.001000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as wi' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_fd_withdraw as wi
+SQL: SELECT SUM(PhasesFee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_pj_plan_phases as ph on ph.project_id = wi.project_id and wi.phases = ph.phases WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( wi.status = '2' ) LIMIT 1   [ RunTime:0.125007s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_contract as con on con.contract_code = wi.contract_code WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( wi.status = '2' ) AND (  (wi.plan_code IS NULL)  ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: p D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 311 行.
+SQL: SHOW COLUMNS FROM oa_cst_cti_project as pr [ RunTime:0.001001s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as pr' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_cti_project as pr
+SQL: SELECT pr.project_name,pr.province,pr.budget,cu.customer,pr.charge_person,pr.purchase_intention FROM oa_cst_cti_project as pr left join oa_cst_customer as cu on pr.customer = cu.id left join oa_member as me on me.uid = pr.charge_person WHERE ( pr.status IN ('0','1') ) LIMIT 0,10   [ RunTime:0.070004s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM `oa_cst_contract` WHERE (  (`start_time` BETWEEN '2019-01-01 00:00:00' AND '2019-02-01 00:00:00' ) ) AND ( `status` = '3' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(PhasesFee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_pj_plan_phases as ph on ph.project_id = wi.project_id and wi.phases = ph.phases WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-02-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_contract as con on con.contract_code = wi.contract_code WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-02-01 00:00:00' ) ) AND ( wi.status = '2' ) AND (  (wi.plan_code IS NULL)  ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM `oa_cst_contract` WHERE (  (`start_time` BETWEEN '2019-01-01 00:00:00' AND '2019-03-01 00:00:00' ) ) AND ( `status` = '3' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(PhasesFee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_pj_plan_phases as ph on ph.project_id = wi.project_id and wi.phases = ph.phases WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-03-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_contract as con on con.contract_code = wi.contract_code WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-03-01 00:00:00' ) ) AND ( wi.status = '2' ) AND (  (wi.plan_code IS NULL)  ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM `oa_cst_contract` WHERE (  (`start_time` BETWEEN '2019-01-01 00:00:00' AND '2019-04-01 00:00:00' ) ) AND ( `status` = '3' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT SUM(PhasesFee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_pj_plan_phases as ph on ph.project_id = wi.project_id and wi.phases = ph.phases WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-04-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_contract as con on con.contract_code = wi.contract_code WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-04-01 00:00:00' ) ) AND ( wi.status = '2' ) AND (  (wi.plan_code IS NULL)  ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM `oa_cst_contract` WHERE (  (`start_time` BETWEEN '2019-01-01 00:00:00' AND '2019-05-01 00:00:00' ) ) AND ( `status` = '3' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(PhasesFee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_pj_plan_phases as ph on ph.project_id = wi.project_id and wi.phases = ph.phases WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-05-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_contract as con on con.contract_code = wi.contract_code WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-05-01 00:00:00' ) ) AND ( wi.status = '2' ) AND (  (wi.plan_code IS NULL)  ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM `oa_cst_contract` WHERE (  (`start_time` BETWEEN '2019-01-01 00:00:00' AND '2019-06-01 00:00:00' ) ) AND ( `status` = '3' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT SUM(PhasesFee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_pj_plan_phases as ph on ph.project_id = wi.project_id and wi.phases = ph.phases WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_contract as con on con.contract_code = wi.contract_code WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-01 00:00:00' ) ) AND ( wi.status = '2' ) AND (  (wi.plan_code IS NULL)  ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM `oa_cst_contract` WHERE (  (`start_time` BETWEEN '2019-01-01 00:00:00' AND '2019-07-01 00:00:00' ) ) AND ( `status` = '3' ) LIMIT 1   [ RunTime:0.001001s ]
+SQL: SELECT SUM(PhasesFee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_pj_plan_phases as ph on ph.project_id = wi.project_id and wi.phases = ph.phases WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-07-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_contract as con on con.contract_code = wi.contract_code WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-07-01 00:00:00' ) ) AND ( wi.status = '2' ) AND (  (wi.plan_code IS NULL)  ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM oa_cst_pj_plan as pl [ RunTime:0.001000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as pl' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_pj_plan as pl
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_plan as pl WHERE (  (pl.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( pl.status = '1' ) LIMIT 1   [ RunTime:0.055003s ]
+SQL: SHOW COLUMNS FROM oa_cst_pj_plan_phases as ph [ RunTime:0.000000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as ph' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_pj_plan_phases as ph
+SQL: SELECT pr.project_name,ph.phases,ph.products,me.nickname as executor,ph.PhasesFee FROM oa_cst_pj_plan_phases as ph left join oa_cst_pj_plan as pl on pl.project_id = ph.project_id left join oa_cst_cti_project as pr on ph.project_id = pr.id left join oa_member as me on ph.executor = me.uid WHERE (  (pl.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( pl.status = '1' )  [ RunTime:0.002000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_plan_phases as ph left join oa_cst_pj_plan as pl on pl.project_id = ph.project_id left join oa_cst_cti_project as pr on ph.project_id = pr.id left join oa_member as me on ph.executor = me.uid WHERE (  (pl.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( pl.status = '1' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM oa_cst_pj_payreminder_rd as rd [ RunTime:0.000000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as rd' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_pj_payreminder_rd as rd
+SQL: SELECT SUM(rmoney) AS tp_sum FROM oa_cst_pj_payreminder_rd as rd WHERE (  (rd.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( rd.status = '2' ) LIMIT 1   [ RunTime:0.040002s ]
+SQL: SELECT SUM(rmoney) AS tp_sum FROM oa_cst_pj_payreminder_rd as rd WHERE (  (rd.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( rd.status IN ('0','1') ) LIMIT 1   [ RunTime:0.001001s ]
+SQL: SELECT pr.project_name,rd.phases,rd.status,rd.rmoney,rd.prompt_result,rd.rpercent,rd.prompt_id,me.nickname as executor FROM oa_cst_pj_payreminder_rd as rd INNER JOIN oa_cst_cti_project as pr on pr.id = rd.project_id left join oa_member as me on rd.executor = me.uid WHERE (  (rd.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( rd.status IN ('0','1') )  [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_payreminder_rd as rd INNER JOIN oa_cst_cti_project as pr on pr.id = rd.project_id WHERE (  (rd.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( rd.status IN ('0','1') ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM oa_cst_pj_excute_rd as rd [ RunTime:0.001000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as rd' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_pj_excute_rd as rd
+SQL: SELECT rd.project_id,pr.project_name,rd.phases,rd.products,rd.project_fee,rd.content,rd.executor,rd.manday FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-02-01 00:00:00' ) )  [ RunTime:0.046002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-02-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT rd.project_id,pr.project_name,rd.phases,rd.products,rd.project_fee,rd.content,rd.executor,rd.manday FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-03-01 00:00:00' ) )  [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-03-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT rd.project_id,pr.project_name,rd.phases,rd.products,rd.project_fee,rd.content,rd.executor,rd.manday FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-04-01 00:00:00' ) )  [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-04-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.001001s ]
+SQL: SELECT rd.project_id,pr.project_name,rd.phases,rd.products,rd.project_fee,rd.content,rd.executor,rd.manday FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-05-01 00:00:00' ) )  [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-05-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT rd.project_id,pr.project_name,rd.phases,rd.products,rd.project_fee,rd.content,rd.executor,rd.manday FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-01 00:00:00' ) )  [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT rd.project_id,pr.project_name,rd.phases,rd.products,rd.project_fee,rd.content,rd.executor,rd.manday FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-07-01 00:00:00' ) )  [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-07-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT wi.updata_time,pr.project_name,wi.phases,ph.etime,ph.products,ph.PhasesFee,wi.create_time FROM oa_cst_fd_withdraw as wi left join oa_cst_cti_project as pr on wi.project_id = pr.id left join oa_cst_pj_plan_phases as ph on wi.project_id = ph.project_id and wi.phases = ph.phases WHERE ( wi.status = '2' ) LIMIT 0,10   [ RunTime:0.002000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_fd_withdraw as wi left join oa_cst_cti_project as pr on wi.project_id = pr.id left join oa_cst_pj_plan_phases as ph on wi.project_id = ph.project_id and wi.phases = ph.phases WHERE ( wi.status = '2' ) LIMIT 1   [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `oa_cst_dev_newproduct` [ RunTime:0.084005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_dev_newproduct` WHERE ( `status` = '1' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `oa_cst_dev_customization` [ RunTime:0.017001s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_dev_customization` WHERE ( `status` = '2' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT SUM(manday) AS tp_sum FROM `oa_cst_dev_customization` WHERE ( `status` = '2' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM oa_cst_cus_dev_phases as ph [ RunTime:0.001000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as ph' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_cus_dev_phases as ph
+SQL: SELECT ph.etime,ph.products,pr.project_name,ph.phases,ph.PhasesFee,me.nickname as dev_role FROM oa_cst_cus_dev_phases as ph left join oa_cst_dev_customization as cu on cu.plan_code = ph.plan_code left join oa_cst_cti_project as pr on cu.project_id = pr.id left join oa_member as me on me.uid = cu.dev_role WHERE ( cu.status = '2' ) AND ( ph.etime <= '2019-06-21 09:06:21' )  [ RunTime:0.033002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_cus_dev_phases as ph left join oa_cst_dev_customization as cu on cu.plan_code = ph.plan_code left join oa_cst_cti_project as pr on cu.project_id = pr.id left join oa_member as me on me.uid = ph.coder WHERE ( cu.status = '2' ) AND ( ph.etime <= '2019-06-21 09:06:21' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM oa_cst_dev_delivery as de [ RunTime:0.001000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as de' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_dev_delivery as de
+SQL: SELECT de.delivery_code,de.delivery_type,pr.project_name,de.del_date,de.deliver_product,de.dev_role,de.tech_role,cus.eEnd_time,cus.End_time,cus.Need_time FROM oa_cst_dev_delivery as de left join oa_cst_cti_project as pr on pr.id = de.project_id left join oa_cst_dev_customization as cus on de.contract_code and de.project_id = cus.project_id WHERE (  (de.del_date BETWEEN '2019-01-01 00:00:00' AND '2019-07-01 00:00:00' ) ) ORDER BY del_date desc LIMIT 0,10   [ RunTime:0.053003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_dev_delivery as de left join oa_cst_cti_project as pr on pr.id = de.project_id WHERE (  (de.del_date BETWEEN '2019-01-01 00:00:00' AND '2019-07-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_dev_delivery as de left join oa_cst_dev_customization as cus on cus.project_id = de.project_id and cus.contract_code = de.contract_code WHERE ( (de.create_time between '2019-05-22 00:00:00' and '2019-06-21 00:00:00') and  de.del_date > cus.eEnd_time ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_dev_delivery as de left join oa_cst_dev_customization as cus on cus.project_id = de.project_id and cus.contract_code = de.contract_code WHERE ( (de.create_time between '2019-05-22 00:00:00' and '2019-06-21 00:00:00') and  de.del_date < cus.eEnd_time ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_dev_delivery as de left join oa_cst_dev_customization as cus on cus.project_id = de.project_id and cus.contract_code = de.contract_code WHERE ( (de.create_time between '2019-05-22 00:00:00' and '2019-06-21 00:00:00') and  de.del_date = cus.eEnd_time ) LIMIT 1   [ RunTime:0.001001s ]
+
+[ 2019-06-21T09:35:27+08:00 ] ::1 /oa/www/admin/contract/sure_contract_transfer/status/-1.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM oa_cst_ctp_transfer as tr [ RunTime:0.001000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as tr' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_ctp_transfer as tr
+SQL: SELECT tr.*,pr.project_name FROM oa_cst_ctp_transfer as tr left join oa_cst_cti_project as pr on pr.id = tr.project_id WHERE ( tr.id IN ('614') )  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_ucenter_member` [ RunTime:0.005000s ]
+SQL: SELECT `email` FROM `oa_ucenter_member` WHERE ( `username` = '王伟' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `email` FROM `oa_ucenter_member` WHERE ( `username` = '黄健' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `email` FROM `oa_ucenter_member` WHERE ( `username` = '文豪' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `email` FROM `oa_ucenter_member` WHERE ( `username` = '吴柏坚' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_cst_ctp_transfer` [ RunTime:0.005001s ]
+NOTIC: [8] Undefined variable: set D:\phpstudy\WWW\OA\www\ThinkPHP\Library\Think\Db.class.php 第 294 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\phpstudy\WWW\OA\www\ThinkPHP\Library\Think\Db.class.php 第 294 行.
+SQL: UPDATE `oa_cst_ctp_transfer` SET  WHERE ( tr.id IN ('614') ) [ RunTime:0.000000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE ( tr.id IN ('614') )' at line 1
+ [ SQL语句 ] : UPDATE `oa_cst_ctp_transfer` SET  WHERE ( tr.id IN ('614') )
+
+[ 2019-06-21T09:37:16+08:00 ] ::1 /oa/www/admin/contract/sure_contract_transfer/status/-1.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM oa_cst_ctp_transfer as tr [ RunTime:0.000000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as tr' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_ctp_transfer as tr
+SQL: SELECT tr.*,pr.project_name FROM oa_cst_ctp_transfer as tr left join oa_cst_cti_project as pr on pr.id = tr.project_id WHERE ( tr.id IN ('614') )  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_ucenter_member` [ RunTime:0.006000s ]
+SQL: SELECT `email` FROM `oa_ucenter_member` WHERE ( `username` = '王伟' ) LIMIT 1   [ RunTime:0.001001s ]
+SQL: SELECT `email` FROM `oa_ucenter_member` WHERE ( `username` = '黄健' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT `email` FROM `oa_ucenter_member` WHERE ( `username` = '文豪' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT `email` FROM `oa_ucenter_member` WHERE ( `username` = '吴柏坚' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_cst_ctp_transfer` [ RunTime:0.008000s ]
+NOTIC: [8] Undefined variable: set D:\phpstudy\WWW\OA\www\ThinkPHP\Library\Think\Db.class.php 第 294 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\phpstudy\WWW\OA\www\ThinkPHP\Library\Think\Db.class.php 第 294 行.
+SQL: UPDATE `oa_cst_ctp_transfer` SET  WHERE ( tr.id IN ('614') ) [ RunTime:0.001000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE ( tr.id IN ('614') )' at line 1
+ [ SQL语句 ] : UPDATE `oa_cst_ctp_transfer` SET  WHERE ( tr.id IN ('614') )
+
+[ 2019-06-21T09:38:47+08:00 ] ::1 /oa/www/admin/contract/sure_contract_transfer/status/-1.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM oa_cst_ctp_transfer as tr [ RunTime:0.000000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as tr' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_ctp_transfer as tr
+SQL: SELECT tr.*,pr.project_name FROM oa_cst_ctp_transfer as tr left join oa_cst_cti_project as pr on pr.id = tr.project_id WHERE ( tr.id IN ('614') )  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_ucenter_member` [ RunTime:0.005000s ]
+SQL: SELECT `email` FROM `oa_ucenter_member` WHERE ( `username` = '王伟' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `email` FROM `oa_ucenter_member` WHERE ( `username` = '黄健' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `email` FROM `oa_ucenter_member` WHERE ( `username` = '文豪' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `email` FROM `oa_ucenter_member` WHERE ( `username` = '吴柏坚' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: UPDATE oa_cst_ctp_transfer as tr SET tr.status=2 WHERE ( tr.id IN ('614') ) [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_cst_pj_plan` [ RunTime:0.004001s ]
+SQL: SELECT `tech_charge_person` FROM `oa_cst_pj_plan` WHERE ( `plan_code` = '' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `email` FROM `oa_ucenter_member` WHERE ( `username` = null ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `oa_action` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `oa_action` WHERE ( `name` = 'contract_transfer_sure' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_action_log` [ RunTime:0.004000s ]
+SQL: INSERT INTO `oa_action_log` (`action_id`,`user_id`,`action_ip`,`model`,`record_id`,`create_time`,`remark`) VALUES (31,1,0,'transfer',1,1561081127,'操作url：/oa/www/admin/contract/sure_contract_transfer/status/-1.html') [ RunTime:0.001000s ]
+
+[ 2019-06-21T10:10:39+08:00 ] ::1 /oa/www/admin/public/login.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_ucenter_member` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `oa_ucenter_member` WHERE ( `username` = 'admin' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: UPDATE `oa_ucenter_member` SET `last_login_time`=1561083039,`last_login_ip`=0 WHERE ( `id` = 1 ) [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_member` [ RunTime:0.003000s ]
+SQL: SELECT `uid`,`nickname`,`sex`,`birthday`,`qq`,`score`,`login`,`reg_ip`,`reg_time`,`last_login_ip`,`last_login_time`,`status` FROM `oa_member` WHERE ( `uid` = 1 ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `oa_action` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `oa_action` WHERE ( `name` = 'user_login' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_action_log` [ RunTime:0.004001s ]
+SQL: INSERT INTO `oa_action_log` (`action_id`,`user_id`,`action_ip`,`model`,`record_id`,`create_time`,`remark`) VALUES (1,1,'::1','member',1,1561083039,'操作url：/oa/www/admin/public/login.html') [ RunTime:0.000000s ]
+SQL: SELECT * FROM `oa_action` WHERE ( `name` = 'user_login' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined offset: 1 D:\phpstudy\WWW\OA\www\Application\Common\Common\function.php 第 610 行.
+NOTIC: [2] array_key_exists() expects parameter 2 to be array, null given D:\phpstudy\WWW\OA\www\Application\Common\Common\function.php 第 610 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_action_log` WHERE ( `action_id` = 1 ) AND ( `user_id` = 1 ) AND ( `create_time` > 1560996639 ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: UPDATE `oa_member` SET `login`=`login`+1,`last_login_time`=1561083039,`last_login_ip`=0 WHERE ( `uid` = 1 ) [ RunTime:0.000000s ]
+
+[ 2019-06-21T10:10:40+08:00 ] ::1 /oa/www/admin/index/getauth.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_auth_group_access` [ RunTime:0.005000s ]
+SQL: SELECT `group_id` FROM `oa_auth_group_access` WHERE ( `uid` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SHOW COLUMNS FROM `oa_cst_cti_project` [ RunTime:0.004001s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-22 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `oa_cst_cti_project_tail` [ RunTime:0.005000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-22' AND '2019-05-23' ) ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-23 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-23' AND '2019-05-24' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-24 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-24' AND '2019-05-25' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-25 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-25' AND '2019-05-26' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-26 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-26' AND '2019-05-27' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-27 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-27' AND '2019-05-28' ) ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-28 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-28' AND '2019-05-29' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-29 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-29' AND '2019-05-30' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-30 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-30' AND '2019-05-31' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-31 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-31' AND '2019-06-01' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-01 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-01' AND '2019-06-02' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-02 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-02' AND '2019-06-03' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-03 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-03' AND '2019-06-04' ) ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-04 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-04' AND '2019-06-05' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-05 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-05' AND '2019-06-06' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-06 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-06' AND '2019-06-07' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-07 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001001s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-07' AND '2019-06-08' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-08 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-08' AND '2019-06-09' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-09 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-09' AND '2019-06-10' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-10 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-10' AND '2019-06-11' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-11 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-11' AND '2019-06-12' ) ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-12 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-12' AND '2019-06-13' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-13 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-13' AND '2019-06-14' ) ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-14 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-14' AND '2019-06-15' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-15 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-15' AND '2019-06-16' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-16 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-16' AND '2019-06-17' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-17 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-17' AND '2019-06-18' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-18 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-18' AND '2019-06-19' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-19 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-19' AND '2019-06-20' ) ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-20 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-20' AND '2019-06-21' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-01-01 00:00:00' AND '2019-06-21 23:59:59' ) ) AND ( `status` IN ('0','1') ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `oa_cst_contract` [ RunTime:0.003000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM `oa_cst_contract` WHERE (  (`start_time` BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( `status` = '3' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM oa_cst_fd_withdraw as wi [ RunTime:0.001000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as wi' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_fd_withdraw as wi
+SQL: SELECT SUM(PhasesFee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_pj_plan_phases as ph on ph.project_id = wi.project_id and wi.phases = ph.phases WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( wi.status = '2' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_contract as con on con.contract_code = wi.contract_code WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( wi.status = '2' ) AND (  (wi.plan_code IS NULL)  ) LIMIT 1   [ RunTime:0.001001s ]
+NOTIC: [8] Undefined index: p D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 311 行.
+SQL: SHOW COLUMNS FROM oa_cst_cti_project as pr [ RunTime:0.000000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as pr' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_cti_project as pr
+SQL: SELECT pr.project_name,pr.province,pr.budget,cu.customer,pr.charge_person,pr.purchase_intention FROM oa_cst_cti_project as pr left join oa_cst_customer as cu on pr.customer = cu.id left join oa_member as me on me.uid = pr.charge_person WHERE ( pr.status IN ('0','1') ) LIMIT 0,10   [ RunTime:0.000000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM `oa_cst_contract` WHERE (  (`start_time` BETWEEN '2019-01-01 00:00:00' AND '2019-02-01 00:00:00' ) ) AND ( `status` = '3' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT SUM(PhasesFee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_pj_plan_phases as ph on ph.project_id = wi.project_id and wi.phases = ph.phases WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-02-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_contract as con on con.contract_code = wi.contract_code WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-02-01 00:00:00' ) ) AND ( wi.status = '2' ) AND (  (wi.plan_code IS NULL)  ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM `oa_cst_contract` WHERE (  (`start_time` BETWEEN '2019-01-01 00:00:00' AND '2019-03-01 00:00:00' ) ) AND ( `status` = '3' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT SUM(PhasesFee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_pj_plan_phases as ph on ph.project_id = wi.project_id and wi.phases = ph.phases WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-03-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_contract as con on con.contract_code = wi.contract_code WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-03-01 00:00:00' ) ) AND ( wi.status = '2' ) AND (  (wi.plan_code IS NULL)  ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM `oa_cst_contract` WHERE (  (`start_time` BETWEEN '2019-01-01 00:00:00' AND '2019-04-01 00:00:00' ) ) AND ( `status` = '3' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(PhasesFee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_pj_plan_phases as ph on ph.project_id = wi.project_id and wi.phases = ph.phases WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-04-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_contract as con on con.contract_code = wi.contract_code WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-04-01 00:00:00' ) ) AND ( wi.status = '2' ) AND (  (wi.plan_code IS NULL)  ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM `oa_cst_contract` WHERE (  (`start_time` BETWEEN '2019-01-01 00:00:00' AND '2019-05-01 00:00:00' ) ) AND ( `status` = '3' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(PhasesFee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_pj_plan_phases as ph on ph.project_id = wi.project_id and wi.phases = ph.phases WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-05-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_contract as con on con.contract_code = wi.contract_code WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-05-01 00:00:00' ) ) AND ( wi.status = '2' ) AND (  (wi.plan_code IS NULL)  ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM `oa_cst_contract` WHERE (  (`start_time` BETWEEN '2019-01-01 00:00:00' AND '2019-06-01 00:00:00' ) ) AND ( `status` = '3' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(PhasesFee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_pj_plan_phases as ph on ph.project_id = wi.project_id and wi.phases = ph.phases WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_contract as con on con.contract_code = wi.contract_code WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-01 00:00:00' ) ) AND ( wi.status = '2' ) AND (  (wi.plan_code IS NULL)  ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM `oa_cst_contract` WHERE (  (`start_time` BETWEEN '2019-01-01 00:00:00' AND '2019-07-01 00:00:00' ) ) AND ( `status` = '3' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(PhasesFee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_pj_plan_phases as ph on ph.project_id = wi.project_id and wi.phases = ph.phases WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-07-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_contract as con on con.contract_code = wi.contract_code WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-07-01 00:00:00' ) ) AND ( wi.status = '2' ) AND (  (wi.plan_code IS NULL)  ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM oa_cst_pj_plan as pl [ RunTime:0.000000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as pl' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_pj_plan as pl
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_plan as pl WHERE (  (pl.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( pl.status = '1' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM oa_cst_pj_plan_phases as ph [ RunTime:0.000000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as ph' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_pj_plan_phases as ph
+SQL: SELECT pr.project_name,ph.phases,ph.products,me.nickname as executor,ph.PhasesFee FROM oa_cst_pj_plan_phases as ph left join oa_cst_pj_plan as pl on pl.project_id = ph.project_id left join oa_cst_cti_project as pr on ph.project_id = pr.id left join oa_member as me on ph.executor = me.uid WHERE (  (pl.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( pl.status = '1' )  [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_plan_phases as ph left join oa_cst_pj_plan as pl on pl.project_id = ph.project_id left join oa_cst_cti_project as pr on ph.project_id = pr.id left join oa_member as me on ph.executor = me.uid WHERE (  (pl.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( pl.status = '1' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM oa_cst_pj_payreminder_rd as rd [ RunTime:0.000000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as rd' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_pj_payreminder_rd as rd
+SQL: SELECT SUM(rmoney) AS tp_sum FROM oa_cst_pj_payreminder_rd as rd WHERE (  (rd.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( rd.status = '2' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT SUM(rmoney) AS tp_sum FROM oa_cst_pj_payreminder_rd as rd WHERE (  (rd.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( rd.status IN ('0','1') ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT pr.project_name,rd.phases,rd.status,rd.rmoney,rd.prompt_result,rd.rpercent,rd.prompt_id,me.nickname as executor FROM oa_cst_pj_payreminder_rd as rd INNER JOIN oa_cst_cti_project as pr on pr.id = rd.project_id left join oa_member as me on rd.executor = me.uid WHERE (  (rd.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( rd.status IN ('0','1') )  [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_payreminder_rd as rd INNER JOIN oa_cst_cti_project as pr on pr.id = rd.project_id WHERE (  (rd.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( rd.status IN ('0','1') ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM oa_cst_pj_excute_rd as rd [ RunTime:0.000000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as rd' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_pj_excute_rd as rd
+SQL: SELECT rd.project_id,pr.project_name,rd.phases,rd.products,rd.project_fee,rd.content,rd.executor,rd.manday FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-02-01 00:00:00' ) )  [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-02-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT rd.project_id,pr.project_name,rd.phases,rd.products,rd.project_fee,rd.content,rd.executor,rd.manday FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-03-01 00:00:00' ) )  [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-03-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT rd.project_id,pr.project_name,rd.phases,rd.products,rd.project_fee,rd.content,rd.executor,rd.manday FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-04-01 00:00:00' ) )  [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-04-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT rd.project_id,pr.project_name,rd.phases,rd.products,rd.project_fee,rd.content,rd.executor,rd.manday FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-05-01 00:00:00' ) )  [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-05-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT rd.project_id,pr.project_name,rd.phases,rd.products,rd.project_fee,rd.content,rd.executor,rd.manday FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-01 00:00:00' ) )  [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT rd.project_id,pr.project_name,rd.phases,rd.products,rd.project_fee,rd.content,rd.executor,rd.manday FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-07-01 00:00:00' ) )  [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-07-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.001001s ]
+SQL: SELECT wi.updata_time,pr.project_name,wi.phases,ph.etime,ph.products,ph.PhasesFee,wi.create_time FROM oa_cst_fd_withdraw as wi left join oa_cst_cti_project as pr on wi.project_id = pr.id left join oa_cst_pj_plan_phases as ph on wi.project_id = ph.project_id and wi.phases = ph.phases WHERE ( wi.status = '2' ) LIMIT 0,10   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_fd_withdraw as wi left join oa_cst_cti_project as pr on wi.project_id = pr.id left join oa_cst_pj_plan_phases as ph on wi.project_id = ph.project_id and wi.phases = ph.phases WHERE ( wi.status = '2' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_cst_dev_newproduct` [ RunTime:0.005000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_dev_newproduct` WHERE ( `status` = '1' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_cst_dev_customization` [ RunTime:0.004000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_dev_customization` WHERE ( `status` = '2' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(manday) AS tp_sum FROM `oa_cst_dev_customization` WHERE ( `status` = '2' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM oa_cst_cus_dev_phases as ph [ RunTime:0.001000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as ph' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_cus_dev_phases as ph
+SQL: SELECT ph.etime,ph.products,pr.project_name,ph.phases,ph.PhasesFee,me.nickname as dev_role FROM oa_cst_cus_dev_phases as ph left join oa_cst_dev_customization as cu on cu.plan_code = ph.plan_code left join oa_cst_cti_project as pr on cu.project_id = pr.id left join oa_member as me on me.uid = cu.dev_role WHERE ( cu.status = '2' ) AND ( ph.etime <= '2019-06-21 10:06:40' )  [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_cus_dev_phases as ph left join oa_cst_dev_customization as cu on cu.plan_code = ph.plan_code left join oa_cst_cti_project as pr on cu.project_id = pr.id left join oa_member as me on me.uid = ph.coder WHERE ( cu.status = '2' ) AND ( ph.etime <= '2019-06-21 10:06:40' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM oa_cst_dev_delivery as de [ RunTime:0.000000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as de' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_dev_delivery as de
+SQL: SELECT de.delivery_code,de.delivery_type,pr.project_name,de.del_date,de.deliver_product,de.dev_role,de.tech_role,cus.eEnd_time,cus.End_time,cus.Need_time FROM oa_cst_dev_delivery as de left join oa_cst_cti_project as pr on pr.id = de.project_id left join oa_cst_dev_customization as cus on de.contract_code and de.project_id = cus.project_id WHERE (  (de.del_date BETWEEN '2019-01-01 00:00:00' AND '2019-07-01 00:00:00' ) ) ORDER BY del_date desc LIMIT 0,10   [ RunTime:0.027002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_dev_delivery as de left join oa_cst_cti_project as pr on pr.id = de.project_id WHERE (  (de.del_date BETWEEN '2019-01-01 00:00:00' AND '2019-07-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_dev_delivery as de left join oa_cst_dev_customization as cus on cus.project_id = de.project_id and cus.contract_code = de.contract_code WHERE ( (de.create_time between '2019-05-22 00:00:00' and '2019-06-21 00:00:00') and  de.del_date > cus.eEnd_time ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_dev_delivery as de left join oa_cst_dev_customization as cus on cus.project_id = de.project_id and cus.contract_code = de.contract_code WHERE ( (de.create_time between '2019-05-22 00:00:00' and '2019-06-21 00:00:00') and  de.del_date < cus.eEnd_time ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_dev_delivery as de left join oa_cst_dev_customization as cus on cus.project_id = de.project_id and cus.contract_code = de.contract_code WHERE ( (de.create_time between '2019-05-22 00:00:00' and '2019-06-21 00:00:00') and  de.del_date = cus.eEnd_time ) LIMIT 1   [ RunTime:0.001000s ]
+
+[ 2019-06-21T10:40:16+08:00 ] ::1 /oa/www/admin/menu/add/pid/126.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_menu` [ RunTime:0.003000s ]
+SQL: INSERT INTO `oa_menu` (`title`,`sort`,`url`,`pid`,`group`,`hide`,`is_dev`,`tip`,`id`) VALUES ('项目版本号管理',0,'Dev/version',126,'开发管理',0,0,'',0) [ RunTime:0.023002s ]
+SQL: SHOW COLUMNS FROM `oa_action` [ RunTime:0.009000s ]
+SQL: SELECT * FROM `oa_action` WHERE ( `name` = 'update_menu' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_action_log` [ RunTime:0.009001s ]
+SQL: INSERT INTO `oa_action_log` (`action_id`,`user_id`,`action_ip`,`model`,`record_id`,`create_time`,`remark`) VALUES (10,1,'::1','Menu',247,1561084816,'操作url：/oa/www/admin/menu/add/pid/126.html') [ RunTime:0.000000s ]
+
+[ 2019-06-21T10:40:44+08:00 ] ::1 /oa/www/admin/menu/edit/id/247.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_menu` [ RunTime:0.005001s ]
+SQL: UPDATE `oa_menu` SET `title`='项目版本号管理',`sort`=3,`url`='Dev/version',`pid`=126,`group`='开发管理',`hide`=0,`is_dev`=0,`tip`='' WHERE ( `id` = 247 ) [ RunTime:0.024001s ]
+SQL: SHOW COLUMNS FROM `oa_action` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `oa_action` WHERE ( `name` = 'update_menu' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `oa_action_log` [ RunTime:0.005001s ]
+SQL: INSERT INTO `oa_action_log` (`action_id`,`user_id`,`action_ip`,`model`,`record_id`,`create_time`,`remark`) VALUES (10,1,'::1','Menu',247,1561084844,'操作url：/oa/www/admin/menu/edit/id/247.html') [ RunTime:0.000000s ]
+
+[ 2019-06-21T10:44:29+08:00 ] ::1 /oa/www/admin/dev/version.html
+ERR: 非法操作:version
+
+[ 2019-06-21T10:44:32+08:00 ] ::1 /oa/www/admin/dev/version.html
+ERR: 非法操作:version
+
+[ 2019-06-21T10:52:20+08:00 ] ::1 /oa/www/admin/dev/version.html
+ERR: 非法操作:version
+
+[ 2019-06-21T13:54:39+08:00 ] ::1 /oa/www/admin/public/login.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_ucenter_member` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `oa_ucenter_member` WHERE ( `username` = 'admin' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: UPDATE `oa_ucenter_member` SET `last_login_time`=1561096479,`last_login_ip`=0 WHERE ( `id` = 1 ) [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_member` [ RunTime:0.004000s ]
+SQL: SELECT `uid`,`nickname`,`sex`,`birthday`,`qq`,`score`,`login`,`reg_ip`,`reg_time`,`last_login_ip`,`last_login_time`,`status` FROM `oa_member` WHERE ( `uid` = 1 ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `oa_action` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `oa_action` WHERE ( `name` = 'user_login' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_action_log` [ RunTime:0.004000s ]
+SQL: INSERT INTO `oa_action_log` (`action_id`,`user_id`,`action_ip`,`model`,`record_id`,`create_time`,`remark`) VALUES (1,1,'::1','member',1,1561096479,'操作url：/oa/www/admin/public/login.html') [ RunTime:0.000000s ]
+SQL: SELECT * FROM `oa_action` WHERE ( `name` = 'user_login' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined offset: 1 D:\phpstudy\WWW\OA\www\Application\Common\Common\function.php 第 610 行.
+NOTIC: [2] array_key_exists() expects parameter 2 to be array, null given D:\phpstudy\WWW\OA\www\Application\Common\Common\function.php 第 610 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_action_log` WHERE ( `action_id` = 1 ) AND ( `user_id` = 1 ) AND ( `create_time` > 1561010079 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: UPDATE `oa_member` SET `login`=`login`+1,`last_login_time`=1561096479,`last_login_ip`=0 WHERE ( `uid` = 1 ) [ RunTime:0.001000s ]
+
+[ 2019-06-21T13:54:39+08:00 ] ::1 /oa/www/admin/index/getauth.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_auth_group_access` [ RunTime:0.004001s ]
+SQL: SELECT `group_id` FROM `oa_auth_group_access` WHERE ( `uid` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SHOW COLUMNS FROM `oa_cst_cti_project` [ RunTime:0.005000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-22 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `oa_cst_cti_project_tail` [ RunTime:0.005000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-22' AND '2019-05-23' ) ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-23 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-23' AND '2019-05-24' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-24 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-24' AND '2019-05-25' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-25 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-25' AND '2019-05-26' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-26 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-26' AND '2019-05-27' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-27 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-27' AND '2019-05-28' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-28 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-28' AND '2019-05-29' ) ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-29 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-29' AND '2019-05-30' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-30 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-30' AND '2019-05-31' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-31 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-31' AND '2019-06-01' ) ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-01 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-01' AND '2019-06-02' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-02 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-02' AND '2019-06-03' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-03 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-03' AND '2019-06-04' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-04 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-04' AND '2019-06-05' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-05 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-05' AND '2019-06-06' ) ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-06 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-06' AND '2019-06-07' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-07 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-07' AND '2019-06-08' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-08 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-08' AND '2019-06-09' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-09 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-09' AND '2019-06-10' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-10 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-10' AND '2019-06-11' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-11 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-11' AND '2019-06-12' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-12 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-12' AND '2019-06-13' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-13 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-13' AND '2019-06-14' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-14 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-14' AND '2019-06-15' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-15 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-15' AND '2019-06-16' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-16 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-16' AND '2019-06-17' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-17 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-17' AND '2019-06-18' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-18 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-18' AND '2019-06-19' ) ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-19 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-19' AND '2019-06-20' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-20 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001001s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-20' AND '2019-06-21' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-01-01 00:00:00' AND '2019-06-21 23:59:59' ) ) AND ( `status` IN ('0','1') ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_cst_contract` [ RunTime:0.003000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM `oa_cst_contract` WHERE (  (`start_time` BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( `status` = '3' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM oa_cst_fd_withdraw as wi [ RunTime:0.000000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as wi' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_fd_withdraw as wi
+SQL: SELECT SUM(PhasesFee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_pj_plan_phases as ph on ph.project_id = wi.project_id and wi.phases = ph.phases WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( wi.status = '2' ) LIMIT 1   [ RunTime:0.002000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_contract as con on con.contract_code = wi.contract_code WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( wi.status = '2' ) AND (  (wi.plan_code IS NULL)  ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: p D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 311 行.
+SQL: SHOW COLUMNS FROM oa_cst_cti_project as pr [ RunTime:0.000000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as pr' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_cti_project as pr
+SQL: SELECT pr.project_name,pr.province,pr.budget,cu.customer,pr.charge_person,pr.purchase_intention FROM oa_cst_cti_project as pr left join oa_cst_customer as cu on pr.customer = cu.id left join oa_member as me on me.uid = pr.charge_person WHERE ( pr.status IN ('0','1') ) LIMIT 0,10   [ RunTime:0.000000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM `oa_cst_contract` WHERE (  (`start_time` BETWEEN '2019-01-01 00:00:00' AND '2019-02-01 00:00:00' ) ) AND ( `status` = '3' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(PhasesFee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_pj_plan_phases as ph on ph.project_id = wi.project_id and wi.phases = ph.phases WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-02-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_contract as con on con.contract_code = wi.contract_code WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-02-01 00:00:00' ) ) AND ( wi.status = '2' ) AND (  (wi.plan_code IS NULL)  ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM `oa_cst_contract` WHERE (  (`start_time` BETWEEN '2019-01-01 00:00:00' AND '2019-03-01 00:00:00' ) ) AND ( `status` = '3' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(PhasesFee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_pj_plan_phases as ph on ph.project_id = wi.project_id and wi.phases = ph.phases WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-03-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_contract as con on con.contract_code = wi.contract_code WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-03-01 00:00:00' ) ) AND ( wi.status = '2' ) AND (  (wi.plan_code IS NULL)  ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM `oa_cst_contract` WHERE (  (`start_time` BETWEEN '2019-01-01 00:00:00' AND '2019-04-01 00:00:00' ) ) AND ( `status` = '3' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(PhasesFee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_pj_plan_phases as ph on ph.project_id = wi.project_id and wi.phases = ph.phases WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-04-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_contract as con on con.contract_code = wi.contract_code WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-04-01 00:00:00' ) ) AND ( wi.status = '2' ) AND (  (wi.plan_code IS NULL)  ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM `oa_cst_contract` WHERE (  (`start_time` BETWEEN '2019-01-01 00:00:00' AND '2019-05-01 00:00:00' ) ) AND ( `status` = '3' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(PhasesFee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_pj_plan_phases as ph on ph.project_id = wi.project_id and wi.phases = ph.phases WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-05-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_contract as con on con.contract_code = wi.contract_code WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-05-01 00:00:00' ) ) AND ( wi.status = '2' ) AND (  (wi.plan_code IS NULL)  ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM `oa_cst_contract` WHERE (  (`start_time` BETWEEN '2019-01-01 00:00:00' AND '2019-06-01 00:00:00' ) ) AND ( `status` = '3' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(PhasesFee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_pj_plan_phases as ph on ph.project_id = wi.project_id and wi.phases = ph.phases WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_contract as con on con.contract_code = wi.contract_code WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-01 00:00:00' ) ) AND ( wi.status = '2' ) AND (  (wi.plan_code IS NULL)  ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM `oa_cst_contract` WHERE (  (`start_time` BETWEEN '2019-01-01 00:00:00' AND '2019-07-01 00:00:00' ) ) AND ( `status` = '3' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(PhasesFee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_pj_plan_phases as ph on ph.project_id = wi.project_id and wi.phases = ph.phases WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-07-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_contract as con on con.contract_code = wi.contract_code WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-07-01 00:00:00' ) ) AND ( wi.status = '2' ) AND (  (wi.plan_code IS NULL)  ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM oa_cst_pj_plan as pl [ RunTime:0.000000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as pl' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_pj_plan as pl
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_plan as pl WHERE (  (pl.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( pl.status = '1' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM oa_cst_pj_plan_phases as ph [ RunTime:0.000000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as ph' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_pj_plan_phases as ph
+SQL: SELECT pr.project_name,ph.phases,ph.products,me.nickname as executor,ph.PhasesFee FROM oa_cst_pj_plan_phases as ph left join oa_cst_pj_plan as pl on pl.project_id = ph.project_id left join oa_cst_cti_project as pr on ph.project_id = pr.id left join oa_member as me on ph.executor = me.uid WHERE (  (pl.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( pl.status = '1' )  [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_plan_phases as ph left join oa_cst_pj_plan as pl on pl.project_id = ph.project_id left join oa_cst_cti_project as pr on ph.project_id = pr.id left join oa_member as me on ph.executor = me.uid WHERE (  (pl.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( pl.status = '1' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM oa_cst_pj_payreminder_rd as rd [ RunTime:0.000000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as rd' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_pj_payreminder_rd as rd
+SQL: SELECT SUM(rmoney) AS tp_sum FROM oa_cst_pj_payreminder_rd as rd WHERE (  (rd.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( rd.status = '2' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(rmoney) AS tp_sum FROM oa_cst_pj_payreminder_rd as rd WHERE (  (rd.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( rd.status IN ('0','1') ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT pr.project_name,rd.phases,rd.status,rd.rmoney,rd.prompt_result,rd.rpercent,rd.prompt_id,me.nickname as executor FROM oa_cst_pj_payreminder_rd as rd INNER JOIN oa_cst_cti_project as pr on pr.id = rd.project_id left join oa_member as me on rd.executor = me.uid WHERE (  (rd.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( rd.status IN ('0','1') )  [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_payreminder_rd as rd INNER JOIN oa_cst_cti_project as pr on pr.id = rd.project_id WHERE (  (rd.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( rd.status IN ('0','1') ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM oa_cst_pj_excute_rd as rd [ RunTime:0.000000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as rd' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_pj_excute_rd as rd
+SQL: SELECT rd.project_id,pr.project_name,rd.phases,rd.products,rd.project_fee,rd.content,rd.executor,rd.manday FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-02-01 00:00:00' ) )  [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-02-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT rd.project_id,pr.project_name,rd.phases,rd.products,rd.project_fee,rd.content,rd.executor,rd.manday FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-03-01 00:00:00' ) )  [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-03-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT rd.project_id,pr.project_name,rd.phases,rd.products,rd.project_fee,rd.content,rd.executor,rd.manday FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-04-01 00:00:00' ) )  [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-04-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT rd.project_id,pr.project_name,rd.phases,rd.products,rd.project_fee,rd.content,rd.executor,rd.manday FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-05-01 00:00:00' ) )  [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-05-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT rd.project_id,pr.project_name,rd.phases,rd.products,rd.project_fee,rd.content,rd.executor,rd.manday FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-01 00:00:00' ) )  [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT rd.project_id,pr.project_name,rd.phases,rd.products,rd.project_fee,rd.content,rd.executor,rd.manday FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-07-01 00:00:00' ) )  [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-07-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT wi.updata_time,pr.project_name,wi.phases,ph.etime,ph.products,ph.PhasesFee,wi.create_time FROM oa_cst_fd_withdraw as wi left join oa_cst_cti_project as pr on wi.project_id = pr.id left join oa_cst_pj_plan_phases as ph on wi.project_id = ph.project_id and wi.phases = ph.phases WHERE ( wi.status = '2' ) LIMIT 0,10   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_fd_withdraw as wi left join oa_cst_cti_project as pr on wi.project_id = pr.id left join oa_cst_pj_plan_phases as ph on wi.project_id = ph.project_id and wi.phases = ph.phases WHERE ( wi.status = '2' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_cst_dev_newproduct` [ RunTime:0.004000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_dev_newproduct` WHERE ( `status` = '1' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_cst_dev_customization` [ RunTime:0.004000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_dev_customization` WHERE ( `status` = '2' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(manday) AS tp_sum FROM `oa_cst_dev_customization` WHERE ( `status` = '2' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM oa_cst_cus_dev_phases as ph [ RunTime:0.000000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as ph' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_cus_dev_phases as ph
+SQL: SELECT ph.etime,ph.products,pr.project_name,ph.phases,ph.PhasesFee,me.nickname as dev_role FROM oa_cst_cus_dev_phases as ph left join oa_cst_dev_customization as cu on cu.plan_code = ph.plan_code left join oa_cst_cti_project as pr on cu.project_id = pr.id left join oa_member as me on me.uid = cu.dev_role WHERE ( cu.status = '2' ) AND ( ph.etime <= '2019-06-21 01:06:39' )  [ RunTime:0.001001s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_cus_dev_phases as ph left join oa_cst_dev_customization as cu on cu.plan_code = ph.plan_code left join oa_cst_cti_project as pr on cu.project_id = pr.id left join oa_member as me on me.uid = ph.coder WHERE ( cu.status = '2' ) AND ( ph.etime <= '2019-06-21 01:06:39' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM oa_cst_dev_delivery as de [ RunTime:0.000000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as de' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_dev_delivery as de
+SQL: SELECT de.delivery_code,de.delivery_type,pr.project_name,de.del_date,de.deliver_product,de.dev_role,de.tech_role,cus.eEnd_time,cus.End_time,cus.Need_time FROM oa_cst_dev_delivery as de left join oa_cst_cti_project as pr on pr.id = de.project_id left join oa_cst_dev_customization as cus on de.contract_code and de.project_id = cus.project_id WHERE (  (de.del_date BETWEEN '2019-01-01 00:00:00' AND '2019-07-01 00:00:00' ) ) ORDER BY del_date desc LIMIT 0,10   [ RunTime:0.028001s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_dev_delivery as de left join oa_cst_cti_project as pr on pr.id = de.project_id WHERE (  (de.del_date BETWEEN '2019-01-01 00:00:00' AND '2019-07-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_dev_delivery as de left join oa_cst_dev_customization as cus on cus.project_id = de.project_id and cus.contract_code = de.contract_code WHERE ( (de.create_time between '2019-05-22 00:00:00' and '2019-06-21 00:00:00') and  de.del_date > cus.eEnd_time ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_dev_delivery as de left join oa_cst_dev_customization as cus on cus.project_id = de.project_id and cus.contract_code = de.contract_code WHERE ( (de.create_time between '2019-05-22 00:00:00' and '2019-06-21 00:00:00') and  de.del_date < cus.eEnd_time ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_dev_delivery as de left join oa_cst_dev_customization as cus on cus.project_id = de.project_id and cus.contract_code = de.contract_code WHERE ( (de.create_time between '2019-05-22 00:00:00' and '2019-06-21 00:00:00') and  de.del_date = cus.eEnd_time ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2019-06-21T14:33:28+08:00 ] ::1 /oa/www/admin/menu/add/pid/247.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_menu` [ RunTime:0.003000s ]
+SQL: INSERT INTO `oa_menu` (`title`,`sort`,`url`,`pid`,`group`,`hide`,`is_dev`,`tip`,`id`) VALUES ('项目版本新增',0,'Dev/version_add',247,'',0,0,'',0) [ RunTime:0.022001s ]
+SQL: SHOW COLUMNS FROM `oa_action` [ RunTime:0.006001s ]
+SQL: SELECT * FROM `oa_action` WHERE ( `name` = 'update_menu' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_action_log` [ RunTime:0.005000s ]
+SQL: INSERT INTO `oa_action_log` (`action_id`,`user_id`,`action_ip`,`model`,`record_id`,`create_time`,`remark`) VALUES (10,1,'::1','Menu',248,1561098807,'操作url：/oa/www/admin/menu/add/pid/247.html') [ RunTime:0.000000s ]
+
+[ 2019-06-21T16:07:14+08:00 ] ::1 /oa/www/admin/public/login.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_ucenter_member` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `oa_ucenter_member` WHERE ( `username` = 'admin' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: UPDATE `oa_ucenter_member` SET `last_login_time`=1561104433,`last_login_ip`=0 WHERE ( `id` = 1 ) [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `oa_member` [ RunTime:0.006000s ]
+SQL: SELECT `uid`,`nickname`,`sex`,`birthday`,`qq`,`score`,`login`,`reg_ip`,`reg_time`,`last_login_ip`,`last_login_time`,`status` FROM `oa_member` WHERE ( `uid` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_action` [ RunTime:0.006001s ]
+SQL: SELECT * FROM `oa_action` WHERE ( `name` = 'user_login' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_action_log` [ RunTime:0.005000s ]
+SQL: INSERT INTO `oa_action_log` (`action_id`,`user_id`,`action_ip`,`model`,`record_id`,`create_time`,`remark`) VALUES (1,1,'::1','member',1,1561104433,'操作url：/oa/www/admin/public/login.html') [ RunTime:0.000000s ]
+SQL: SELECT * FROM `oa_action` WHERE ( `name` = 'user_login' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined offset: 1 D:\phpstudy\WWW\OA\www\Application\Common\Common\function.php 第 610 行.
+NOTIC: [2] array_key_exists() expects parameter 2 to be array, null given D:\phpstudy\WWW\OA\www\Application\Common\Common\function.php 第 610 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_action_log` WHERE ( `action_id` = 1 ) AND ( `user_id` = 1 ) AND ( `create_time` > 1561018033 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: UPDATE `oa_member` SET `login`=`login`+1,`last_login_time`=1561104433,`last_login_ip`=0 WHERE ( `uid` = 1 ) [ RunTime:0.000000s ]
+
+[ 2019-06-21T16:07:14+08:00 ] ::1 /oa/www/admin/index/getauth.html
+INFO: [ app_begin ] --START--
+INFO: Run Think\Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_auth_group_access` [ RunTime:0.004000s ]
+SQL: SELECT `group_id` FROM `oa_auth_group_access` WHERE ( `uid` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SHOW COLUMNS FROM `oa_cst_cti_project` [ RunTime:0.005000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-22 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001001s ]
+SQL: SHOW COLUMNS FROM `oa_cst_cti_project_tail` [ RunTime:0.007000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-22' AND '2019-05-23' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-23 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-23' AND '2019-05-24' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-24 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-24' AND '2019-05-25' ) ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-25 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-25' AND '2019-05-26' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-26 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-26' AND '2019-05-27' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-27 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-27' AND '2019-05-28' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-28 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-28' AND '2019-05-29' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-29 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-29' AND '2019-05-30' ) ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-30 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-30' AND '2019-05-31' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-05-31 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-05-31' AND '2019-06-01' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-01 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-01' AND '2019-06-02' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-02 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-02' AND '2019-06-03' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-03 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-03' AND '2019-06-04' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-04 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-04' AND '2019-06-05' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-05 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-05' AND '2019-06-06' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-06 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-06' AND '2019-06-07' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-07 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-07' AND '2019-06-08' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-08 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-08' AND '2019-06-09' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-09 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-09' AND '2019-06-10' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-10 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-10' AND '2019-06-11' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-11 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-11' AND '2019-06-12' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-12 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-12' AND '2019-06-13' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-13 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-13' AND '2019-06-14' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-14 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-14' AND '2019-06-15' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-15 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-15' AND '2019-06-16' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-16 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-16' AND '2019-06-17' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-17 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-17' AND '2019-06-18' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-18 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-18' AND '2019-06-19' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-19 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-19' AND '2019-06-20' ) ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: purchase_intention D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 235 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-06-20 00:00:00' AND '2019-06-22 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project_tail` WHERE (  (`follow_up_time` BETWEEN '2019-06-20' AND '2019-06-21' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_cti_project` WHERE (  (`create_time` BETWEEN '2019-01-01 00:00:00' AND '2019-06-21 23:59:59' ) ) AND ( `status` IN ('0','1') ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_cst_contract` [ RunTime:0.004000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM `oa_cst_contract` WHERE (  (`start_time` BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( `status` = '3' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM oa_cst_fd_withdraw as wi [ RunTime:0.000000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as wi' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_fd_withdraw as wi
+SQL: SELECT SUM(PhasesFee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_pj_plan_phases as ph on ph.project_id = wi.project_id and wi.phases = ph.phases WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( wi.status = '2' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_contract as con on con.contract_code = wi.contract_code WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( wi.status = '2' ) AND (  (wi.plan_code IS NULL)  ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: p D:\phpstudy\WWW\OA\www\Application\Admin\Controller\IndexController.class.php 第 311 行.
+SQL: SHOW COLUMNS FROM oa_cst_cti_project as pr [ RunTime:0.000000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as pr' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_cti_project as pr
+SQL: SELECT pr.project_name,pr.province,pr.budget,cu.customer,pr.charge_person,pr.purchase_intention FROM oa_cst_cti_project as pr left join oa_cst_customer as cu on pr.customer = cu.id left join oa_member as me on me.uid = pr.charge_person WHERE ( pr.status IN ('0','1') ) LIMIT 0,10   [ RunTime:0.001001s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM `oa_cst_contract` WHERE (  (`start_time` BETWEEN '2019-01-01 00:00:00' AND '2019-02-01 00:00:00' ) ) AND ( `status` = '3' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(PhasesFee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_pj_plan_phases as ph on ph.project_id = wi.project_id and wi.phases = ph.phases WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-02-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_contract as con on con.contract_code = wi.contract_code WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-02-01 00:00:00' ) ) AND ( wi.status = '2' ) AND (  (wi.plan_code IS NULL)  ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM `oa_cst_contract` WHERE (  (`start_time` BETWEEN '2019-01-01 00:00:00' AND '2019-03-01 00:00:00' ) ) AND ( `status` = '3' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(PhasesFee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_pj_plan_phases as ph on ph.project_id = wi.project_id and wi.phases = ph.phases WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-03-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_contract as con on con.contract_code = wi.contract_code WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-03-01 00:00:00' ) ) AND ( wi.status = '2' ) AND (  (wi.plan_code IS NULL)  ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM `oa_cst_contract` WHERE (  (`start_time` BETWEEN '2019-01-01 00:00:00' AND '2019-04-01 00:00:00' ) ) AND ( `status` = '3' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(PhasesFee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_pj_plan_phases as ph on ph.project_id = wi.project_id and wi.phases = ph.phases WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-04-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_contract as con on con.contract_code = wi.contract_code WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-04-01 00:00:00' ) ) AND ( wi.status = '2' ) AND (  (wi.plan_code IS NULL)  ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM `oa_cst_contract` WHERE (  (`start_time` BETWEEN '2019-01-01 00:00:00' AND '2019-05-01 00:00:00' ) ) AND ( `status` = '3' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(PhasesFee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_pj_plan_phases as ph on ph.project_id = wi.project_id and wi.phases = ph.phases WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-05-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_contract as con on con.contract_code = wi.contract_code WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-05-01 00:00:00' ) ) AND ( wi.status = '2' ) AND (  (wi.plan_code IS NULL)  ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM `oa_cst_contract` WHERE (  (`start_time` BETWEEN '2019-01-01 00:00:00' AND '2019-06-01 00:00:00' ) ) AND ( `status` = '3' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(PhasesFee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_pj_plan_phases as ph on ph.project_id = wi.project_id and wi.phases = ph.phases WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_contract as con on con.contract_code = wi.contract_code WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-01 00:00:00' ) ) AND ( wi.status = '2' ) AND (  (wi.plan_code IS NULL)  ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM `oa_cst_contract` WHERE (  (`start_time` BETWEEN '2019-01-01 00:00:00' AND '2019-07-01 00:00:00' ) ) AND ( `status` = '3' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(PhasesFee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_pj_plan_phases as ph on ph.project_id = wi.project_id and wi.phases = ph.phases WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-07-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(contract_fee) AS tp_sum FROM oa_cst_fd_withdraw as wi left join oa_cst_contract as con on con.contract_code = wi.contract_code WHERE (  (wi.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-07-01 00:00:00' ) ) AND ( wi.status = '2' ) AND (  (wi.plan_code IS NULL)  ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM oa_cst_pj_plan as pl [ RunTime:0.000000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as pl' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_pj_plan as pl
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_plan as pl WHERE (  (pl.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( pl.status = '1' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM oa_cst_pj_plan_phases as ph [ RunTime:0.001000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as ph' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_pj_plan_phases as ph
+SQL: SELECT pr.project_name,ph.phases,ph.products,me.nickname as executor,ph.PhasesFee FROM oa_cst_pj_plan_phases as ph left join oa_cst_pj_plan as pl on pl.project_id = ph.project_id left join oa_cst_cti_project as pr on ph.project_id = pr.id left join oa_member as me on ph.executor = me.uid WHERE (  (pl.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( pl.status = '1' )  [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_plan_phases as ph left join oa_cst_pj_plan as pl on pl.project_id = ph.project_id left join oa_cst_cti_project as pr on ph.project_id = pr.id left join oa_member as me on ph.executor = me.uid WHERE (  (pl.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( pl.status = '1' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM oa_cst_pj_payreminder_rd as rd [ RunTime:0.000000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as rd' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_pj_payreminder_rd as rd
+SQL: SELECT SUM(rmoney) AS tp_sum FROM oa_cst_pj_payreminder_rd as rd WHERE (  (rd.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( rd.status = '2' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT SUM(rmoney) AS tp_sum FROM oa_cst_pj_payreminder_rd as rd WHERE (  (rd.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( rd.status IN ('0','1') ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT pr.project_name,rd.phases,rd.status,rd.rmoney,rd.prompt_result,rd.rpercent,rd.prompt_id,me.nickname as executor FROM oa_cst_pj_payreminder_rd as rd INNER JOIN oa_cst_cti_project as pr on pr.id = rd.project_id left join oa_member as me on rd.executor = me.uid WHERE (  (rd.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( rd.status IN ('0','1') )  [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_payreminder_rd as rd INNER JOIN oa_cst_cti_project as pr on pr.id = rd.project_id WHERE (  (rd.create_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-22 23:59:59' ) ) AND ( rd.status IN ('0','1') ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM oa_cst_pj_excute_rd as rd [ RunTime:0.000000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as rd' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_pj_excute_rd as rd
+SQL: SELECT rd.project_id,pr.project_name,rd.phases,rd.products,rd.project_fee,rd.content,rd.executor,rd.manday FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-02-01 00:00:00' ) )  [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-02-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT rd.project_id,pr.project_name,rd.phases,rd.products,rd.project_fee,rd.content,rd.executor,rd.manday FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-03-01 00:00:00' ) )  [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-03-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT rd.project_id,pr.project_name,rd.phases,rd.products,rd.project_fee,rd.content,rd.executor,rd.manday FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-04-01 00:00:00' ) )  [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-04-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT rd.project_id,pr.project_name,rd.phases,rd.products,rd.project_fee,rd.content,rd.executor,rd.manday FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-05-01 00:00:00' ) )  [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-05-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT rd.project_id,pr.project_name,rd.phases,rd.products,rd.project_fee,rd.content,rd.executor,rd.manday FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-01 00:00:00' ) )  [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-06-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT rd.project_id,pr.project_name,rd.phases,rd.products,rd.project_fee,rd.content,rd.executor,rd.manday FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-07-01 00:00:00' ) )  [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_pj_excute_rd as rd left join oa_cst_cti_project as pr on rd.project_id = pr.id WHERE (  (rd.rd_time BETWEEN '2019-01-01 00:00:00' AND '2019-07-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT wi.updata_time,pr.project_name,wi.phases,ph.etime,ph.products,ph.PhasesFee,wi.create_time FROM oa_cst_fd_withdraw as wi left join oa_cst_cti_project as pr on wi.project_id = pr.id left join oa_cst_pj_plan_phases as ph on wi.project_id = ph.project_id and wi.phases = ph.phases WHERE ( wi.status = '2' ) LIMIT 0,10   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_fd_withdraw as wi left join oa_cst_cti_project as pr on wi.project_id = pr.id left join oa_cst_pj_plan_phases as ph on wi.project_id = ph.project_id and wi.phases = ph.phases WHERE ( wi.status = '2' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_cst_dev_newproduct` [ RunTime:0.004001s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_dev_newproduct` WHERE ( `status` = '1' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `oa_cst_dev_customization` [ RunTime:0.003000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `oa_cst_dev_customization` WHERE ( `status` = '2' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT SUM(manday) AS tp_sum FROM `oa_cst_dev_customization` WHERE ( `status` = '2' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM oa_cst_cus_dev_phases as ph [ RunTime:0.000000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as ph' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_cus_dev_phases as ph
+SQL: SELECT ph.etime,ph.products,pr.project_name,ph.phases,ph.PhasesFee,me.nickname as dev_role FROM oa_cst_cus_dev_phases as ph left join oa_cst_dev_customization as cu on cu.plan_code = ph.plan_code left join oa_cst_cti_project as pr on cu.project_id = pr.id left join oa_member as me on me.uid = cu.dev_role WHERE ( cu.status = '2' ) AND ( ph.etime <= '2019-06-21 04:06:14' )  [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_cus_dev_phases as ph left join oa_cst_dev_customization as cu on cu.plan_code = ph.plan_code left join oa_cst_cti_project as pr on cu.project_id = pr.id left join oa_member as me on me.uid = ph.coder WHERE ( cu.status = '2' ) AND ( ph.etime <= '2019-06-21 04:06:14' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM oa_cst_dev_delivery as de [ RunTime:0.000000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as de' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM oa_cst_dev_delivery as de
+SQL: SELECT de.delivery_code,de.delivery_type,pr.project_name,de.del_date,de.deliver_product,de.dev_role,de.tech_role,cus.eEnd_time,cus.End_time,cus.Need_time FROM oa_cst_dev_delivery as de left join oa_cst_cti_project as pr on pr.id = de.project_id left join oa_cst_dev_customization as cus on de.contract_code and de.project_id = cus.project_id WHERE (  (de.del_date BETWEEN '2019-01-01 00:00:00' AND '2019-07-01 00:00:00' ) ) ORDER BY del_date desc LIMIT 0,10   [ RunTime:0.027002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_dev_delivery as de left join oa_cst_cti_project as pr on pr.id = de.project_id WHERE (  (de.del_date BETWEEN '2019-01-01 00:00:00' AND '2019-07-01 00:00:00' ) ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_dev_delivery as de left join oa_cst_dev_customization as cus on cus.project_id = de.project_id and cus.contract_code = de.contract_code WHERE ( (de.create_time between '2019-05-22 00:00:00' and '2019-06-21 00:00:00') and  de.del_date > cus.eEnd_time ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_dev_delivery as de left join oa_cst_dev_customization as cus on cus.project_id = de.project_id and cus.contract_code = de.contract_code WHERE ( (de.create_time between '2019-05-22 00:00:00' and '2019-06-21 00:00:00') and  de.del_date < cus.eEnd_time ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM oa_cst_dev_delivery as de left join oa_cst_dev_customization as cus on cus.project_id = de.project_id and cus.contract_code = de.contract_code WHERE ( (de.create_time between '2019-05-22 00:00:00' and '2019-06-21 00:00:00') and  de.del_date = cus.eEnd_time ) LIMIT 1   [ RunTime:0.000000s ]
+

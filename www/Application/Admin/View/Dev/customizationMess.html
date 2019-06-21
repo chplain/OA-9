@@ -1,0 +1,369 @@
+<extend name="Public/base"/>
+
+<block name="link">
+  <link rel="stylesheet" href="__STATIC__/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="__STATIC__/bootstrap/css/bootstrap-select.min.css">
+  <link rel="stylesheet" href="__STATIC__/datetimepicker/css/datetimepicker.css">
+  <link rel="stylesheet" href="__STATIC__/datetimepicker/css/datetimepicker_blue.css">
+  <link rel="stylesheet" type="text/css" href="__CSS__/mainLayout.css">
+  <link rel="stylesheet" type="text/css" href="__CSS__/new.css">
+</block>
+
+<block name="style">
+  <style>
+    
+
+    .updown {
+      display: inline-block;
+      line-height: 35px;
+      color: #646464;
+    }
+
+    .updown:hover {
+      color: #7d61dd;
+    }
+  </style>
+</block>
+
+<!-- 页面子导航 -->
+<block name="nav">
+  <div class="breadcrumb">
+    <span>您的位置:</span>
+    <div>
+      <a href="{:u('dev/newdevlist')}">开发管理</a>
+      <span class="divider">/</span>
+    </div>
+    <div>
+      <a href="{:u('dev/customization')}">定制开发计划</a>
+      <span class="divider">/</span>
+    </div>
+    <div>{$info['id']?'编辑':'新增'}定制开发计划</div>
+  </div>
+</block>
+
+<block name="body">
+<form action="__SELF__" method="post" class="form-horizontal">
+  <div class="newly preview_h_box">
+      <div class="edit_title">项目信息</div>
+      <div class="edit_items">
+        <label class="edit_label">计划编号：</label>
+        <div class="preview">
+          <p>{$customization.plan_code}</p>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">客户名称：</label>
+        <div class="preview">
+          <p>{$customization.cum}</p>
+        </div>
+      </div>
+
+      <div class="edit_items">
+        <label class="edit_label">项目|商业名称：</label>
+        <div class="preview">
+          <p>{$customization.project_name}</p>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">合同编号：</label>
+        <div class="preview">
+          <p>{$customization.contract_code}</p>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">定制产品：</label>
+        <div class="preview">
+          <p>{$customization.products}</p>
+        </div>
+      </div>
+      </br>
+
+      
+      <div class="edit_items">
+        <label class="edit_label">需求提交日期：</label>
+        <div class="preview">
+          <p>{$customization.Need_time}</p>
+        </div>
+      </div>
+
+      <div class="edit_items">
+        <label class="edit_label">产品确认日期：</label>
+        <div class="preview">
+          <p>{$customization.Sure_time}</p>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">预计完成日期：</label>
+        <div class="preview">
+          <p>{$customization.eEnd_time}</p>
+        </div>
+      </div>
+      <!-- <div class="edit_items">
+        <label class="edit_label">实际完成日期：</label>
+        <div class="preview">
+          <p>{$customization.End_time}</p>
+        </div>
+      </div> -->
+      <div class="edit_items">
+        <label class="edit_label">实际完成日期：</label>
+        <div class="edit_info">
+          <div class="date form_datetime">
+            <span class="add-on"><i class="icon-th glyphicon glyphicon-calendar"></i></span>
+            <input type="text" value="{$customization.End_time}" class="date" name="End_time" placeholder="选择日期"  value="">
+          </div>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">状态：</label>
+        <div class="edit_info">
+          <select name="status" class="selectpicker" data-width="172" title="请选择" data-size="6">
+              <if condition="$customization.status eq 0">
+                <option selected value="0">新增</option>
+              <else />
+                <option  value="0">新增</option>
+              </if>
+
+              <if condition="$customization.status eq 1">
+                <option selected value="1">需求分析中</option>
+              <else />
+                <option  value="1">需求分析中</option>
+              </if>
+
+              <if condition="$customization.status eq 2">
+                <option selected value="2">开发中</option>
+              <else />
+                <option  value="2">开发中</option>
+              </if>
+
+              <if condition="$customization.status eq 3">
+                <option selected value="3">已交付</option>
+              <else />
+                <option  value="3">已交付</option>
+              </if>
+
+              <if condition="$customization.status eq 4">
+                <option selected value="4">已暂停</option>
+              <else />
+                <option  value="4">已暂停</option>
+              </if>
+
+              <if condition="$customization.status eq 5">
+                <option selected value="5">已终止</option>
+              <else />
+                <option  value="5">已终止</option>
+              </if>
+          </select>
+        </div>
+      </div>
+      </br>
+      <div class="edit_items">
+        <label class="edit_label">产品人天：</label>
+        <div class="preview">
+          <p>{$customization.pr_manday}</p>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">开发人天：</label>
+        <div class="preview">
+          <p>{$customization.dev_manday}</p>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">测试人天：</label>
+        <div class="preview">
+          <p>{$customization.te_manday}</p>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">产品负责人:</label>
+        <div class="preview">
+          <p>{$customization.pr_role}</p>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">开发负责人:</label>
+        <div class="preview">
+          <p>{$customization.dev_role}</p>
+        </div>
+      </div>
+      
+      <div class="edit_title">其他信息</div>
+      <div class="edit-box remarks">
+        <div class="cell">
+          <div class="edit_items">
+            <label class="edit_label">备注：</label>
+            <div class="edit_info">
+              <textarea name="remark" style="width: 400px;height: 200px;">{$customization.remark}</textarea>
+            </div>
+          </div>
+          <!-- <div class="edit_btn">
+            <span class="add-btn" data-index="1" data-sign="remarks">+</span>
+          </div> -->
+        </div>
+      </div>
+      <div class="edit-box uploadWrap">
+        <div class="cell">
+          <div class="edit_items">
+            <label class="edit_label">附件：</label>
+            <div class="edit_info">
+              <if condition="$customization.accessory eq ''">
+                <input type="file" name="accessory" >
+              <else />
+                <a target="view_window" href='{$customization.accessory}' class="updown">附件下载</a>
+                <input type="file" name="accessory" >
+              </if>
+            </div>
+          </div>
+          <!-- <div class="edit_btn">
+            <span class="add-btn" data-index="1" data-sign="upload">+</span>
+          </div> -->
+        </div>
+      </div>
+      <div class="edit_btn action_btn">
+        <input type="hidden" name="id" value="{$customization.id|default=''}">
+        <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+        <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+      </div>
+  </div>
+</form>
+</block>
+<block name="script">
+  <script src="__STATIC__/bootstrap/js/bootstrap.min.js"></script>
+  <script src="__STATIC__/bootstrap/js/bootstrap-select.min.js"></script>
+  <script src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.js"></script>
+  <script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="__JS__/artTemplate.js"></script>
+  <script id="list1" type="text/html">
+    {{if sign == 'remarks'}}
+    <div class="cell">
+      <div class="edit_items">
+        <label class="edit_label">备注{{index+1}}：</label>
+        <div class="edit_info">
+          <textarea name="data1[{{index}}][remark]"></textarea>
+        </div>
+      </div>
+      <div class="edit_btn">
+        {{if index < 3}}
+        <span class="add-btn" data-index="{{index+1}}" data-sign="remarks">+</span>
+        {{/if}}
+        <span class="del-btn" data-index="{{index+1}}" data-sign="remarks">-</span>
+      </div>
+    </div>
+    {{else}}
+    <div class="cell">
+      <div class="edit_items">
+        <label class="edit_label">附件上传：</label>
+        <div class="edit_info">
+          <div class="upload">
+            <span class="tips">点击上传图片</span>
+            <input type="file" name="data2[{{index}}]['accessory']" class="uploadFile">
+          </div>
+        </div>
+      </div>
+      <div class="edit_btn">
+        {{if index < 3}}
+        <span class="add-btn" data-index="{{index+1}}" data-sign="upload">+</span>
+        {{/if}}
+        <span class="del-btn" data-index="{{index+1}}" data-sign="upload">-</span>
+      </div>
+    </div>
+    {{/if}}
+  </script>
+  <script type="text/javascript">
+    $(function () {
+      $('.side-sub-menu').find('a[href="{:U('dev/customization')}"]').closest('li').addClass('current');
+
+      // 日期插件
+      $('.form_datetime').datetimepicker({
+        format: 'yyyy-mm-dd',
+        language: "zh-CN",
+        minView: 2,
+        autoclose: true,
+        todayBtn: true
+      });
+
+      $("#customer").change(function () {
+        var customer = $(this).val();
+        // Ajax提交数据
+        // return;
+        $.ajax({
+          url: "{:U('Dev/getProject')}",    // 提交到controller的url路径
+          type: "post",    // 提交方式
+          data: {"customer": customer},  // data为String类型，必须为 Key/Value 格式。
+          dataType: "json",    // 服务器端返回的数据类型
+          success: function (data) {
+            $("#project_id").empty();
+            console.log(data);
+            let str = '';
+            data.map(item => {
+              str += `<option value='${item.id}'>${item.project_name}</option>`;
+            });
+            $("#project_id").append(str);
+            $('select.selectpicker').selectpicker('refresh');
+          },
+        });
+      });
+
+      function DX(n) {
+        if (!/^(0|[1-9]\d*)(\.\d+)?$/.test(n))
+          return "数据非法";
+        return '一二三四五六七八九'.charAt(n);
+      }
+
+      // 绑定添加信息点击事件
+      $('.edit-box').on('click', '.add-btn', function () {
+        var index = $(this).data('index'), sign = $(this).data('sign');
+        $(this).parent().hide();
+        var html = template('list1', {sign: sign, index: index, upper: DX(index)});
+        if (sign == 'charge') {
+          $('.fee').append(html);
+          $('select.selectpicker').selectpicker('refresh');
+        } else if (sign == 'remarks') {
+          $('.remarks').append(html);
+        } else {
+          $('.uploadWrap').append(html);
+        }
+      });
+
+      // 添加删除事件
+      $('.edit-box').on('click', '.del-btn', function () {
+        var index = $(this).data('index'), sign = $(this).data('sign');
+
+        let parant = '';
+        if (sign == 'charge') {
+          parant = $('.fee').find(".cell").eq(index - 2);
+        } else if (sign == 'remarks') {
+          parant = $('.remarks').find(".cell").eq(index - 2);
+        } else {
+          parant = $('.uploadWrap').find(".cell").eq(index - 2);
+        }
+
+        parant.find('.edit_btn').show();
+        $(this).parents('.cell').remove();
+      });
+
+      // 图片上传预览
+      $(".edit-box").on('change', '.uploadFile', function () {
+        var objUrl = getObjectURL(this.files[0]);//获取文件信息
+        if (objUrl) {
+          $(this).parent().find('img').remove();
+          $(this).parent().find('.tips').hide();
+          $(this).parent().append("<img src=\"" + objUrl + "\" alt='预览'/>");
+        }
+      });
+
+      function getObjectURL(file) {
+        var url = null;
+        if (window.createObjectURL != undefined) {
+          url = window.createObjectURL(file);
+        } else if (window.URL != undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL != undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+    });
+  </script>
+
+</block>

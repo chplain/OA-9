@@ -1,0 +1,170 @@
+<extend name="Public/base"/>
+
+<block name="link">
+  <link rel="stylesheet" type="text/css" href="__CSS__/mainLayout.css" media="all">
+</block>
+
+<!-- 页面子导航 -->
+<block name="nav">
+  <div class="breadcrumb">
+    <span>您的位置:</span>
+    <div>
+      <a href="{:u('tech/index')}">实施管理</a>
+      <span class="divider">/</span>
+    </div>
+    <div>实施工作记录</div>
+  </div>
+</block>
+
+<block name="body">
+  <div class="search_box">
+    <div class="items">
+      <span>项目|商业名称：</span>
+      <input type="text" name="project_name" class="search-input" value="{:I('project_name')}" placeholder="">
+    </div>
+    <div class="items">
+      <span>实施人员：</span>
+      <input type="text" name="executor" class="search-input" value="{:I('executor')}" placeholder="">
+    </div>
+    <div class="items">
+      <span>状态：</span>
+      <div class="drop-down">
+        <span id="sch-sort-txt" class="sort-txt" data="{$status}">
+          <if condition="state_text3($status) eq ''">
+            所有
+            <else/>
+            {:state_text3($status)}
+          </if>
+        </span>
+        <i class="arrow arrow-down"></i>
+        <ul id="sub-sch-menu" class="nav-list hidden">
+          <li><a href="javascript:void(0);" value="1">进行中</a></li>
+          <li><a href="javascript:void(0);" value="2">已完成</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="items">
+      <a class="sch-btn" href="javascript:void(0);" id="search" url="{:U('work_log')}"><i class="btn-search"></i></a>
+    </div>
+    <div class="items action_btn_box">
+      <button class="btn" id="action_add" url="{:U('work_log_add')}">新 增</button>
+      <button class="btn ajax-post confirm" target-form="ids" url="{:U('complete',array('status'=>-1))}">完 成</button>
+    </div>
+  </div>
+  <!-- 数据列表 -->
+  <div class="data-table">
+    <table class="">
+      <thead>
+        <tr>
+          <th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+          <th>提交时间</th>
+          <th>项目|商业地产</th>
+          <th>工作计划</th>
+          <th>计划</th>
+          <th>工作安排</th>
+          <th>派遣人员</th>
+          <th>完成情况</th>
+          <!-- <th>报销费用（元）</th> -->
+          <th>下一步计划</th>
+          <th>新增人</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+      <if condition="$work_log neq ''">
+        <volist name="work_log" id="vo">
+          <tr>
+            <td><input class="ids" type="checkbox" name="ids[]" value="{$vo.id}"/></td>
+            <td class="">{$vo.create_time}                 </td>
+            <td class="">{$vo.project_name}                </td>
+            <td class="">{$vo.plan_code}第{$vo.phases}阶段 </td>
+            <td class="">计划{$vo.wphases}                  </td>
+            <td class="">{$vo.remark}                      </td>
+            <td class="">{$vo.executor}                    </td>
+            <if condition="$vo.status eq 1">
+              <td class="">进行中                      </td>
+    
+            <else />
+              <td class="">已完成                      </td>
+            </if>
+            <!-- <td class="">{$vo.fee}                         </td> -->
+            <td class="">{$vo.next_plan}                   </td>
+            <td class="">{$vo.create_person}               </td>
+            <td class="">
+              <a href="{:U('Tech/work_log_add?id='.$vo['id'])}">详情</a>
+            </td>
+          </tr>
+        </volist>
+      <else/>
+        <tr>
+          <td colspan="9">
+            <div class="no_data">没有数据</div>
+          </td>
+        </tr>
+      </if>
+      </tbody>
+    </table>
+
+  </div>
+  <!-- 分页 -->
+  <div class="page">{$_page}</div>
+  <!-- /分页 -->
+
+</block>
+<block name="script">
+  <script type="text/javascript">
+    $(function () {
+      $("#action_add").click(function () {
+        window.location.href = $(this).attr('url');
+      })
+
+      //搜索功能
+      $("#search").click(function () {
+        var url = $(this).attr('url');
+        var status = $("#sch-sort-txt").attr("data");
+        var query = $('.search_box').find('input').serialize();
+        query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g, '');
+        query = query.replace(/^&/g, '');
+
+        if (query) {
+          if (url.indexOf('?') > 0) {
+            url += '&' + query;
+          } else {
+            url += '?' + query;
+          }
+        }
+
+        if (status != '') {
+          if (url.indexOf('?') > 0) {
+            url += '&status=' + status;
+          } else {
+            url += '?status=' + status;
+          }
+        }
+
+        window.location.href = url;
+      });
+
+      /* 状态搜索子菜单 */
+      $(".search_box").find(".drop-down").hover(function () {
+        $("#sub-sch-menu").removeClass("hidden");
+      }, function () {
+        $("#sub-sch-menu").addClass("hidden");
+      });
+      $("#sub-sch-menu li").find("a").each(function () {
+        $(this).click(function () {
+          var text = $(this).text();
+          $("#sch-sort-txt").text(text).attr("data", $(this).attr("value"));
+          $("#sub-sch-menu").addClass("hidden");
+        })
+      });
+      //回车搜索
+      $(".search-input").keyup(function (e) {
+        if (e.keyCode === 13) {
+          $("#search").click();
+          return false;
+        }
+      });
+    })
+  </script>
+</block>

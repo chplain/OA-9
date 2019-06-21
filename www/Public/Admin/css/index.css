@@ -1,0 +1,221 @@
+/**
+ * 首页样式文件
+ */
+html {
+  overflow: auto;
+}
+
+body {
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+}
+
+a:hover {
+  border: none;
+}
+
+.wrap {
+  height: 100%;
+  overflow: auto;
+  background: url(../images/1.jpg) no-repeat center;
+}
+
+.content {
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding: 50px 20px 60px;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+}
+
+.cont-ft {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.tab {
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+  margin-top: 20px;
+  padding-bottom: 15px;
+  display: none;
+  position: relative;
+  background: white;
+}
+
+.sys_icon {
+  position: absolute;
+  top: 23px;
+  right: 18px;
+  width: 9px;
+  height: 9px;
+  background: url(../images/bg_icon.png) no-repeat;
+  background-position:  0 -23px;
+  cursor: pointer;
+}
+
+.sys_icon.top {
+  background-position:  -25px -23px;
+}
+
+.tab .title {
+  font-size: 18px;
+  text-align: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+  background: #3576c7;
+  color: white;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.statistic {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.statistic .items {
+  width: 30%;
+  max-width: 260px;
+  height: 150px;
+  margin: 15px;
+  border-radius: 10px;
+  color: white;
+}
+
+.statistic .subtitle {
+  font-size: 18px;
+  margin: 40px 0 15px;
+  text-align: center;
+}
+
+.statistic .num {
+  font-size: 18px;
+  text-align: center;
+}
+
+.blue {
+  background: #099eff;
+}
+
+.pink {
+  background: #f492b3;
+}
+
+.orange {
+  background: #ffc4b2;
+}
+
+.table-title {
+  font-size: 16px;
+  padding: 15px;
+}
+
+.data-table {
+  margin: 0 15px 20px;
+}
+
+.no_data {
+  text-align: center;
+  line-height: 40px;
+}
+
+.page {
+  margin: 20px 15px 0;
+  text-align: right;
+}
+
+.page div {
+  display: inline-block;
+}
+
+.chart-title {
+  font-size: 16px;
+  padding: 15px;
+}
+
+.chart-panel {
+  width: 100%;
+  height: 300px;
+}
+
+.search {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.search input {
+  width: 200px;
+  height: 35px;
+  text-indent: 10px;
+  border: 1px solid #C5C5C5;
+  border-radius: 6px;
+  vertical-align: top;
+  box-sizing: border-box;
+}
+
+.search_btn {
+  border: 1px solid #C5C5C5;
+  background: none;
+  margin-left: 15px;
+  font-size: 16px;
+  height: 35px;
+  width: 50px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.search_btn:hover {
+  background-color: rgba(20, 20, 41, 0.11);
+}
+
+.user-bar:hover .nav-list {
+  display: block;
+}
+
+.edit_items {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.edit_label {
+  font-weight: normal;
+  font-size: 14px;
+  margin: 0 15px 0 0;
+}
+
+.form_datetime {
+  line-height: 32px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0 10px;
+}
+
+.form_datetime .add-on {
+  margin: 2px 0 0;
+}
+
+.form_datetime input {
+  border: none;
+  margin-top: 2px;
+}
+
+.edit_info {
+  margin-right: 20px;
+}

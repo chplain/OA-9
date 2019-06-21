@@ -1,0 +1,168 @@
+<extend name="Public/base"/>
+
+<block name="link">
+  <link rel="stylesheet" href="__STATIC__/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="__STATIC__/bootstrap/css/bootstrap-select.min.css">
+  <link rel="stylesheet" type="text/css" href="__CSS__/mainLayout.css">
+</block>
+<block name="style">
+  <style>
+  .form-vertical .edit_label {
+    min-width: 92px;
+  }
+  </style>
+</block>
+
+<!-- 页面子导航 -->
+<block name="nav">
+  <div class="breadcrumb">
+    <span>您的位置:</span>
+    <div>
+      <a href="{:u('tech/index')}">实施管理</a>
+      <span class="divider">/</span>
+    </div>
+    <div>
+      <a href="{:u('tech/payreminder')}">实施收款记录</a>
+      <span class="divider">/</span>
+    </div>
+    <div>{$info['id']?'编辑':'新增'}实施收款记录</div>
+  </div>
+</block>
+
+<block name="body">
+  <div class="newly">
+    <form action="__SELF__" method="post" enctype="multipart/form-data" class="form-vertical">
+      <div class="edit_items">
+        <label class="edit_label">催款单号</label>
+        <div class="edit_info">
+          <select id="prompt_id" name="prompt_id" class="selectpicker" data-width="172" title="请选择" data-size="6" data-live-search="true" data-live-search-placeholder="Search">
+            <volist name="prompts" id="vo">
+              <option value="{$vo.prompt_id}">{$vo.prompt_id}</option>
+            </volist>
+          </select>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">项目名称</label>
+        <div class="edit_info">
+          <input id="project_name" readonly type="text" class="text" name="project_name">
+          <input id="project_id" type="hidden" class="text" name="project_id" value="">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">计划编号</label>
+        <div class="edit_info">
+          <input id="plan_code" readonly type="text" class="text" name="plan_code">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">计划阶段</label>
+        <div class="edit_info">
+          <input id="phases" readonly type="text" class="text" name="">
+          <input id="phases1" style="display: none;" readonly type="text" class="text" name="phases">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">实施人员</label>
+        <div class="edit_info">
+          <input id="executor" readonly type="text" class="text" name="executor">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">预计回款时间</label>
+        <div class="edit_info">
+          <input id="rtdate" readonly type="text" class="text" name="rtime">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">预计回款比例(%)</label>
+        <div class="edit_info">
+          <input id="rpercent" readonly type="text" class="text" name="rpercent">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">预计回款金额(元)</label>
+        <div class="edit_info">
+          <input id="rmoney" readonly type="text" class="text" name="rmoney">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label" style="color: red;">收款状态更新</label>
+        <div class="edit_info">
+          <select name="status" class="selectpicker" data-width="172" title="请选择" data-size="6">
+            <option value="0">新增</option>
+            <option value="1">客户确认</option>
+            <option value="2">财务确认</option>
+          </select>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">收款情况描述</label>
+        <div class="edit_info">
+          <textarea name="prompt_result"> </textarea>
+        </div>
+      </div>
+
+      <div class="edit_items">
+        <label class="edit_label">备注</label>
+        <div class="edit_info">
+          <textarea name="remark"></textarea>
+        </div>
+      </div>
+
+      <div class="edit_btn">
+        <input type="hidden" name="id" value="{$info.id|default=''}">
+        <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-vertical">确 定</button>
+        <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+      </div>
+    </form>
+  </div>
+</block>
+
+<block name="script">
+  <script src="__STATIC__/bootstrap/js/bootstrap.min.js"></script>
+  <script src="__STATIC__/bootstrap/js/bootstrap-select.min.js"></script>
+
+  <script type="text/javascript">
+    $(function () {
+      //导航高亮
+      $('.side-sub-menu').find('a[href="{:U('tech/payreminder')}"]').closest('li').addClass('current');
+      $("#prompt_id").change(function () {
+        var prompt_id = $(this).val();
+        console.log(prompt_id);
+
+        // Ajax提交数据
+        $.ajax({
+          url: "{:U('Tech/getMessByPromptId')}",    // 提交到controller的url路径
+          type: "post",    // 提交方式
+          data: {"prompt_id": prompt_id},  // data为String类型，必须为 Key/Value 格式。
+          dataType: "json",    // 服务器端返回的数据类型
+          success: function (data) {
+            console.log(data);
+            // console.log(data.project_name);
+            $("#project_name").val(data.project_name);
+            $("#project_id").val(data.id);
+            $("#phases").val('第'+data.phases+'阶段');
+            $("#phases1").val(data.phases);
+            $("#executor").val(data.executor);
+            $("#rtdate").val(data.rtdate);
+            $("#rpercent").val(data.rpercent);
+            $("#rmoney").val(data.rmoney);
+            $("#plan_code").val(data.plan_code);
+          },
+        });
+      });
+
+      $("#IsDelay").change(function () {
+        var IsDelay = $(this).val();
+        console.log(IsDelay);
+        if (IsDelay == 0) {
+          $(".form-item.delayWhy").hide(600);
+        } else {
+          $(".form-item.delayWhy").show(600);
+        }
+
+      });
+    });
+  </script>
+</block>

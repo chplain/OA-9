@@ -1,0 +1,199 @@
+<extend name="Public/base"/>
+
+<block name="link">
+  <link rel="stylesheet" type="text/css" href="__CSS__/mainLayout.css" media="all">
+</block>
+
+<!-- 页面子导航 -->
+<block name="nav">
+  <div class="breadcrumb">
+    <span>您的位置:</span>
+    <div>
+      <span>开发管理</span>
+      <span class="divider">/</span>
+    </div>
+    <div>新产品开发计划</div>
+  </div>
+</block>
+
+<block name="body">
+  <div class="search_box">
+    <div class="items">
+      <span>产品名称：</span>
+      <input type="text" name="product_name" class="search-input" value="{:I('product_name')}"/>
+    </div>
+
+    <div class="items">
+      <span>状态：</span>
+      <div class="drop-down">
+        <span id="sch-sort-txt" class="sort-txt" data="{$status}">
+          {:state_text($status)}
+        </span>
+        <i class="arrow arrow-down"></i>
+        <ul id="sub-sch-menu" class="nav-list hidden">
+          <li><a href="javascript:void(0);" value="">所有</a></li>
+          <li><a href="javascript:void(0);" value="0">新增</a></li>
+          <li><a href="javascript:void(0);" value="1">正常</a></li>
+          <li><a href="javascript:void(0);" value="2">完成</a></li>
+          <li><a href="javascript:void(0);" value="3">暂停</a></li>
+          <li><a href="javascript:void(0);" value="4">延期</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="items">
+      <a class="sch-btn" href="javascript:void(0);" id="search" url="{:U('newdevlist')}"><i class="btn-search"></i></a>
+    </div>
+    <div class="items action_btn_box">
+      <button class="btn" id="action_add" url="{:U('new_dev_add')}">新 增</button>
+      <button class="btn ajax-post confirm" target-form="ids" url="{:U('new_sure',array('status'=>-1))}">确 认</button>
+      <button class="btn ajax-post confirm" target-form="ids" url="{:U('new_sure',array('status'=>-2))}">完 成</button>
+      <button class="btn ajax-post confirm" target-form="ids" url="{:U('new_sure',array('status'=>-3))}">终 止</button>
+      <button class="btn ajax-post confirm" target-form="ids" url="{:U('new_sure',array('status'=>-4))}">延 期</button>
+    </div>
+  </div>
+
+  <!-- 数据列表 -->
+  <div class="data-table">
+    <table>
+      <thead>
+      <tr>
+        <th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+        <th>计划编号</th>
+        <th>状态</th>
+        <th>产品名称</th>
+        <th>产品类型</th>
+        <th>迭代版本</th>
+        <th>启动日期</th>
+        <!-- <th>预计完成日期</th> -->
+        <th>实际完成日期</th>
+        <th>实际人天</th>
+        <th>产品负责人</th>
+        <!-- <th>开发负责人</th> -->
+        <!-- <th>情况说明</th> -->
+        <th>创建人</th>
+        <th>创建时间</th>
+        <th>更新人</th>
+        <th>更新时间</th>
+        <th>操作</th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <if condition="$newproduct neq ''">
+        <volist name="newproduct" id="vo">
+          <tr>
+            <td><input class="ids" type="checkbox" name="ids[]" value="{$vo.id}"/></td>
+            <td>{$vo.plan_code}</td>
+            <td>
+              <if condition="$vo.status eq 0">
+                新增
+                <elseif condition="$vo.status eq 1"/>
+                正常
+                <elseif condition="$vo.status eq 2"/>
+                已完成
+                <elseif condition="$vo.status eq 3"/>
+                暂停
+                <elseif condition="$vo.status eq 4  "/>
+                延期
+              </if>
+            </td>
+            <td>{$vo.product_name}</td>
+            <td>
+              <if condition="$vo.product_type eq 1">
+                标准版
+              <elseif condition="$vo.product_type eq 2"/>
+                新产品
+              <elseif condition="$vo.product_type eq 3"/>
+                集团版
+              </if>
+            </td>
+            <td>{$vo.version}</td>
+            <td>{$vo.start_time}</td>
+            <td>{$vo.ac_time}</td>
+            <td>{$vo.manday}</td>
+            <td>{$vo.product_charge}</td>
+            <!-- <td>{$vo.dev_role}</td> -->
+            <!-- <td>{$vo.describe}</td> -->
+            <td>{$vo.create_person}</td>
+            <td>{$vo.create_time}</td>
+            <td>{$vo.update_person}</td>
+            <td>{$vo.update_time}</td>
+            <td>
+              <a href="{:U('new_dev_add?id='.$vo['id'])}">详情</a>
+            </td>
+          </tr>
+        </volist>
+        <else/>
+        <tr>
+          <td colspan="14">
+            <div class="no_data">没有数据</div>
+          </td>
+        </tr>
+      </if>
+      </tbody>
+    </table>
+
+  </div>
+  <!-- 分页 -->
+  <div class="page">{$_page}</div>
+  <!-- /分页 -->
+
+</block>
+<block name="script">
+  <script type="text/javascript">
+    $(function () {
+      /* 状态搜索子菜单 */
+      $(".drop-down").hover(function(){
+        $("#sub-sch-menu").removeClass("hidden");
+      },function(){
+        $("#sub-sch-menu").addClass("hidden");
+      });
+
+      $("#sub-sch-menu li").find("a").each(function(){
+        $(this).click(function(){
+          var text = $(this).text();
+          $("#sch-sort-txt").text(text).attr("data",$(this).attr("value"));
+          $("#sub-sch-menu").addClass("hidden");
+        })
+      });
+
+      //  新增
+      $("#action_add").click(function () {
+        window.location.href = $(this).attr('url');
+      })
+
+      //搜索功能
+      $("#search").click(function () {
+        var url = $(this).attr('url');
+        var status = $("#sch-sort-txt").attr("data");
+        var query = $('.search_box').find('input').serialize();
+        query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g, '');
+        query = query.replace(/^&/g, '');
+        if (query) {
+          if (url.indexOf('?') > 0) {
+            url += '&' + query;
+          } else {
+            url += '?' + query;
+          }
+        }
+
+        if (status != '') {
+          if (url.indexOf('?') > 0) {
+            url += '&status=' + status;
+          } else {
+            url += '?status=' + status;
+          }
+        }
+        window.location.href = url;
+      });
+      //回车搜索
+      $(".search-input").keyup(function (e) {
+        if (e.keyCode === 13) {
+          $("#search").click();
+          return false;
+        }
+      });
+    })
+  </script>
+</block>

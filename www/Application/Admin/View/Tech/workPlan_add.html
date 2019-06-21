@@ -1,0 +1,524 @@
+<extend name="Public/base"/>
+
+<block name="link">
+  <link rel="stylesheet" href="__STATIC__/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="__STATIC__/bootstrap/css/bootstrap-select.min.css">
+  <link rel="stylesheet" href="__STATIC__/datetimepicker/css/datetimepicker.css">
+  <link rel="stylesheet" href="__STATIC__/datetimepicker/css/datetimepicker_blue.css">
+  <link rel="stylesheet" type="text/css" href="__CSS__/mainLayout.css">
+  <link rel="stylesheet" type="text/css" href="__CSS__/new.css">
+</block>
+
+<block name="style">
+  <style>
+    .edit_items{width: 200px;}
+  </style>
+</block>
+
+<!-- 页面子导航 -->
+<block name="nav">
+  <div class="breadcrumb">
+    <span>您的位置:</span>
+    <div>
+      <a href="{:u('tech/index')}">实施管理</a>
+      <span class="divider">/</span>
+    </div>
+    <div>
+      <a href="{:u('tech/workplan_add')}">实施工作计划</a>
+      <span class="divider">/</span>
+    </div>
+    <div>{$info['id']?'编辑':'新增'}工作计划</div>
+  </div>
+</block>
+
+<block name="body">
+  <div class="newly">
+    <!-- 标题栏 -->
+    <form action="__SELF__" method="post" enctype="multipart/form-data" class="form-horizontal">
+      <div class="edit_title">实施计划阶段基础信息</div>
+      <div class="edit_items">
+        <label class="edit_label">项目|商业地产：</label>
+        <div class="edit_info">
+          <select id="project_id" name="project_id" class="selectpicker" data-width="172" title="请选择" data-size="6" data-live-search="true" data-live-search-placeholder="Search">
+            <volist name="projects" id="vo2">
+              <option value="{$vo2.project_id}">{$vo2.project_name}</option>
+            </volist>
+          </select>
+        </div>
+      </div>
+      <!-- <div class="edit_items">
+        <label class="edit_label">实施计划编号：</label>
+        <div class="edit_info">
+          <select id="plan_code" name="plan_code" class="selectpicker" data-width="172" title="请选择" data-size="6" data-live-search="true" data-live-search-placeholder="Search">
+            <volist name="plans" id="vo">
+              <option value="{$vo.plan_code}">{$vo.plan_code}</option>
+            </volist>
+          </select>
+        </div>
+      </div> -->
+
+      <div class="edit_items">
+        <label class="edit_label">实施计划编号：</label>
+        <div class="edit_info">
+          <select id="plan_code" name="plan_code" class="selectpicker" data-width="172" title="请选择" data-size="6" data-live-search="true" data-live-search-placeholder="Search">
+            <option disabled>没有数据</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="edit_items">
+        <label class="edit_label">实施计划阶段：</label>
+        <div class="edit_info">
+          <select id="plan_phases" name="plan_phases" class="selectpicker" data-width="172" title="请选择" data-size="6">
+            <option disabled>没有数据</option>
+          </select>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">服务产品：</label>
+        <div class="edit_info">
+          <input readonly id="products" type="text" name="products"/>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">实施期间：</label>
+        <div class="edit_info">
+          <div class="date form_datetime">
+            <span class="add-on"><i class="icon-th glyphicon glyphicon-calendar"></i></span>
+            <input id="stime" type="text" class="date" name="" placeholder="选择日期" readonly value="{$vo1.stime}">
+          </div>
+          <span class="spacing">至</span>
+          <div class="date form_datetime">
+            <span class="add-on"><i class="icon-th glyphicon glyphicon-calendar"></i></span>
+            <input id="etime" type="text" class="date" name="" placeholder="选择日期" readonly value="{$vo1.etime}">
+          </div>
+        </div>
+      </div>
+
+      <div class="edit_items">
+        <label class="edit_label">是否是收款周期：</label>
+        <div class="edit_info">
+          <input readonly id="IsPayPhases" type="text" name=""/>
+        </div>
+      </div>
+
+      <div class="edit_items">
+        <label class="edit_label">收款金额(元)：</label>
+        <div class="edit_info">
+          <input type="text" readonly id="PhasesFee" name="" value="">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">预计回款日期：</label>
+        <div class="edit_info">
+          <div class="date form_datetime">
+            <span class="add-on"><i class="icon-th glyphicon glyphicon-calendar"></i></span>
+            <input type="text" class="date" id="rtdate" name=""  placeholder="选择日期" readonly value="{$vo1.rtdate}">
+          </div>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">预计回款比例(%)：</label>
+        <div class="edit_info">
+          <input type="text" id="rpercent" name="" value="{$vo1.rpercent}" readonly>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">预计回款金额(w)：</label>
+        <div class="edit_info">
+          <input type="text" id="rmoney" name="" value="{$vo1.rmoney}" readonly>
+        </div>
+      </div>
+
+      <div class="edit_items">
+        <label class="edit_label">备注：</label>
+        <div class="edit_info">
+          <textarea  id="remark" name="" style="width: 300px;height: 150px;" readonly>{$vo1.remark}</textarea>
+        </div>
+      </div>
+     
+
+      <div class="edit_title">工作计划</div>
+      <div class="edit-box fee">
+        <div class="cell">
+          <p class="sub-title">计划1：</p>
+          <div class="content-box">
+            <div class="edit_items">
+              <label class="edit_label">实施产品：</label>
+              <div class="edit_info">
+                <select name="data[0][products][]" class="selectpicker" data-width="172" title="请选择" multiple data-size="6" data-live-search="true" data-live-search-placeholder="Search">
+                  <if condition="$products">
+                    <volist name="products" id="vo">
+                      <option value="{$vo.product_name}">{$vo.product_name}</option>
+                    </volist>
+                    <else/>
+                    <option disabled>没有数据</option>
+                  </if>
+                </select>
+              </div>
+            </div>
+            <div class="edit_items">
+              <label class="edit_label">派遣人员：</label>
+              <div class="edit_info">
+                <select name="data[0][executor][]" class="selectpicker" data-width="172" multiple title="请选择" data-size="6" data-live-search="true" data-live-search-placeholder="Search">
+                  <volist name="techs" id="vo">
+                    <option value="{$vo.nickname}">{$vo.nickname}</option>
+                  </volist>
+                </select>
+              </div>
+            </div>
+            <div class="edit_items">
+              <label class="edit_label">指定日期：</label>
+              <div class="edit_info">
+                <div class="date form_datetime">
+                  <span class="add-on"><i class="icon-th glyphicon glyphicon-calendar"></i></span>
+                  <input id="stime" type="text" class="date" name="data[0][stime]" placeholder="选择日期" readonly value="{$vo1.stime}">
+                </div>
+                <span class="spacing">至</span>
+                <div class="date form_datetime">
+                  <span class="add-on"><i class="icon-th glyphicon glyphicon-calendar"></i></span>
+                  <input id="etime" type="text" class="date" name="data[0][etime]" placeholder="选择日期" readonly value="{$vo1.etime}">
+                </div>
+              </div>
+            </div>
+            <div class="edit_items">
+              <label class="edit_label">具体工作安排：</label>
+              <div class="edit_info">
+                <textarea style="width: 300px;height: 150px;" name="data[0][remark]"></textarea>
+              </div>
+            </div>
+            <div class="edit_btn">
+              <span class="add-btn" data-index="1" data-sign="charge">+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="edit_title">其他信息</div>
+      <div class="edit-box remarks">
+        <div class="cell">
+          <div class="edit_items">
+            <label class="edit_label">备注：</label>
+            <div class="edit_info">
+              <textarea name="remark" style="width: 300px;height: 150px;"></textarea>
+            </div>
+          </div>
+          <!-- <div class="edit_btn">
+            <span class="add-btn" data-index="1" data-sign="remarks">+</span>
+          </div> -->
+        </div>
+      </div>
+      <div class="edit-box uploadWrap">
+        <div class="cell">
+          <div class="edit_items">
+            <label class="edit_label">附件上传：</label>
+            <div class="edit_info">
+                <input type="file" name="accessory" >
+            </div>
+          </div>
+          <!-- <div class="edit_btn">
+            <span class="add-btn" data-index="1" data-sign="upload">+</span>
+          </div> -->
+        </div>
+      </div>
+      <div class="edit_btn action_btn">
+        <input type="hidden" name="id" value="{$info.id|default=''}">
+        <button class="btn submit-btn"  type="submit">确 定</button>
+        <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+      </div>
+    </form>
+  </div>
+</block>
+<block name="script">
+  <script src="__STATIC__/bootstrap/js/bootstrap.min.js"></script>
+  <script src="__STATIC__/bootstrap/js/bootstrap-select.min.js"></script>
+  <script src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.js"></script>
+  <script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+  <script type="text/javascript" src="__JS__/artTemplate.js"></script>
+  <script id="list1" type="text/html">
+    {{if sign == 'charge'}}
+    <div class="cell">
+      <p class="sub-title">计划{{upper+1}}：</p>
+      <div class="content-box">
+        <div class="edit_items">
+          <label class="edit_label">实施产品：</label>
+          <div class="edit_info">
+            <select name="data[{{index}}][products][]" class="selectpicker" data-width="172" title="请选择" multiple data-size="6" data-live-search="true" data-live-search-placeholder="Search">
+              <if condition="$products">
+                <volist name="products" id="vo">
+                  <option value="{$vo.product_name}">{$vo.product_name}</option>
+                </volist>
+                <else/>
+                <option disabled>没有数据</option>
+              </if>
+            </select>
+          </div>
+        </div>
+        <div class="edit_items">
+          <label class="edit_label">派遣人员：</label>
+          <div class="edit_info">
+            <select name="data[{{index}}][executor][]" class="selectpicker" data-width="172" title="请选择" data-size="6" multiple data-live-search="true" data-live-search-placeholder="Search">
+              <volist name="techs" id="vo">
+                <option value="{$vo.nickname}">{$vo.nickname}</option>
+              </volist>
+            </select>
+          </div>
+        </div>
+        <div class="edit_items">
+          <label class="edit_label">指定日期：</label>
+          <div class="edit_info">
+            <div class="date form_datetime">
+              <span class="add-on"><i class="icon-th glyphicon glyphicon-calendar"></i></span>
+              <input id="stime" type="text" class="date" name="data[{{index}}][stime]" placeholder="选择日期" readonly value="{$vo1.stime}">
+            </div>
+            <span class="spacing">至</span>
+            <div class="date form_datetime">
+              <span class="add-on"><i class="icon-th glyphicon glyphicon-calendar"></i></span>
+              <input id="etime" type="text" class="date" name="data[{{index}}][etime]" placeholder="选择日期" readonly value="{$vo1.etime}">
+            </div>
+          </div>
+        </div>
+        <div class="edit_items">
+          <label class="edit_label">具体工作安排：</label>
+          <div class="edit_info">
+            <textarea style="width: 300px;height: 150px;" name="data[{{index}}][remark]"></textarea>
+          </div>
+        </div>
+        <div class="edit_btn">
+          {{if index < 10}}
+          <span class="add-btn" data-index="{{index+1}}" data-sign="charge">+</span>
+          {{/if}}
+          <span class="del-btn" data-index="{{index+1}}" data-sign="charge">-</span>
+        </div>
+      </div>
+    </div>
+    {{else if sign == 'remarks'}}
+    <div class="cell">
+      <div class="edit_items">
+        <label class="edit_label">备注{{index+1}}：</label>
+        <div class="edit_info">
+          <textarea name="data1[{{index}}][remark]"></textarea>
+        </div>
+      </div>
+      <div class="edit_btn">
+        {{if index < 3}}
+        <span class="add-btn" data-index="{{index+1}}" data-sign="remarks">+</span>
+        {{/if}}
+        <span class="del-btn" data-index="{{index+1}}" data-sign="remarks">-</span>
+      </div>
+    </div>
+    {{else}}
+    <div class="cell">
+      <div class="edit_items">
+        <label class="edit_label">附件上传：</label>
+        <div class="edit_info">
+          <div class="upload">
+            <span class="tips">点击上传图片</span>
+            <input type="file" name="data2[{{index}}]['accessory']" class="uploadFile">
+          </div>
+        </div>
+      </div>
+      <div class="edit_btn">
+        {{if index < 3}}
+        <span class="add-btn" data-index="{{index+1}}" data-sign="upload">+</span>
+        {{/if}}
+        <span class="del-btn" data-index="{{index+1}}" data-sign="upload">-</span>
+      </div>
+    </div>
+    {{/if}}
+  </script>
+  <script type="text/javascript">
+    $(function () {
+      $('.side-sub-menu').find('a[href="{:U('tech/workplan')}"]').closest('li').addClass('current');
+
+      // 日期插件
+      $('.form_datetime').datetimepicker({
+        format: 'yyyy-mm-dd',
+        language: "zh-CN",
+        minView: 2,
+        autoclose: true,
+        todayBtn: true
+      });
+
+      $("#project_id").change(function () {
+        $("#plan_code").empty();
+        $("#plan_phases").empty();
+        // $("#project_id").empty();
+        $("#products").val('');
+        $("#stime").val('');
+        $("#etime").val('');
+        $("#rtdate").val('');
+        $("#rpercent").val('');
+        $("#rmoney").val('');
+        $("#remark").val('');
+        $("#IsPayPhases").val('');
+        $("#PhasesFee").val('');
+        var project_id = $(this).val();
+        // Ajax提交数据
+        $.ajax({
+          url: "{:U('Tech/getPlanCode')}",    // 提交到controller的url路径
+          type: "post",    // 提交方式
+          data: {"project_id": project_id},  // data为String类型，必须为 Key/Value 格式。
+          dataType: "json",    // 服务器端返回的数据类型
+          success: function (data) {
+            console.log(data);
+            $("#plan_code").empty();
+            let str = ``;
+            data.map(item => {
+              str += `<option value='${item.plan_code}'>${item.plan_code}</option>`;
+            });
+            $("#plan_code").append(str).selectpicker('refresh');
+            $("#plan_phases").selectpicker('refresh');
+          },
+        });
+      });
+
+      $("#plan_code").change(function () {
+        // $("#project_id").empty();
+        $("#plan_phases").empty();
+        var plan_code = $(this).val();
+
+        // $("#project_id").empty();
+        $("#products").val('');
+        $("#stime").val('');
+        $("#etime").val('');
+        $("#rtdate").val('');
+        $("#rpercent").val('');
+        $("#rmoney").val('');
+        $("#remark").val('');
+        $("#IsPayPhases").val('');
+        $("#PhasesFee").val('');
+        
+        // Ajax提交数据
+        // return;
+        $.ajax({
+          url: "{:U('Tech/get_planPhases')}",    // 提交到controller的url路径
+          type: "post",    // 提交方式
+          data: {"plan_code": plan_code},  // data为String类型，必须为 Key/Value 格式。
+          dataType: "json",    // 服务器端返回的数据类型
+          success: function (data) {
+            // console.log(data);
+            let str = '';
+            data.map(item => {
+              str += `<option value='${item.phases}'>第${item.phases}阶段</option>`;
+            });
+            $("#plan_phases").append(str).selectpicker('refresh');
+
+          },
+        });
+      });
+
+      $("#plan_phases").change(function () {
+        var plan_phases = $(this).val();
+        var plan_code = $("#plan_code").val();
+        $("#products").val('');
+        $("#stime").val('');
+        $("#etime").val('');
+        $("#rtdate").val('');
+        $("#rpercent").val('');
+        $("#rmoney").val('');
+        $("#remark").val('');
+        $("#IsPayPhases").val('');
+        $("#PhasesFee").val('');
+        // console.log(plan_code);
+        // return
+        // Ajax提交数据
+        $.ajax({
+          url: "{:U('Tech/get_PhasesMess')}",    // 提交到controller的url路径
+          type: "post",    // 提交方式
+          data: {
+                "plan_phases": plan_phases,
+                "plan_code": plan_code,
+          },  // data为String类型，必须为 Key/Value 格式。
+          dataType: "json",    // 服务器端返回的数据类型
+          success: function (data) {
+            console.log(data);
+            $("#products").val(data.products);
+            $("#stime").val(data.stime);
+            $("#etime").val(data.etime);
+            // if(dataIsPayPhases){
+              
+            // }
+            $("#rtdate").val(data.rtdate);
+            $("#rpercent").val(data.rpercent);
+            $("#rmoney").val(data.rmoney);
+            $("#remark").val(data.remark);
+            $("#IsPayPhases").val(data.IsPayPhases);
+            $("#PhasesFee").val(data.PhasesFee);
+            
+          },
+        });
+
+      });
+
+    
+      $(".edit-box").on('change', '.uploadFile', function () {
+        var objUrl = getObjectURL(this.files[0]);//获取文件信息
+        if (objUrl) {
+          $(this).parent().find('img').remove();
+          $(this).parent().find('.tips').hide();
+          $(this).parent().append("<img src=\"" + objUrl + "\" alt='预览'/>");
+        }
+      });
+
+      function getObjectURL(file) {
+        var url = null;
+        if (window.createObjectURL != undefined) {
+          url = window.createObjectURL(file);
+        } else if (window.URL != undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL != undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+
+      // 绑定添加信息点击事件
+      $('.edit-box').on('click', '.add-btn', function () {
+        var index = $(this).data('index'), sign = $(this).data('sign');
+        $(this).parent().hide();
+        var html = template('list1', {sign: sign, index: index, upper: index});
+        if (sign == 'charge') {
+          $('.fee').append(html);
+          // 日期插件
+          $('.form_datetime').datetimepicker({
+            format: 'yyyy-mm-dd',
+            language: "zh-CN",
+            minView: 2,
+            autoclose: true,
+            todayBtn: true
+          });
+        } else if (sign == 'remarks') {
+          $('.remarks').append(html);
+        } else {
+          $('.uploadWrap').append(html);
+        }
+        $('select.selectpicker').selectpicker('refresh');
+      });
+
+      // 添加删除事件
+      $('.edit-box').on('click', '.del-btn', function () {
+        var index = $(this).data('index'), sign = $(this).data('sign');
+
+        let parant = '';
+        if (sign == 'charge') {
+          parant = $('.fee').find(".cell").eq(index - 2);
+        } else if (sign == 'remarks') {
+          parant = $('.remarks').find(".cell").eq(index - 2);
+        } else {
+          parant = $('.uploadWrap').find(".cell").eq(index - 2);
+        }
+
+        parant.find('.edit_btn').show();
+        $(this).parents('.cell').remove();
+      })
+
+      function DX(n) {
+        if (!/^(0|[1-9]\d*)(\.\d+)?$/.test(n))
+          return "数据非法";
+        return '一二三四五六七八九'.charAt(n);
+      }
+    });
+  </script>
+
+
+</block>

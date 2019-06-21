@@ -1,0 +1,547 @@
+<extend name="Public/base"/>
+
+<block name="link">
+  <link rel="stylesheet" href="__STATIC__/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="__STATIC__/bootstrap/css/bootstrap-select.min.css">
+  <link rel="stylesheet" href="__STATIC__/datetimepicker/css/datetimepicker.css">
+  <link rel="stylesheet" href="__STATIC__/datetimepicker/css/datetimepicker_blue.css">
+  <link rel="stylesheet" type="text/css" href="__CSS__/mainLayout.css">
+  <link rel="stylesheet" type="text/css" href="__CSS__/new.css">
+</block>
+
+<block name="style">
+  <style>
+    .edit_label {
+      width: 85px;
+    }
+  </style>
+</block>
+
+<!-- 页面子导航 -->
+<block name="nav">
+  <div class="breadcrumb">
+    <span>您的位置:</span>
+    <div>
+      <a href="{:u('dev/newdevlist')}">开发管理</a>
+      <span class="divider">/</span>
+    </div>
+    <div>
+      <a href="{:u('dev/newdevlist')}">新产品开发计划</a>
+      <span class="divider">/</span>
+    </div>
+    <div>{$info['id']?'编辑':'新增'}新产品开发计划</div>
+  </div>
+</block>
+
+<block name="body">
+  <div class="newly">
+    <form action="__SELF__" method="post" class="form-horizontal">
+      <div class="edit_title">产品信息</div>
+      <div class="edit_items">
+        <label class="edit_label">计划编号：</label>
+        <div class="edit_info">
+          <input readonly placeholder="系统自动生成" type="text" value='{$newproducts.plan_code}'/>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">产品名称：</label>
+        <div class="edit_info">
+          <select name="product_name" class="selectpicker" data-width="172" title="请选择" data-size="6">
+            <volist name="products" id="vo">
+              <if condition="$newproducts['product_name'] eq $vo['product_name']">
+                <option selected value='{$vo.product_name}'>{$vo.product_name}</option>
+                <else/>
+                <option value='{$vo.product_name}'>{$vo.product_name}</option>
+              </if>
+            </volist>
+          </select>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">产品类型：</label>
+        <div class="edit_info">
+          <select name="product_type" class="selectpicker" data-width="172" title="请选择" data-size="6">
+            <if condition="$newproducts['product_type'] eq '1'">
+              <option selected value="1">标准版</option>
+              <option value="2">新产品</option>
+              <option value="3">集团版</option>
+            <elseif condition="$newproducts['product_type'] eq '2'"/>
+              <option value="1">标准版</option>
+              <option selected value="2">新产品</option>
+              <option  value="3">集团版</option>
+            <elseif condition="$newproducts['product_type'] eq '3'"/>
+              <option value="1">标准版</option>
+              <option value="2">新产品</option>
+              <option selected value="3">集团版</option>
+            <else/>
+              <option value="1">标准版</option>
+              <option value="2">新产品</option>
+              <option value="3">集团版</option>
+            </if>
+          </select>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">迭代版本号：</label>
+        <div class="edit_info">
+          <input  type="text" name="version" value='{$newproducts.version}'/>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">启动日期：</label>
+        <div class="edit_info">
+          <div class="date form_datetime">
+            <span class="add-on"><i class="icon-th glyphicon glyphicon-calendar"></i></span>
+            <input type="text" class="date" name="start_time" value='{$newproducts.start_time}' placeholder="选择日期" readonly>
+          </div>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">预计完成日期：</label>
+        <div class="edit_info">
+          <div class="date form_datetime">
+            <span class="add-on"><i class="icon-th glyphicon glyphicon-calendar"></i></span>
+            <input type="text" class="date" name="end_time" value='{$newproducts.end_time}' placeholder="选择日期" readonly>
+          </div>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">预计人天：</label>
+        <div class="edit_info">
+          <input type="text" name="manday" value='{$newproducts.manday}'/>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">实际完成日期：</label>
+        <div class="edit_info">
+          <div class="date form_datetime">
+            <span class="add-on"><i class="icon-th glyphicon glyphicon-calendar"></i></span>
+            <input type="text" class="date" name="ac_time" value='{$newproducts.ac_time}' placeholder="选择日期" readonly>
+          </div>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">开发负责人：</label>
+        <div class="edit_info">
+          <select id="project_id" name="dev_role" class="selectpicker" data-width="172" title="请选择" data-size="6">
+            <volist name="devs" id="vo">
+              <if condition="$newproducts['dev_role'] eq $vo['nickname']">
+                <option selected name="dev_role" value="{$vo.nickname}">{$vo.nickname}</option>
+                <else/>
+                <option name="dev_role" value="{$vo.nickname}">{$vo.nickname}</option>
+              </if>
+            </volist>
+          </select>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">产品负责人：</label>
+        <div class="edit_info">
+          <select id="project_id" name="product_charge" class="selectpicker" data-width="172" title="请选择" data-size="6">
+            <volist name="prods" id="vo">
+              <if condition="$newproducts['product_charge'] eq $vo['nickname']">
+                <option selected  value="{$vo.nickname}">{$vo.nickname}</option>
+              <else/>
+                <option  value="{$vo.nickname}">{$vo.nickname}</option>
+              </if>
+            </volist>
+          </select>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">情况说明：</label>
+        <div class="edit_info">
+          <textarea name="describe">{$newproducts.describe}</textarea>
+        </div>
+      </div>
+      <div class="edit_title">开发计划</div>
+      <div class="edit-box fee">
+        <if condition="$phases neq ''">
+          <volist name="phases" id="vo1">
+            <div class="cell">
+              <div class="edit_items">
+                <label class="edit_label" style="color:red;">开发阶段：</label>
+                <div class="edit_info">
+                  <div class="edit_info">
+                    <select name="data[{$key}][product_jd]" class="selectpicker" data-width="172" title="请选择" data-size="6">
+                      <option value="产品设计"
+                      <?php if($vo1['product_jd'] == '产品设计'){echo 'selected';}?>>产品设计
+                      </option>
+
+                      <option value="产品开发"
+                      <?php if($vo1['product_jd'] == '产品开发'){echo 'selected';}?>>产品开发
+                      </option>
+
+                      <option value="产品测试及发布"
+                      <?php if($vo1['product_jd'] == '产品测试及发布'){echo 'selected';}?>>产品测试及发布
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="edit_items">
+                <label class="edit_label">开发期间：</label>
+                <div class="edit_info">
+                  <div class="date form_datetime">
+                    <span class="add-on"><i class="icon-th glyphicon glyphicon-calendar"></i></span>
+                    <input type="text" class="date" name="data[{$key}][stime]" placeholder="选择日期" readonly value='{$vo1.stime}' value="{$vo1.etime}">
+                  </div>
+                  <span class="spacing">至</span>
+                  <div class="date form_datetime">
+                    <span class="add-on"><i class="icon-th glyphicon glyphicon-calendar"></i></span>
+                    <input type="text" class="date" name="data[{$key}][etime]" placeholder="选择日期" readonly value="{$vo1.etime}">
+                  </div>
+                </div>
+              </div>
+              <div class="edit_items">
+                <label class="edit_label">开发人天：</label>
+                <div class="edit_info">
+                  <input type="text" name="data[{$key}][manday]" value="{$vo1.manday}">
+                </div>
+              </div>
+              <div class="edit_items">
+                <label class="edit_label">预计费用：</label>
+                <div class="edit_info">
+                  <input type="text" name="data[{$key}][PhasesFee]" value="{$vo1.PhasesFee}">
+                </div>
+              </div>
+              <div class="edit_items">
+                <label class="edit_label">负责人：</label>
+                <div class="edit_info">
+                  <select name="data[{$key}][coder]" class="selectpicker" data-width="172" title="请选择" data-size="6">
+                    <foreach  name="devs1" item="vo" key="k">
+                      <if condition="$vo1['coder'] eq $vo['uid']">
+                        <option name="dev_role" selected value="{$vo.uid}">{$vo.nickname}</option>
+                        <else/>
+                        <option name="dev_role" value="{$vo.uid}">{$vo.nickname}</option>
+                      </if>
+                    </foreach >
+                  </select>
+                </div>
+              </div>
+              <div class="edit_items">
+                <label class="edit_label">备注：</label>
+                <div class="edit_info">
+                  <textarea name="data[{$key}][remark]">{$vo1.remark}</textarea>
+                </div>
+              </div>
+              <if condition="$key eq 0">
+                <div class="edit_btn">
+                  <span class="add-btn" data-index="{$key+1}" data-sign="charge">+</span>
+                </div>
+                <else/>
+                <div class="edit_btn">
+                  <span class="add-btn" data-index="{$key+1}" data-sign="charge">+</span>
+                  <span class="del-btn" data-index="{$key+1}" data-sign="charge">-</span>
+                </div>
+              </if>
+            </div>
+          </volist>
+          <else/>
+          <div class="cell">
+            <div class="edit_items">
+              <label class="edit_label" style="color:red;">开发阶段：</label>
+              <div class="edit_info">
+                <div class="edit_info">
+                  <select name="data[0][product_jd]" class="selectpicker" data-width="172" title="请选择" data-size="6">
+                    <option value="产品设计">产品设计</option>
+                    <option value="产品开发">产品开发</option>
+                    <option value="产品测试及发布">产品测试及发布</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="edit_items">
+              <label class="edit_label">开发期间：</label>
+              <div class="edit_info">
+                <div class="date form_datetime">
+                  <span class="add-on"><i class="icon-th glyphicon glyphicon-calendar"></i></span>
+                  <input type="text" class="date" name="data[0][stime]" placeholder="选择日期" readonly>
+                </div>
+                <span class="spacing">至</span>
+                <div class="date form_datetime">
+                  <span class="add-on"><i class="icon-th glyphicon glyphicon-calendar"></i></span>
+                  <input type="text" class="date" name="data[0][etime]" placeholder="选择日期" readonly>
+                </div>
+              </div>
+            </div>
+            <div class="edit_items">
+              <label class="edit_label">开发人天：</label>
+              <div class="edit_info">
+                <input type="text" name="data[0][manday]">
+              </div>
+            </div>
+            <div class="edit_items">
+              <label class="edit_label">预计费用：</label>
+              <div class="edit_info">
+                <input type="text" name="data[0][PhasesFee]">
+              </div>
+            </div>
+            <div class="edit_items">
+              <label class="edit_label">负责人：</label>
+              <div class="edit_info">
+                <select name="data[0][coder]" class="selectpicker" data-width="172" title="请选择" data-size="6">
+                  <volist name="devs1" id="vo">
+                    <option name="dev_role" value="{$vo.uid}">{$vo.nickname}</option>
+                  </volist>
+                </select>
+              </div>
+            </div>
+            <div class="edit_items">
+              <label class="edit_label">备注：</label>
+              <div class="edit_info">
+                <textarea name="data[0][remark]"></textarea>
+              </div>
+            </div>
+            <div class="edit_btn">
+              <span class="add-btn" data-index="1" data-sign="charge">+</span>
+            </div>
+          </div>
+        </if>
+      </div>
+      <div class="edit_title">其他信息</div>
+      <div class="edit-box remarks">
+        <div class="cell">
+          <div class="edit_items">
+            <label class="edit_label">备注1：</label>
+            <div class="edit_info">
+              <textarea name="data1[0][remark]"></textarea>
+            </div>
+          </div>
+          <div class="edit_btn">
+            <span class="add-btn" data-index="1" data-sign="remarks">+</span>
+          </div>
+        </div>
+      </div>
+      <div class="edit-box uploadWrap">
+        <div class="cell">
+          <div class="edit_items">
+            <label class="edit_label">附件上传：</label>
+            <div class="edit_info">
+              <div class="upload">
+                <span class="tips">点击上传图片</span>
+                <input type="file" name="data2[0]['accessory']" class="uploadFile">
+              </div>
+            </div>
+          </div>
+          <div class="edit_btn">
+            <span class="add-btn" data-index="1" data-sign="upload">+</span>
+          </div>
+        </div>
+      </div>
+      <div class="edit_btn action_btn">
+        <input type="hidden" name="id" value="{$newproducts.id|default=''}">
+        <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+        <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+      </div>
+    </form>
+  </div>
+</block>
+<block name="script">
+  <script src="__STATIC__/bootstrap/js/bootstrap.min.js"></script>
+  <script src="__STATIC__/bootstrap/js/bootstrap-select.min.js"></script>
+  <script src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.js"></script>
+  <script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+  <script type="text/javascript" src="__JS__/artTemplate.js"></script>
+  <script id="list1" type="text/html">
+    {{if sign == 'charge'}}
+    <div class="cell">
+      <div class="edit_items">
+        <label class="edit_label" style="color:red;">开发阶段：</label>
+        <div class="edit_info">
+          <div class="edit_info">
+            <select name="data[{{index}}][product_jd]" class="selectpicker" data-width="172" title="请选择" data-size="6">
+              <option value="产品设计">产品设计</option>
+              <option value="产品开发">产品开发</option>
+              <option value="产品测试及发布">产品测试及发布</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">开发期间：</label>
+        <div class="edit_info">
+          <div class="date form_datetime">
+            <span class="add-on"><i class="icon-th glyphicon glyphicon-calendar"></i></span>
+            <input type="text" class="date" name="data[{{index}}][stime]" placeholder="选择日期" readonly>
+          </div>
+          <span class="spacing">至</span>
+          <div class="date form_datetime">
+            <span class="add-on"><i class="icon-th glyphicon glyphicon-calendar"></i></span>
+            <input type="text" class="date" name="data[{{index}}][etime]" placeholder="选择日期" readonly>
+          </div>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">开发人天：</label>
+        <div class="edit_info">
+          <input type="text" name="data[{{index}}][manday]">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">预计费用：</label>
+        <div class="edit_info">
+          <input type="text" name="data[{{index}}][PhasesFee]">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">负责人：</label>
+        <div class="edit_info">
+          <select name="data[{{index}}][coder]" class="selectpicker" data-width="172" title="请选择" data-size="6">
+            <volist name="devs1" id="vo">
+              <option name="dev_role" value="{$vo.uid}">{$vo.nickname}</option>
+            </volist>
+          </select>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">备注：</label>
+        <div class="edit_info">
+          <textarea name="data[{{index}}][remark]"></textarea>
+        </div>
+      </div>
+      <div class="edit_btn">
+        {{if index < 3}}
+        <span class="add-btn" data-index="{{index+1}}" data-sign="charge">+</span>
+        {{/if}}
+        <span class="del-btn" data-index="{{index+1}}" data-sign="charge">-</span>
+      </div>
+    </div>
+    {{else if sign == 'remarks'}}
+    <div class="cell">
+      <div class="edit_items">
+        <label class="edit_label">备注{{index+1}}：</label>
+        <div class="edit_info">
+          <textarea name="data1[{{index}}][remark]"></textarea>
+        </div>
+      </div>
+      <div class="edit_btn">
+        {{if index < 3}}
+        <span class="add-btn" data-index="{{index+1}}" data-sign="remarks">+</span>
+        {{/if}}
+        <span class="del-btn" data-index="{{index+1}}" data-sign="remarks">-</span>
+      </div>
+    </div>
+    {{else}}
+    <div class="cell">
+      <div class="edit_items">
+        <label class="edit_label">附件上传：</label>
+        <div class="edit_info">
+          <div class="upload">
+            <span class="tips">点击上传图片</span>
+            <input type="file" name="data2[{{index}}]['accessory']" class="uploadFile">
+          </div>
+        </div>
+      </div>
+      <div class="edit_btn">
+        {{if index < 3}}
+        <span class="add-btn" data-index="{{index+1}}" data-sign="upload">+</span>
+        {{/if}}
+        <span class="del-btn" data-index="{{index+1}}" data-sign="upload">-</span>
+      </div>
+    </div>
+    {{/if}}
+  </script>
+  <script type="text/javascript">
+
+    $(function () {
+      $('.side-sub-menu').find('a[href="{:U('dev/newdevlist')}"]').closest('li').addClass('current');
+
+      function formDateTime() {
+        // 日期插件
+        $('.form_datetime').datetimepicker({
+          format: 'yyyy-mm-dd',
+          language: "zh-CN",
+          minView: 2,
+          autoclose: true,
+          todayBtn: true
+        });
+      }
+
+      formDateTime();
+
+      function DX(n) {
+        if (!/^(0|[1-9]\d*)(\.\d+)?$/.test(n))
+          return "数据非法";
+        return '一二三四五六七八九'.charAt(n);
+      }
+
+      // 绑定添加信息点击事件
+      $('.edit-box').on('click', '.add-btn', function () {
+        var index = $(this).data('index'), sign = $(this).data('sign');
+        $(this).parent().hide();
+        var html = template('list1', {sign: sign, index: index, upper: DX(index)});
+        if (sign == 'charge') {
+          $('.fee').append(html);
+          formDateTime();
+          // $('select.product_list').selectpicker('refresh');
+          $('select.selectpicker').selectpicker('refresh');
+        } else if (sign == 'remarks') {
+          $('.remarks').append(html);
+        } else {
+          $('.uploadWrap').append(html);
+        }
+      });
+
+      // 添加删除事件
+      $('.edit-box').on('click', '.del-btn', function () {
+        var index = $(this).data('index'), sign = $(this).data('sign');
+
+        let parant = '';
+        if (sign == 'charge') {
+          parant = $('.fee').find(".cell").eq(index - 2);
+        } else if (sign == 'remarks') {
+          parant = $('.remarks').find(".cell").eq(index - 2);
+        } else {
+          parant = $('.uploadWrap').find(".cell").eq(index - 2);
+        }
+
+        parant.find('.edit_btn').show();
+        $(this).parents('.cell').remove();
+      });
+
+      // 图片上传预览
+      $(".edit-box").on('change', '.uploadFile', function () {
+        var objUrl = getObjectURL(this.files[0]);//获取文件信息
+        if (objUrl) {
+          $(this).parent().find('img').remove();
+          $(this).parent().find('.tips').hide();
+          $(this).parent().append("<img src=\"" + objUrl + "\" alt='预览'/>");
+        }
+      });
+
+      function getObjectURL(file) {
+        var url = null;
+        if (window.createObjectURL != undefined) {
+          url = window.createObjectURL(file);
+        } else if (window.URL != undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL != undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+
+      $("#project_id").change(function () {
+        var project_id = $(this).val();
+        // Ajax提交数据
+        // return;
+        $.ajax({
+          url: "{:U('Tech/get_transferProjectMess')}",    // 提交到controller的url路径
+          type: "post",    // 提交方式
+          data: {"project_id": project_id},  // data为String类型，必须为 Key/Value 格式。
+          dataType: "json",    // 服务器端返回的数据类型
+          success: function (data) {
+            $("#products").val(data.project_productlist);
+            $("#fee").val(data.contract_fee);
+            $("#province").val(data.province);
+            $("#start_time").val(data.start_time);
+            $("#end_time").val(data.end_time);
+            $("#salesRole").val(data.salesRole);
+            $("#TechRole").val(data.TechRole);
+          },
+        });
+      });
+    })
+  </script>
+</block>

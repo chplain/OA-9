@@ -1,0 +1,525 @@
+/* 页面子导航 */
+.breadcrumb {
+  margin: 0;
+  padding: 0 0 10px 0;
+}
+
+.breadcrumb > span {
+  margin-right: 10px;
+}
+
+.breadcrumb > div {
+  display: inline-block;
+  *display: inline;
+  text-shadow: 0 1px 0 #fff;
+  *zoom: 1;
+}
+
+.breadcrumb > div > .divider {
+  padding: 0 5px;
+  color: #ccc;
+}
+
+/* 正文内容 */
+.search_box {
+  background: white;
+  padding: 20px 20px 0;
+  border: 1px solid #d4d4d4;
+  line-height: 30px;
+  margin: 10px 0 20px;
+  border-radius: 4px;
+}
+
+.search_box .items {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 15px 20px 0;
+}
+
+.search_box .action_btn_box {
+  display: block;
+}
+
+.search_box .search-input {
+  width: 180px;
+  height: 30px;
+  text-indent: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search_box .sch-btn {
+  width: 80px;
+  height: 32px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: white;
+  text-align: center;
+  padding: 2px 0;
+  box-sizing: border-box;
+  vertical-align: top;
+  margin-right: 20px;
+}
+
+.search_box .sch-btn:hover {
+  background: #dedede;
+}
+
+.search_box .items .btn {
+  border-radius: 4px;
+  border: 1px solid #7963df;
+  margin: 0;
+}
+
+.search_box .items .btn + .btn {
+  margin-left: 15px;
+}
+
+.search_box .drop-down {
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0 15px;
+  position: relative;
+}
+
+.search_box .sort-txt {
+  display: inline-block;
+  margin: 0 2px 0 0;
+  width: 45px;
+  cursor: pointer;
+}
+
+.search_box .drop-down ul {
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding: 10px 0;
+  margin: 2px 0 0;
+  background-color: #fff;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, .15);
+  border-radius: 4px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+}
+
+.search_box .drop-down ul li {
+  border-top: 1px solid #ebebeb;
+}
+
+.search_box .drop-down ul li:first-child {
+  border-top-width: 0;
+}
+
+.search_box .drop-down ul a {
+  padding: 0 10px;
+  height: 30px;
+  line-height: 30px;
+  color: #404040;
+}
+
+.search_box .drop-down ul a:hover {
+  background-color: #f0f0f0;
+  border: none;
+}
+
+.no_data {
+  line-height: 40px;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* 新增页面样式统一 */
+.edit_title {
+  padding-bottom: 15px;
+  margin-top: 20px;
+  font-size: 18px;
+  color: #6e6b73;
+  border-bottom: 1px solid #ccc;
+  clear: both;
+}
+
+.add-btn {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  display: inline-block;
+  border: 1px solid #7d61dd;
+  text-align: center;
+  border-radius: 100%;
+  background: #7d61dd;
+  color: white;
+  font-size: 20px;
+  box-sizing: border-box;
+  cursor: pointer;
+  vertical-align: top;
+}
+
+.del-btn {
+  width: 30px;
+  height: 30px;
+  line-height: 26px;
+  display: inline-block;
+  border: 1px solid #7d61dd;
+  text-align: center;
+  border-radius: 100%;
+  background: #7d61dd;
+  color: white;
+  font-size: 26px;
+  box-sizing: border-box;
+  cursor: pointer;
+  vertical-align: top;
+  margin-left: 10px;
+}
+
+.add-btn:hover,
+.del-btn:hover {
+  background: #a285ff;
+  border-color: #a285ff;
+}
+
+.newly {
+  background: white;
+  padding: 0 24px 50px;
+  margin-top: 10px;
+  border: 1px solid transparent;
+}
+
+.edit_items {
+  display: inline-block;
+  margin: 20px 0 0 0;
+  vertical-align: top;
+}
+
+.edit_label {
+  line-height: 35px;
+  font-size: 12px;
+  color: #646464;
+  display: inline-block;
+  text-align: right;
+  vertical-align: top;
+  margin: 0 15px 0 0;
+  font-weight: normal;
+  float: left;
+}
+
+.edit_info {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  float: left;
+}
+
+.preview {
+  width: 260px;
+  min-height: 35px;
+  line-height: 35px;
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  color: #9c9c9c;
+  padding: 0 15px;
+  box-sizing: border-box;
+  display: table;
+}
+
+.preview_more {
+  font-size: 12px;
+  line-height: 22px;
+}
+
+.preview p {
+  display: table-cell;
+  vertical-align: middle;
+  word-break: break-all;
+}
+
+.edit_info input[type="text"] {
+  height: 35px;
+  text-indent: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.edit_info select {
+  width: 150px;
+  height: 33px;
+  text-indent: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.edit_info select + select {
+  margin-left: 10px;
+}
+
+.edit_info textarea {
+  width: 302px;
+  height: 112px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  padding: 5px 8px;
+}
+
+/* 单选框 */
+.radio_box {
+  color: #606266;
+  white-space: nowrap;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  padding: 8px 0 6px;
+  margin-right: 30px;
+}
+
+.radio-bg {
+  width: 16px;
+  height: 16px;
+  background: #eee;
+  border: 1px solid #ccc;
+  border-radius: 100%;
+  cursor: pointer;
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  white-space: nowrap;
+  top: -1px;
+}
+
+.radio-bg:after {
+  content: "";
+  width: 4px;
+  height: 4px;
+  border-radius: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform .15s ease-in;
+  background: #7963df;
+}
+
+.radio_box input {
+  display: none;
+}
+
+.radio_box .radio-text {
+  padding-left: 4px;
+}
+
+.radio_box input:checked + .radio-bg {
+  border-color: #7963df;
+  background: #fff;
+}
+
+.radio_box input:checked + .radio-bg:after {
+  transform: translate(-50%, -50%) scale(2.1);
+}
+
+/* 复选框 */
+.check_box {
+  color: #606266;
+  white-space: nowrap;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  padding: 8px 0 6px;
+  margin-right: 30px;
+}
+
+.check-bg {
+  width: 16px;
+  height: 16px;
+  background: #eee;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  cursor: pointer;
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  white-space: nowrap;
+  top: -1px;
+}
+
+.check-bg:after {
+  box-sizing: content-box;
+  content: "";
+  border: 2px solid #fff;
+  border-left: 0;
+  border-top: 0;
+  height: 8px;
+  left: 5px;
+  position: absolute;
+  top: 1px;
+  transform: rotate(45deg) scaleY(0);
+  width: 3px;
+  transition: transform .15s ease-in .05s;
+  transform-origin: center;
+}
+
+.check_box input {
+  display: none;
+}
+
+.check_box .check-text {
+  padding-left: 4px;
+  font-weight: normal;
+}
+
+.check_box input:checked + .check-bg {
+  border-color: #7963df;
+  background: #7963df;
+}
+
+.check_box input:checked + .check-bg:after {
+  transform: rotate(45deg) scaleY(1);
+}
+
+/* 纵向排列 */
+.edit_btn .btn:hover {
+  color: white;
+}
+
+.form-vertical .edit_items {
+  width: 100%;
+}
+
+.form-vertical .edit_label {
+  min-width: 70px;
+}
+
+.form-vertical .edit_info input[type="text"] {
+  width: 300px;
+}
+
+.form-vertical .edit_btn {
+  clear: both;
+  padding: 40px 0 0 90px;
+}
+
+.form-vertical .edit_btn .btn {
+  border-radius: 4px;
+  padding: 8px 28px;
+}
+
+.form-vertical .edit_btn .btn-return {
+  margin: 0 0 0 30px;
+}
+
+/* 横向排列 */
+.form-horizontal .edit_items,
+.preview_h_box .edit_items {
+  margin: 20px 20px 0 0;
+}
+
+.action_btn {
+  width: 100%;
+  text-align: center;
+}
+
+/* 图片上传 */
+.upload {
+  width: 130px;
+  height: 130px;
+  border: 1px solid #ccc;
+  position: relative;
+  text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/*文字描述*/
+.upload .tips {
+  width: 100px;
+  height: 18px;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  color: gray;
+}
+
+/*input框*/
+.upload .uploadFile {
+  opacity: 0;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 200;
+}
+
+.upload img {
+  width: 100%;
+  height: 100%;
+}
+
+/* 日期选择 */
+.form_datetime {
+  display: inline-block;
+  vertical-align: top;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.edit_info .form_datetime > .date {
+  width: 131px;
+  height: 33px;
+  border: none;
+  text-indent: 0;
+}
+
+.form-vertical .edit_info .form_datetime > .date {
+  width: 260px;
+}
+
+.edit_info .form_datetime > .date.focus {
+  border: none !important;
+  box-shadow: none!important;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-top: 1px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url(../images/glyphicons-halflings.png);
+  background-position: 14px 14px;
+  background-repeat: no-repeat;
+}
+
+.icon-arrow-right {
+  background-position: -264px -96px;
+}
+
+.icon-arrow-left {
+  background-position: -240px -96px;
+}
+
+
+/*预览样式*/
+.preview_h_box .preview {
+  width: 170px;
+  padding: 0;
+}
+
+.preview_h_box .preview p {
+  margin: 0;
+}

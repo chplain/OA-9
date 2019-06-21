@@ -1,0 +1,141 @@
+<extend name="Public/base"/>
+
+   
+<block name="style">
+    <link rel="stylesheet" type="text/css" href="__CSS__/new.css" media="all">
+</block>
+<block name="body">
+    <div class="main-title">
+        <h3>
+        <a href="{:u('custom/index')}">合同管理</a>-><a href="{:u('contract/intention')}">意向合同维护</a>-><a href="__SELF__">意向合同详情</a>
+        </h3>
+    </div>
+    <!-- 标题栏 -->
+    <div class="item-title">合同基础信息</div>
+    <form action="__SELF__" method="post" class="form-horizontal">
+        <div class="search-content-wrap edit-box">
+            <div class="item">
+                <span >意向合同编号：</span>
+                <input readonly  type="text" value='{$contracts.intention_contract_code}' />
+            </div>
+             <div class="item">
+                <span >客户名称：</span>
+                <input readonly type="text" value='{$contracts.customer}' />
+               
+            </div>
+            <div class="item">
+                    <span >项目名称：</span>
+                    <input readonly  type="text" value='{$contracts.project_name}' />
+            </div>
+
+            <div class="item">
+                    <span >采购产品：</span>
+                    <input readonly  type="text" value='{$contracts.contract_productlist}' />
+            </div>
+
+        
+            <div class="item">
+                    <span >合同金额（万）：</span>
+                    <input readonly type="text" name="contract_fee" value='{$contracts.contract_fee}' />
+            </div>
+
+            <div class="item">
+                <span class="item-label">项目地区：</span>
+                <div class="controls">
+                    <input readonly  type="text" value='{$contracts.province}' />
+                </div>
+            </div>
+
+            <div class="item">
+                    <span >开始日期：</span>
+                    <input readonly type="date" name="start_time" value='{$contracts.start_time}' />
+            </div>
+            <div class="item">
+                    <span >结束日期：</span>
+                    <input readonly type="date" name="end_time" value='{$contracts.end_time}' />
+            </div>
+            <div class="item">
+                    <span class="item-label">商务负责人:</span>
+                    <input readonly  type="text" value='{$contracts.charge_person}' />
+            </div>
+        </div>
+
+        <div class="item-title">项目费用信息</div>
+        <div class="info-box fee edit-box">
+
+            <volist name="phases" id="vo">
+                <div class="cell">
+                    <p class="sub-title">第{$vo.phases}期费用：</p>
+                    <div class="content-box">
+                        <div class="item">
+                            <span>费用金额（万元）:</span>
+                            <input type="text" value="{$vo.fee}">
+                        </div>
+                        <div class="item">
+                            <span>费用期间：</span>
+                            <input type="date" value="{$vo.stime}">
+                            <span class="spacing">至</span>
+                            <input type="date" value="{$vo.etime}">
+                        </div>
+                        <div class="item">
+                            <span>验收产品：</span>
+                            <input type="text" value="{$vo.products}">
+                        </div>
+                        <div class="item">
+                            <span>备注：</span>
+                            <textarea  value="{$vo.remark}"></textarea>
+                        </div>
+                        <!-- <div class="item">
+                            <button type="button" class="btn add-btn">+</button>
+                        </div> -->
+                    </div>
+                </div>
+            </volist>
+
+            
+        </div>
+        <div class="item-title">其他信息</div>
+        <div class="info-box other-info edit-box">
+            <div class="other1-box">
+                <div class="textarea-box cell">
+                    <div class="item">
+                        <span>备注1：</span>
+                        <textarea value="{$contract.remark}"></textarea>
+                    </div>
+                    <!-- <div class="item">
+                        <button type="button" class="btn add-btn other1">+</button>
+                    </div> -->
+                </div>
+            </div>
+            <div class="other2-box">
+                <div class="file-box cell">
+                    <div class="item">
+                        <span>附件：</span>
+                        <input type="text" value="{$contract.accessory}">
+
+                    </div>
+                   <!--  <div class="item">
+                        <button type="button" class="btn add-btn other2">+</button>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="form-item">
+            <input type="hidden" name="id" value="{$info.id|default=''}">
+            <!-- <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">确 定</button> -->
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+    </form>
+
+
+    <!-- 标题栏 -->
+    <div class="main-title">
+        <h2></h2>
+    </div>
+
+</block>
+<block name="script">
+
+</block>

@@ -1,0 +1,219 @@
+<extend name="Public/base"/>
+   
+<block name="link">
+    <link rel="stylesheet" type="text/css" href="__CSS__/mainLayout.css" media="all">
+    <style type="text/css">
+    .edit_label {
+        width: 75px;
+    }
+    .action_btn {
+        margin-top: 50px;
+    }
+
+    .preview_textarea {
+        width: 455px!important;
+    }
+
+    .preview_textarea p {
+        height: auto!important;
+        min-height: 34px;
+        font-size: 12px;
+        line-height: 20px;
+    }
+    </style>
+</block>
+
+<!-- 页面子导航 -->
+<block name="nav">
+  <div class="breadcrumb">
+    <span>您的位置:</span>
+    <div>
+      <a href="{:u('contract/intention')}">合同管理</a>
+      <span class="divider">/</span>
+    </div>
+    <div>
+      <a href="{:u('contract/contract_transfer')}">项目交接</a>
+      <span class="divider">/</span>
+    </div>
+    <div>项目交接记录详情</div>
+  </div>
+</block>
+
+
+<block name="body">
+<div class="newly preview_h_box ">
+    <div class="edit_title">项目信息</div>
+    <div class="edit_main">
+        <div class="edit_items">
+            <label class="edit_label">项目名称</label>
+            <div class="preview">
+              <p>{$transfer.project_name}</p>
+            </div>
+        </div>
+        <div class="edit_items">
+            <label class="edit_label">客户名称</label>
+            <div class="preview preview_more">
+              <p>{$transfer.customer}</p>
+            </div>
+        </div>
+        <div class="edit_items">
+            <label class="edit_label">合同编号</label>
+            <div class="preview">
+              <p>{$transfer.contract_code}</p>
+            </div>
+        </div>
+        <div class="edit_items">
+            <label class="edit_label">项目类型</label>
+            <div class="preview">
+                <p>{$transfer.project_type}</p>
+            </div>
+        </div>
+        <div class="edit_items">
+            <label class="edit_label">项目地区</label>
+            <div class="preview">
+                <p>{$transfer.province}</p>
+            </div>
+        </div>
+        <div class="edit_items">
+            <label class="edit_label">采购产品</label>
+            <div class="preview preview_more">
+                <p>{$transfer.project_productlist}</p>
+            </div>
+        </div>
+        <div class="edit_items">
+            <label class="edit_label">定制开发</label>
+            <div class="preview preview_more">
+                <p>{$transfer.project_custom}</p>
+            </div>
+        </div>
+        <div class="edit_items">
+            <label class="edit_label">关键客户人</label>
+            <div class="preview">
+                <p>{$transfer.keyCustom}</p>
+            </div>
+        </div>
+        <div class="edit_items">
+            <label class="edit_label">联系电话</label>
+            <div class="preview">
+                <p>{$transfer.link_phone}</p>
+            </div>
+        </div>
+        <div class="edit_items">
+            <label class="edit_label">项目风向评估</label>
+            <div class="preview">
+                <if condition="$transfer.ProjectRishLevel eq 0">
+                    <p>低</p>
+                <elseif condition="$transfer.ProjectRishLevel eq 1"/>
+                    <p>中</p>
+                <elseif condition="$transfer.ProjectRishLevel eq 2"/>
+                    <p>高</p>
+                </if>
+            </div>
+        </div>
+        <div class="edit_items">
+            <label class="edit_label">项目风险</label>
+            <div class="preview preview_textarea">
+                <p>{$transfer.ProjectRishDescribe}</p>
+            </div>
+        </div>
+        <div class="edit_items">
+            <label class="edit_label">客户期望</label>
+            <div class="preview">
+                <if condition="$transfer.CustomerExpectLevel eq 0">
+                    <p>低</p>
+                <elseif condition="$transfer.CustomerExpectLevel eq 1"/>
+                    <p>中</p>
+                <elseif condition="$transfer.CustomerExpectLevel eq 2"/>
+                    <p>高</p>
+                </if>
+            </div>
+        </div>
+        <div class="edit_items">
+            <label class="edit_label">竞争对手情况</label>
+            <div class="preview ">
+                <p>{$transfer.Project_opponents}</p>
+            </div>
+        </div>
+        <div class="edit_items">
+            <label class="edit_label">客户IT现状</label>
+            <div class="preview preview_textarea">
+                <p>{$transfer.CustomerITNow}</p>
+            </div>
+        </div>
+        <div class="edit_items">
+            <label class="edit_label">是否系统集成</label>
+            <div class="preview">
+                <if condition="$transfer.IsSI eq 0">
+                    <p>否</p>
+                <elseif  condition="$transfer.IsSI eq 1"/>
+                    <p>是</p>
+                </if>
+            </div>
+        </div>
+        <div class="edit_items">
+            <label class="edit_label">进场日期</label>
+            <div class="preview">
+                <p>{$transfer.EnterTime}</p>
+            </div>
+        </div>
+        <div class="edit_items">
+            <label class="edit_label">开业日期</label>
+            <div class="preview">
+                <p>{$transfer.OpenTime}</p>
+            </div>
+        </div>
+    </div>
+    <div class="edit_title">项目组成员信息</div>
+    <div class="edit_main">
+        <div class="edit_items">
+            <label class="edit_label">销售经理</label>
+            <div class="preview">
+                <p>{$transfer.salesRole}</p>
+            </div>
+        </div>
+        <!-- <div class="edit_items">
+            <label class="edit_label">项目经理</label>
+            <div class="preview">
+                <p>{$transfer.ProjectRole}</p>
+            </div>
+        </div> -->
+        <div class="edit_items">
+            <label class="edit_label">产品经理</label>
+            <div class="preview">
+                <p>{$transfer.ProductRole}</p>
+            </div>
+        </div>
+        <div class="edit_items">
+            <label class="edit_label">实施经理</label>
+            <div class="preview">
+                <p>{$transfer.TechRole}</p>
+            </div>
+        </div>
+        <div class="edit_items">
+            <label class="edit_label">开发经理</label>
+            <div class="preview">
+                <p>{$transfer.DevRole}</p>
+            </div>
+        </div>
+    </div>
+    <div class="edit_title">其他信息</div>
+    <div class="edit_main">
+        <div class="edit_items">
+            <label class="edit_label">备注</label>
+            <div class="preview preview_textarea">
+                <p>{$transfer.remark}</p>
+            </div>
+        </div>
+        <div class="edit_items">
+            <label class="edit_label">附件</label>
+            <div class="preview">
+                <!-- <p>{$transfer.accessory}</p> -->
+                <a target="view_window" href='{$transfer.accessory}' class="updown">附件下载</a>
+            </div>
+        </div>
+    </div>
+    <div class="edit_btn action_btn">
+        <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+    </div>
+</div>
+</block>

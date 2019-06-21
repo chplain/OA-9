@@ -1,0 +1,191 @@
+<extend name="Public/base"/>
+
+<block name="link">
+  <link rel="stylesheet" href="__STATIC__/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="__STATIC__/bootstrap/css/bootstrap-select.min.css">
+  <link rel="stylesheet" href="__STATIC__/datetimepicker/css/datetimepicker.css">
+  <link rel="stylesheet" href="__STATIC__/datetimepicker/css/datetimepicker_blue.css">
+  <link rel="stylesheet" type="text/css" href="__CSS__/mainLayout.css" media="all">
+</block>
+
+<!-- 页面子导航 -->
+<block name="nav">
+  <div class="breadcrumb">
+    <span>您的位置:</span>
+    <div>
+      <a href="{:u('tech/index')}">实施管理</a>
+      <span class="divider">/</span>
+    </div>
+    <div>
+      <a href="{:u('tech/execut_log')}">实施过程维护</a>
+      <span class="divider">/</span>
+    </div>
+    <div>{$info['id']?'编辑':'新增'}实施过程记录</div>
+  </div>
+</block>
+
+<block name="body">
+  <div class="newly">
+
+    <!-- <form action="__SELF__"  method="post" enctype="multipart/form-data">
+      收件人邮箱：<input  type="text" name="mail"/>
+      标题：<input  type="text" name="title"/>
+      内容<input  type="text" name="content"/>
+      <input class="button" type="submit" value="发送"/>
+    </form> -->
+
+    <form action="__SELF__" method="post" class="form-vertical">
+      <!-- 收件人邮箱：<input  type="text" name="mail"/>
+      标题：<input  type="text" name="title"/> -->
+      <div class="edit_items">
+        <label class="edit_label">项目|商业名称</label>
+        <div class="edit_info">
+          <select id="project_id" name="project_id" class="selectpicker" data-width="172" title="请选择" data-size="6" data-live-search="true" data-live-search-placeholder="Search">
+            <volist name="plans" id="vo">
+              <option value="{$vo.project_id}">{$vo.project_name}</option>
+            </volist>
+          </select>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">计划编号</label>
+        <div class="edit_info">
+          <select id="plan_code" name="plan_code" class="selectpicker" data-width="172" title="请选择" data-size="6">
+            <option disabled>没有数据</option>
+          </select>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">计划阶段</label>
+        <div class="edit_info">
+          <select id="phases" name="phases" class="selectpicker" data-width="172" title="请选择" data-size="6">
+            <option disabled>没有数据</option>
+          </select>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">实施人员</label>
+        <div class="edit_info">
+          <select name="executor" class="selectpicker" data-width="172" title="请选择" data-size="6">
+            <volist name="techs" id="vo">
+              <option value="{$vo.nickname}">{$vo.nickname}</option>
+            </volist>
+          </select>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">实施人天</label>
+        <div class="edit_info">
+          <input type="text" class="text" name="manday" value="">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">开始日期</label>
+        <div class="edit_info">
+          <div class="date form_datetime">
+            <span class="add-on"><i class="icon-th glyphicon glyphicon-calendar"></i></span>
+            <input type="text" class="date" name="s_time" placeholder="选择日期" readonly>
+          </div>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">结束日期</label>
+        <div class="edit_info">
+          <div class="date form_datetime">
+            <span class="add-on"><i class="icon-th glyphicon glyphicon-calendar"></i></span>
+            <input type="text" class="date" name="e_time" placeholder="选择日期" readonly>
+          </div>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">实施内容</label>
+        <div class="edit_info">
+          <textarea name="content"></textarea>
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">报销费用(元)</label>
+        <div class="edit_info">
+          <input type="text" class="text input-large" name="project_fee" value="">
+        </div>
+      </div>
+      <div class="edit_items">
+        <label class="edit_label">下一步计划</label>
+        <div class="edit_info">
+          <textarea name="next_plan"></textarea>
+        </div>
+      </div>
+
+      <div class="edit_btn">
+        <input type="hidden" name="id" value="{$info.id|default=''}">
+        <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-vertical">确 定</button>
+        <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+      </div>
+    </form>
+  </div>
+</block>
+
+<block name="script">
+  <script src="__STATIC__/bootstrap/js/bootstrap.min.js"></script>
+  <script src="__STATIC__/bootstrap/js/bootstrap-select.min.js"></script>
+  <script src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.js"></script>
+  <script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+
+  <script type="text/javascript">
+    $(function () {
+      //导航高亮
+      $('.side-sub-menu').find('a[href="{:U('tech/execut_log')}"]').closest('li').addClass('current');
+
+      // 日期插件
+      $('.form_datetime').datetimepicker({
+        format: 'yyyy-mm-dd',
+        language: "zh-CN",
+        minView: 2,
+        autoclose: true,
+        todayBtn: true
+      });
+
+      $("#project_id").change(function () {
+        var project_id = $(this).val();
+
+        // Ajax提交数据
+        $.ajax({
+          url: "{:U('Tech/getPlanCode')}",    // 提交到controller的url路径
+          type: "post",    // 提交方式
+          data: {"project_id": project_id},  // data为String类型，必须为 Key/Value 格式。
+          dataType: "json",    // 服务器端返回的数据类型
+          success: function (data) {
+            console.log(data);
+            $("#plan_code").empty();
+            let str = ``;
+            data.map(item => {
+              str += `<option value='${item.plan_code}'>${item.plan_code}</option>`;
+            });
+            $("#plan_code").append(str).selectpicker('refresh');
+          },
+        });
+      });
+
+      $("#plan_code").change(function () {
+        var project_id = $(this).val();
+
+        // Ajax提交数据
+        $.ajax({
+          url: "{:U('Tech/get_phases')}",    // 提交到controller的url路径
+          type: "post",    // 提交方式
+          data: {"plan_code": project_id},  // data为String类型，必须为 Key/Value 格式。
+          dataType: "json",    // 服务器端返回的数据类型
+          success: function (data) {
+            $("#phases").empty();
+            let str = ``;
+            data.map(item => {
+              str += `<option value='${item.phases}'>第${item.phases}阶段</option>`;
+            });
+            $("#phases").append(str).selectpicker('refresh');
+          },
+        });
+      });
+      
+    });
+  </script>
+</block>

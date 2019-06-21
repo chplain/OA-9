@@ -1,0 +1,311 @@
+<extend name="Public/base"/>
+
+<block name="link">
+  <link rel="stylesheet" href="__STATIC__/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="__STATIC__/bootstrap/css/bootstrap-select.min.css">
+  <link rel="stylesheet" href="__STATIC__/datetimepicker/css/datetimepicker.css">
+  <link rel="stylesheet" href="__STATIC__/datetimepicker/css/datetimepicker_blue.css">
+  <link rel="stylesheet" type="text/css" href="__CSS__/mainLayout.css" media="all">
+</block>
+
+<block name="style">
+    <style type="text/css">
+        .edit_label {
+            width: 90px;
+        }
+
+        .edit_title2 {
+            border:none;
+            border-top: 1px solid #ccc;
+            padding: 20px 0 15px;
+        }
+
+        .action_btn {
+            margin-top: 20px;
+        }
+    </style>
+</block>
+
+<!-- 页面子导航 -->
+<block name="nav">
+  <div class="breadcrumb">
+    <span>您的位置:</span>
+    <div>
+      <a href="{:u('contract/intention')}">合同管理</a>
+      <span class="divider">/</span>
+    </div>
+    <div>
+      <a href="{:u('index')}">项目维护</a>
+      <span class="divider">/</span>
+    </div>
+    <div>项目跟进</div>
+  </div>
+</block>
+
+
+<block name="body">
+<div class="newly preview_h_box ">
+    <form action="__SELF__" method="post" class="form-horizontal">
+        <div class="edit_title">基础信息</div>
+        <div class="edit_items">
+            <label class="edit_label">项目编号：</label>
+            <div class="preview">
+              <p>{$project.project_code}</p>
+            </div>
+        </div>
+        <div class="edit_items">
+            <label class="edit_label">项目|商业名称：</label>
+            <div class="preview">
+              <p>{$project.project_name}</p>
+            </div>
+        </div>
+        <div class="edit_items">
+            <label class="edit_label">项目类型：</label>
+            <div class="preview">
+                <p>{$project.project_type}</p>
+            </div>
+        </div>
+        <div class="edit_items">
+            <label class="edit_label">状态：</label>
+            <div class="preview">
+                <if condition="$project.status eq 0">
+                    <p>新增</p>
+                <elseif condition="$project.status eq 1"/>
+                    <p>进行中</p>
+                <elseif condition="$project.status eq 2"/>
+                    <p>已签约</p>
+                <elseif condition="$project.status eq 3" />
+                    <p>已终止</p>
+                </if>
+            </div>
+        </div>
+        <div class="edit_items">
+            <label class="edit_label">客户名称：</label>
+            <div class="preview">
+                <p style="font-size: 12px;line-height: 16px">{$project.customer}</p>
+            </div>
+        </div>
+        <div class="edit_items">
+            <label class="edit_label">地区：</label>
+            <div class="preview">
+                <p>{$project.province}</p>
+            </div>
+        </div>
+        <div class="edit_items">
+            <label class="edit_label">意向产品：</label>
+            <div class="edit_info">
+                <select name="purchase_intention[]" class="selectpicker purchase_intention" data-width="170" title="请选择" multiple data-size="10">
+                    <volist name="products" id="vo">
+                        <option value="{$vo.product_name}">{$vo.product_name}</option>
+                    </volist>
+                </select>
+            </div>
+        </div>
+        <div class="edit_items">
+            <label class="edit_label">项目预估(元)：</label>
+            <div class="edit_info">
+              <input type="text" name="budget" value='{$project.budget}'>
+            </div>
+        </div>
+        <div class="edit_items">
+            <label class="edit_label">联系人：</label>
+            <div class="edit_info">
+              <input type="text" name="linkman" value='{$project.linkman}'>
+            </div>
+        </div>
+        <div class="edit_items">
+            <label class="edit_label">职位：</label>
+            <div class="edit_info">
+              <input type="text" name="position" value='{$project.position}'>
+            </div>
+        </div>
+        <div class="edit_items">
+            <label class="edit_label">联系电话：</label>
+            <div class="edit_info">
+              <input type="text" name="linkphone" value='{$project.linkphone}'>
+            </div>
+        </div>
+        <div class="edit_items">
+            <label class="edit_label">开始日期：</label>
+            <div class="edit_info">
+              <div class="date form_datetime">
+                  <span class="add-on"><i class="icon-th glyphicon glyphicon-calendar"></i></span>
+                  <input type="text" class="date" name="begin_time" value='{$project.begin_time}' placeholder="选择日期" readonly>
+              </div>
+            </div>
+        </div>
+        <div class="edit_items">
+            <label class="edit_label">开业日期：</label>
+            <div class="edit_info">
+              <div class="date form_datetime">
+                  <span class="add-on"><i class="icon-th glyphicon glyphicon-calendar"></i></span>
+                  <input type="text" class="date" name="open_time" value='{$project.open_time}' placeholder="选择日期" readonly>
+              </div>
+            </div>
+        </div><!-- 
+        <div class="edit_items">
+            <label class="edit_label">销售负责人：</label>
+            <div class="edit_info">
+              <input type="text" name="charge_person" value='{$project.charge_person}'>
+            </div>
+        </div> -->
+
+        <div class="edit_items">
+            <label class="edit_label">销售负责人：</label>
+            <div class="edit_info">
+              <select name="charge_person[]" class="selectpicker" data-width="150" data-size="6" title="请选择" multiple>
+                <volist name="charge_persons" id="vo1">
+                  <option value="{$vo1.nickname}" <?php if(in_array( $vo1['nickname'],explode(",",$project['charge_person']))){ echo 'selected';}?>>{$vo1.nickname}</option>
+                </volist>
+              </select>
+            </div>
+        </div>
+        <if condition="$project.old_charge_person neq ''">
+            <div class="edit_items">
+                <label class="edit_label">历史负责人：</label>
+                <div class="edit_info">
+                  <input type="text" name="old_charge_person" value='{$project.old_charge_person}'>
+                </div>
+            </div>
+        </if>
+        <if condition="$project.Ter_reason neq ''">
+            <div class="edit_items">
+                <label class="edit_label">终止原因：</label>
+                <div class="edit_info">
+                  <textarea readonly  name="Ter_reason">{$project.Ter_reason}</textarea>
+                </div>
+            </div>
+        </if>
+        <div class="edit_items">
+            <label class="edit_label">备注：</label>
+            <div class="edit_info">
+                <textarea name="remark">{$project.remark}</textarea>
+            </div>
+        </div>
+        
+        <div class="action_btn">
+            <input type="hidden" name="id" value="{$project.id|default=''}">
+            <if condition="$group_id.group_id eq 7">
+                <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">保 存</button>
+            </if>
+            <if condition="$group_id.group_id eq ''">
+                <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">保 存</button>
+            </if>
+            
+        </div>
+    </form>
+    <!-- 标题栏 -->
+    <div class="edit_title edit_title2">项目跟踪记录</div>
+    <div class="search-form cf text-right">
+        <button class="btn" id="action_add" url="{:U('project/tail_add',array('project_id'=>$project['id']))}">新 增</button>
+       <!--  <button class="btn ajax-post" target-form="ids" url="{:u('setstatus',array('status'=>1))}" >启 用</button>
+        <button class="btn ajax-post" target-form="ids" url="{:u('setstatus',array('status'=>0))}">禁 用</button> -->
+        <button class="btn ajax-post confirm" target-form="ids" url="{:U('tail_delete')}">删 除</button>
+
+    </div>
+    <!-- 数据列表 -->
+    <div class="data-table">
+    <table class="">
+        <thead>
+            <tr>
+            <th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+            <th>项目名称</th>
+            <th>销售负责人</th>
+            <th>状态</th>
+            <th>本次意向产品</th>
+            <th>本次项目预估(元)</th>
+            <!-- <th>开始日期</th> -->
+            <th>情况说明</th>
+            <th>商务费用(元)</th>
+            <th>跟进人</th>
+            <th>跟进日期</th>
+            <th>操作</th>
+            
+            </tr>
+        </thead>
+        <tbody>
+            <input class="ids" type="hidden" name="ids[project_id]" value="{$project.id}" />
+            <volist name="tails" id="vo">
+                <tr>
+                    <td><input class="ids" type="checkbox" name="ids[id][]" value="{$vo.id}" />
+                        
+                    </td>
+                    <td class="">{$project.project_name}</td>
+                    <td class="">{$project.charge_person}</td>
+                    <td>
+                        <if condition="$vo.status eq 0">
+                            进行中
+                        <else/>
+                            完成
+                        </if>
+                    </td>
+                    <td class="" style="max-width: 110px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;" title="{$vo.intent_product}">{$vo.intent_product}</td>
+                    <td class="">{$vo.budget}</td>
+                    <td class="" style="max-width: 150px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;" title="{$vo.discribe}">{$vo.discribe}</td>
+                    <td class="">{$vo.fee}</td>
+                    <td class="">{$vo.nickname}</td>
+                    <td class="">{$vo.follow_up_time}</td>
+                    <td>
+                      <a href="{:U('Project/tail_add?id='.$vo['id'])}">详情</a>
+                    </td>
+                </tr>
+            </volist>
+        </tbody>
+    </table> 
+        
+    </div>
+    <!-- 分页 -->
+    <div class="page">{$_page}</div>
+    <!-- /分页 -->
+</div>
+
+</block>
+<block name="script">
+  <script src="__STATIC__/bootstrap/js/bootstrap.min.js"></script>
+  <script src="__STATIC__/bootstrap/js/bootstrap-select.min.js"></script>
+  <script src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.js"></script>
+  <script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script type="text/javascript">
+$(function(){
+    // 多选框默认值赋值
+    var defaultSelect = '{$project.purchase_intention}';
+    if (defaultSelect) {
+        $('select.purchase_intention').selectpicker('val',defaultSelect.split(',')).trigger("change");
+    }
+
+    // 日期插件
+      $('.form_datetime').datetimepicker({
+        format: 'yyyy-mm-dd',
+        language: "zh-CN",
+        minView: 2,
+        autoclose: true,
+        todayBtn: true
+      });
+
+    $("#action_add").click(function(){
+        window.location.href = $(this).attr('url');
+    })
+
+    //搜索功能
+    $("#search").click(function() {
+        var url = $(this).attr('url');
+        var query = $('.search-form').find('input').serialize();
+        query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g, '');
+        query = query.replace(/^&/g, '');
+        if (url.indexOf('?') > 0) {
+            url += '&' + query;
+        } else {
+            url += '?' + query;
+        }
+        window.location.href = url;
+    });
+    //回车搜索
+    $(".search-input").keyup(function(e) {
+        if (e.keyCode === 13) {
+            $("#search").click();
+            return false;
+        }
+    });
+})
+</script>
+</block>

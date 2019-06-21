@@ -1,0 +1,133 @@
+<extend name="Public/base"/>
+
+<block name="link">
+  <link rel="stylesheet" type="text/css" href="__CSS__/mainLayout.css" media="all">
+</block>
+
+<!-- 页面子导航 -->
+<block name="nav">
+  <div class="breadcrumb">
+    <span>您的位置:</span>
+    <div>
+      <a href="{:u('tech/index')}">实施管理</a>
+      <span class="divider">/</span>
+    </div>
+    <div>实施收款记录</div>
+  </div>
+</block>
+
+<block name="body">
+  <div class="search_box">
+    <div class="items">
+      <span>项目名称：</span>
+      <input type="text" name="project_name" class="search-input" value="{:I('project_name')}">
+    </div>
+    <div class="items">
+      <span>实施人员：</span>
+      <input type="text" name="executor" class="search-input" value="{:I('executor')}">
+    </div>
+    <div class="items">
+      <span>催款单号：</span>
+      <input type="text" name="prompt_id" class="search-input" value="{:I('prompt_id')}">
+    </div>
+    <div class="items">
+      <a class="sch-btn" href="javascript:void(0);" id="search" url="{:U('payreminder')}"><i class="btn-search"></i></a>
+    </div>
+    <div class="items action_btn_box">
+      <button class="btn" id="action_add" url="{:U('payreminder_add')}">新 增</button>
+      <button class="btn ajax-post confirm" target-form="ids" url="{:U('delete_transfer',array('status'=>-1))}">删 除</button>
+      <button class="btn ajax-post confirm" target-form="ids" url="{:U('cus_sure',array('status'=>-1))}">客户确认</button>
+    </div>
+  </div>
+  <!-- 数据列表 -->
+  <div class="data-table">
+    <table class="">
+      <thead>
+      <tr>
+        <th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+        <th>提交时间</th>
+        <th>项目名称</th>
+        <th>计划编号</th>
+        <th>计划阶段</th>
+        <th>实施人员</th>
+        <th>收款情况描述</th>
+        <th>收款状态</th>
+        <th>预计回款日期</th>
+        <th>预计回款金额(元)</th>
+      </tr>
+      </thead>
+      <tbody>
+      <if condition="$payreminders neq ''">
+        <volist name="payreminders" id="vo">
+          <tr>
+            <td><input class="ids" type="checkbox" name="ids[]" value="{$vo.id}"/></td>
+            <td class="">{$vo.create_time}</td>
+            <td class="">{$vo.project_name}</td>
+            <td class="">{$vo.plan_code}</td>
+            <td class="">第{$vo.phases}阶段</td>
+
+            <td class="">{$vo.executor}</td>
+            <td class="">{$vo.prompt_result}</td>
+            <td class="" style="color: red;">
+              <if condition="$vo.status eq 0">
+                新增
+                <elseif condition="$vo.status eq 1"/>
+                客户已确认
+                <elseif condition="$vo.status eq 2"/>
+                财务已确认
+              </if>
+            </td>
+            <td class="">{$vo.rtime}</td>
+            <td class="">{$vo.rmoney}</td>
+          </tr>
+        </volist>
+        <else/>
+        <tr>
+          <td colspan="9">
+            <div class="no_data">没有数据</div>
+          </td>
+        </tr>
+      </if>
+      </tbody>
+    </table>
+
+  </div>
+  <!-- 分页 -->
+  <div class="page">{$_page}</div>
+  <!-- /分页 -->
+
+</block>
+<block name="script">
+  <script type="text/javascript">
+    $(function () {
+      $("#action_add").click(function () {
+        window.location.href = $(this).attr('url');
+      });
+
+      //搜索功能
+      $("#search").click(function () {
+        var url = $(this).attr('url');
+        var query = $('.search_box').find('input').serialize();
+        query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g, '');
+        query = query.replace(/^&/g, '');
+
+        if (query) {
+          if (url.indexOf('?') > 0) {
+            url += '&' + query;
+          } else {
+            url += '?' + query;
+          }
+        }
+
+        window.location.href = url;
+      });
+      //回车搜索
+      $(".search-input").keyup(function (e) {
+        if (e.keyCode === 13) {
+          $("#search").click();
+          return false;
+        }
+      });
+    })
+  </script>
+</block>
